@@ -1,0 +1,70 @@
+four object oriented principles
+implemented partly by object-oriented languages inherently - & partly by us the programmers.
+
+abstraction
+the ability of an object to expose only the functionality needed by the caller, not implementation details
+separation between needed functionality and implementation details
+generalizing common characteristics of things into classes, interfaces, etc.
+achieved with interfaces and abstract classes.
+e.g. list implements enumerable interface, i can write iterating methods that use any kind of enumerable object instead of requiring a list
+e.g. primitives like string, int
+
+encapsulation
+a group of related properties, methods, and other members are treated as a single unit or object.
+restricting access to information within objects. the object controls access to its data.
+e.g. calculator might store intermediate calculations in fields, they should be private or protected so that this can't be interfered with in a way that breaks the calculation
+
+polymorphism
+ability to treat derived class objects as though they were base class objects or any other implementor of interface
+we can implement the same interface many different ways. we can overload methods, and override virtual methods.
+we can use delegates to inject custom behavior into methods. we can use generics to allow for many different types to be used.
+a kind of abstraction. abstract the contract from the concrete objects.
+e.g. a collection of animals could contain birds and fish that both know how to move from one place to another, but one implements it with swimming and the other implements it with flying.
+
+inheritance
+ability to derive a new class from a preexisting class, gaining its data and behavior
+e.g. a memory list could derive from list, inherit all its behavior, and additionally keep track of any removed elements. don't have to reimplement all list behavior.
+
+
+
+
+SOLID
+implemented partly by object-oriented languages inherently - & partly by us the programmers.
+Single responsibility principle
+    a class should have only a single responsibility
+    methods should be short and simple
+Open/closed principle
+    software entities should be open for extension, but closed for modification.
+    code you write should not be modified all the time. instead it should be somehow extensible,
+        able to handle new conditions.
+    open: class should usually not be sealed, so they can be subclassed. or use interfaces.
+        in some cases... allow for callback functions, or event handlers, or model binding that is tolerant of extra fields (will see in ASP.NET)
+    closed: classes and especially interfaces should be stable and well-defined, not changing their behavior or members, not breaking compatibility with every version
+Liskov substitution principle
+    objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program. cf. design by contract.
+    rather: substitutability in a looser sense, because the formal LSP is too strong to be useful.
+Interface segregation principle
+    many client-specific interfaces are better than one general-purpose interface.
+    split large interfaces into smaller, specific ones for the sake of less coupling
+Dependency inversion principle
+    one should depend upon abstractions, not concretions.
+    instead of tightly coupling classes to other classes, extract interfaces, and have each class
+        depend on the interfaces of other classes.
+    more testable, more robust to later evolution of the code.
+    one implementation of this is dependency injection - we will see this in ASP.NET and in Angular.
+
+
+
+
+modifiers
+access - public (all) internal/default (same assembly) protected (subclasses) private (self)
+extended - static sealed read-only const partial override new abstract
+    static: (member/class) can't be instantiated or subclassed/overridden, just a place to hold data/behavior global to a class.
+    sealed: (class) no inheritance allowed
+    readonly: (member) initialize at construction
+    const: (member) initialize at declaration
+    partial: (class) allow breaking class definition into multiple files
+    override: (member) ability to change inherited method Parent p = new Child().method() calls child's.
+    new: (member) method hides same-name method of superclass. Parent p = new Child().method() calls parent's. using override, or renaming method, preferred
+    abstract: (member/class) sets a [minimum] template for inheritance
+    virtual: (member) open to override change

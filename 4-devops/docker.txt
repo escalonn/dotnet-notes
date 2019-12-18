@@ -1,0 +1,32 @@
+to understand docker, we need the concept of a container.
+    a container is a new way to do virtualization. the older way is with virtual machines.
+        why do we want to do virtualization? to build and deploy our app N times, we don't want to have to plug in N new physical servers. all we want is a repeatable, standard, easy to manage way to build and deploy code.
+    let's start with virtual machines.
+        run a whole operating system inside another. we can try to make many VMs consistent with each other, but it's difficult.
+    we have had virtual machines for a long time, they have many advantages over physical machines.
+        we can provision them more quickly.
+        they can share hardware.
+    containers are like the next level up of all the advantages of VMs.
+        they are much smaller, much faster to deploy, and much easier to modify and manage.
+        we don't need a whole separate operating system to get what we want out of virtualization.
+layered images
+    we make these with the dockerfile
+    we copy only the files necessary, minimize overhead.
+docker swarm
+    a way we can cluster containers together, to talk to each other, share resources, manage them together, yet distribute them across a network of servers & VMs. docker swarm handles all the complicated networking.
+    an alternative to kubernetes that is on the decline, did not grab enough market share.
+
+
+what docker enables:
+    CI/CD
+        continuous integration is all about rapidly integrating code and making sure what comes true on one developer's machine also comes true on every other dev machine and also on the dev server. docker targets this need directly.
+    microservice architecture
+        overlap of microservice philosophy with docker philosophy. two great tastes that taste great together. we break up monoliths into microservices, and also break them up into containers. each container should do one thing
+    faster builds, faster more scalable deploys for any software project
+        faster builds in that we can reliably cache the first half of building if only the second half of building needs to be redone.
+
+what is docker
+    docker does many things, it's constantly evolving. what is the overall philosophy tying them together?
+        everything you do with code, build, test, deploy, analyze, that should be repeatable -
+            do it in a container
+    make dev & ops environments consistent, and enable faster build automation.

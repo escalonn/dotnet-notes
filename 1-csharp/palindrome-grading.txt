@@ -1,0 +1,6 @@
+it can find some palindromes at all: 50
+palindrome logic is correct: 80
+tested: 100
+
+minus up to 15 points for style
+minus 10 points for missing gitignore

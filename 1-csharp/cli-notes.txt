@@ -1,0 +1,47 @@
+bash
+    cd <dir>
+        change directory, can be absolute (like "/c/revature")
+        or relative (like "my-project" in the current folder)
+    ls <dir>
+        list contents of a directory
+        (or the current directory, by default)
+    mkdir <dir>
+        create a directory
+    rm <path>
+        delete a file
+    rm -r <path>
+        delete a directory
+    mv <path1> <path2>
+        rename/move a file/directory
+dotnet CLI
+    dotnet new
+        create new .NET projects
+        e.g. "dotnet new console" - new console application template.
+    dotnet restore
+    dotnet build
+    dotnet run
+git
+    git clone
+        download a local copy of a repository,
+        with all the history of past versions.
+    git pull
+        update your local repository with all new commits
+        from the remote (GitHub).
+        will fail if any local changes conflict.
+    git status
+        report on state of local repository, including any
+        untracked files, unpushed commits, etc.
+    git add
+        stage changes to be committed.
+        use "." to stage all changes in the currect directory.
+    git commit
+        record a permanent commit of changes to the local
+        repository.
+        use "-m" to add a commit message in-line. launches nano otherwise.
+    git push
+        upload all new commits to the remote (GitHub).
+        will fail if there are already un-pulled commits there.
+        will fail if you lack permissions.
+nano:
+    Ctrl+X: quit
+        (Y, enter to save unsaved changes)

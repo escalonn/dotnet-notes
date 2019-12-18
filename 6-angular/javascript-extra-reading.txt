@@ -1,0 +1,38 @@
+(links -)
+http://javascript.info
+https://developer.mozilla.org/en-US/docs/Web
+https://egghead.io/
+https://github.com/getify/You-Dont-Know-JS
+https://javascript30.com/
+http://shop.oreilly.com/product/9780596517748.do
+https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
+
+http://javascript.info/document
+
+skim pages 1 through 7 of the document section
+
+http://javascript.info/events
+
+skim this section briefly, enough to learn what stopPropagation and preventDefault do
+
+http://javascript.info/async
+
+skim promises section.
+
+not expected to know all details, but should be able to give general description of feature and at least a couple details.
+
+http://javascript.info/form-elements
+
+this section is helpful if you are working with forms in your project 1.5 with javascript.
+
+also:
+
+https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting?view=aspnetcore-2.2
+
+skim this to learn what XSS is, and at least one technique or feature in ASP.NET to prevent it. similar concept to SQL injection.
+
+https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-2.2
+
+read the opening paragraph for understanding, and then use the suggestions to enable CORS on your API, _if_ you wish to make AJAX requests from the MVC website to the backend service. not necessary if HttpClient is the only thing accessing your API. (edited)

@@ -1,0 +1,17 @@
+transactions can have savepoints
+    SAVE TRANSACTION <savepoint-name>
+    ROLLBACK TRANSACTION <savepoint-name>
+views can be created with option SCHEMABINDING
+    this means that the table(s) underneath the view cannot be changed in a way that would break the view.
+indexes, clustered and nonclustered
+    default on primary key and unique
+    often good idea to add on foreign keys
+    CREATE NONCLUSTERED INDEX IX_name ON Movie.Movie ( GenreID )
+scan: SQL Server iterates through many values looking for the right ones
+seek: SQL Server is able to look up what it needs much faster (binary search) using an index
+    think about when the indexes can actually be used.
+    if your query has a WHERE IndexedCol = val, we can use it.
+    if it has WHERE SOME_FUNCTION(IndexedCal) = val, we can't use it.
+azure query performance insights
+sql profiler (not available for azure sql db)
+in some cases, a join-based query can be faster than a subquery-based query, namely when the subquery is doing some EXISTS check based on the values from the outer query. we should replace that with INNER JOIN.

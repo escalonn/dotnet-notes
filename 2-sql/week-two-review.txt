@@ -1,0 +1,14 @@
+RDBMS
+DML
+    Select, Insert
+    Update, Delete
+DDL
+    Create, Alter
+    Drop, Truncate
+Join, Union
+    Aggregate
+
+normalization
+trigger
+concepts of ADO.NET
+concepts of EF

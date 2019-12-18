@@ -1,0 +1,76 @@
+documentation (MDN)
+
+- Introduction to HTML
+    markup language, not a programming language
+    separation of concerns - structure of page vs display of page
+- Elements (Inline, Block)
+    created with tags
+    some elements are empty and don't need a closing tag
+    block elements have vertical space on the page to themselves, are more structural
+    inline elements do not cause a line break
+- Attributes (Global)
+    have default values
+    some global e.g.: id, class, style, title, event handlers
+- Forms (Input, Label, Button)
+- Lists (Ordered, Unordered, Select)
+
+WHATWG vs W3C
+browser engines --
+Chrome V8, SpiderMonkey (Firefox), Chakra (Edge)
+
+HTML5
+    doctype
+        used to be elaborate and complex, now simple & practical
+        <!DOCTYPE html>
+    charset
+        <meta charset="UTF-8">
+    attributes
+        id
+        class
+    comments
+    character references
+        &lt; instead of <
+        numeric kind: &#dddd;, &#xhhhh
+    tags
+        html (root element, lang="en-US"), head (metadata: meta, title, link to css, js, favicon), body
+        meta name, context. names: application-name, author, description (SEO, seen on result pages), keywords (not for SEO anymore), robots, viewport (mobile initial zoom)
+        p, h1-h6
+        em, strong, small, ol, ul, li
+        i, b, u vs em, strong
+        a (href allows relative url, title for tooltip, target for where to load the page, e.g. _blank for new tab)
+        blockquote, code, sup, sub
+        inputs
+        img
+        div: block element for "anything"
+        span: inline element for "anything"
+        divs
+            replace div classes that we used to use
+            header
+            footer
+            nav (navigation bar)
+            main (main context)
+            aside (sidebar)
+            article
+            section
+        small
+        figure
+        figcaption
+        canvas
+        audio
+        video
+            different codec support, so provide multiple source elements
+    APIs
+        geolocation
+        local storage
+        session storage
+        audio
+        video
+            we used to use plugins like flash, but they are insecure
+    accessibility
+        audio & video support transcriptionswith track element.
+        metadata
+            microdata
+            RFDA - rich format data a.
+        section 508
+            WAI web accessibility i.
+            ARIA

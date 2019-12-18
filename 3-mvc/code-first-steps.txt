@@ -1,0 +1,7 @@
+code first:
+1. make class deriving from dbcontext
+2. make POCO model classes to go in the dbsets
+3. register the dbcontext as a service in startup.cs
+4. run `Add-Migration <name>` in package-manager console
+5. run `Update-Database` in package-manager console
+6. repeat steps 4 and 5 any time you change the data model

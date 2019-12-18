@@ -1,0 +1,16 @@
+what is the open/closed principle?
+what is the difference between a property and a field in c#?
+what is abstraction? and give an example.
+what is the use of async/await in c#?
+what is the difference between value types and reference types in c#?
+what is the difference between an abstract method and a virtual method?
+how are exceptions handled in c#?
+what are generics in c#? what are they used for and what advantages do they bring?
+what is unit testing and how do i do it with c#?
+
+what does the protected access modifier allow?
+
+explain your palindrome code to me.
+how is the pace of training for you? do you have any other feedback or questions?
+
+60 and below - must get yellow or green QC, and must get above 70 next quiz.

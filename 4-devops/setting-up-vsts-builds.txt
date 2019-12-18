@@ -1,0 +1,13 @@
+```sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml```
+
+```sonar.coverage.exclusions=**Tests*.cs```
+^ for the Additional Properties of the Advanced section of the SonarCLoud Prepare task (edited)
+for both .net build defintions
+```/p:CollectCoverage=true /p:CoverletOutputFormat=opencover```
+paste this at the end of the Arguments for the Test task. (with a space separating it) (edited)
+for both .net build defs.
+add new .Net Core CLI task, callit Publish
+make the command "publish", copy Arguments from Build task, uncheck "Publish Web Projects", provide the path to your web application csproj. (edited)
+into Triggers tab -> enable continuous integration
+add Azure App Service Deploy task, fill in fields, type in app service name manually, add `**/<web-application-project-name>/**` in the middle of your publish path, check "Take App Offline" in additional deployment options (edited)
+install coverlet.msbuild nuget package on every unit test project.

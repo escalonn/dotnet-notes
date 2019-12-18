@@ -1,0 +1,120 @@
+● 2-way data binding
+● Pipes & Filtering
+"	"● Angular Services & routing
+● Angular HTTP
+● RxJS promises vs Observable
+● Design Patterns: Publisher/Subscriber, Modules"
+Dependency injection
+Templates
+    ngModel
+    Pipes
+        e.g. date formatting
+Routing?
+@Injectable
+    service
+    HttpClient
+        promise
+            .then, chaining
+        observable
+            .subscribe, reactive
+    dependency injection
+testing with jasmine/karma
+pipeline integration (probably without tests)
+
+some points to whiteboard:
+    dependency injection - PokemonComponent needs PokemonService needs HttpClient
+    jasmine spec - describe, it 'should work', expect(testSubject).toFulfillCondition
+        testingmodule replaces the normal module for whatever we are testing,
+        allows substituting different dependencies for test purposes, like RouterTestingModule
+
+
+Thursday ^
+------------------------------------------------------------------------
+Wednesday v
+
+"● Bundling
+● Introduction to TypeScript
+● Access modifiers/variable types
+● Classes & Decorators
+● Introduction to Angular 4
+
+"	"● Directives
+● Components
+● Modules and Templates
+● 2-way data binding
+● Pipes & Filtering
+"	"● Angular Services & routing
+● Angular HTTP
+● RxJS promises vs Observable
+● AngularJS vs Angular 4
+● Design Patterns: Publisher/Subscriber, Modules"
+
+
+node
+NPM
+webpack
+
+
+TypeScript
+    Class
+        structure
+        Constructor
+        fields
+    imports
+    exports
+    access modifiers
+        public, private
+    interface
+    types
+    modules
+    functions/methods
+    transpilation
+    inheritance
+    DI
+    ajax and fetch api
+    webpack
+    node.js
+    ts compiler
+    NPM
+
+
+Decorators
+    @Component
+        selector
+        template
+        styles
+Models
+    Class
+    Constructor
+    Dependency injection
+Templates
+    Directives
+        Structural directives ngIf, ngFor
+        Attribute directives ngModel
+        Pipes
+        Search, Sort?
+Routing?
+
+Thursday
+    @Module
+        declarations
+        import
+        exports
+        providers
+        bootstrap
+    @Injectable
+        service
+        HttpClient
+            promise
+                .then, chaining
+            observable
+                .subscribe, reactive
+
+TypeScript
+    Transpiler
+    Bundling/Webpack
+        Webpack
+            predecessors
+                grunt (bundler)
+                gulp (bundler)
+                webpack (bundler + moduleloader)

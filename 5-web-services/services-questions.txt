@@ -1,0 +1,10 @@
+what is a web service?
+what is the basic structure of a soap message?
+what is protocol binding in soap?
+what are the five groups of http status codes?
+what is the role of the accept header in http? what about content-type?
+what are some advantages and disadvantages of service-oriented architecture?
+what is the purpose of the WSDL file?
+what are the most common http verbs, and what are they used for?
+how does a rest service communicate error conditions to the client? what about a soap service?
+what is the difference between operationcontract and servicecontract

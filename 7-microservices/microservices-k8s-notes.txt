@@ -1,0 +1,123 @@
+https://martinfowler.com/articles/microservices.html
+
+https://docs.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/microservices-architecture (+1 previous)
+
+https://docs.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/media/image9.png
+https://docs.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/media/image15.png
+https://docs.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/media/image16.png
+https://docs.microsoft.com/en-us/dotnet/architecture/microservices/multi-container-microservice-net-applications/media/image3.png
+
+https://docs.microsoft.com/en-us/dotnet/architecture/microservices/multi-container-microservice-net-applications/microservice-application-design
+
+microservices blog - https://martinfowler.com/microservices/
+see especially section "When should we use Microservices?" - good overview of the benefits and costs.
+
+microservices architecture
+    each microservice (or service) implements one business capability
+    developed independently
+    deployed independently
+    scaled independently
+    owns domain logic and data persistence
+advantage
+    long-term flexibility
+    scaling of actual function that needs more resources -> cost savings
+    works well with Agile - evolve many parts of a large complex app with confidence
+        it wont break other code (if you dont change the interfaces/contracts)
+why does every service need its own data store (db)?
+    the big centralized db is a performance bottleneck for real-world apps
+    the design of the data model when there is only one db leads to huge tables
+        with columns to serve many different, unrelated concerns
+    "like using the same physical map for a short hike, for a road trip, and
+    for learning geography"
+    each microservice will not have a copy of the data model of all the others;
+    it will only store the data it needs, in the format that
+    best suits its domain logic.
+what advantages of 1 centralized db do we lose?
+    lose ability to leverage full power of SQL to easily combine data in queries from many
+        different tables, from all the app's data. now that data is spread out
+        in several different services.
+    lose straightforward ACID approach to transactions. with one db we can enforce
+        atomicity and isolation using locks on rows and columns.
+        but we cannot lock one microservice until another one has finished
+            the overall transaction. that's not realistic and it couples the services
+            too much.
+        so... we abandon nice and neat transactions, and adopt "eventual consistency,"
+            which is hard to get right.
+microservices architecture need special attention paid to:
+    how to carve up the user stories into microservices
+        a user might be, in different contexts, a user, a customer, a buyer, a contact...
+        that doesn't all have to be one table!
+        the different terminology we use is a clue that these different contexts
+        think about the data differently and we can carve each logical context into a
+            microservice.
+    how to query info that is spread out across microservices?
+        hard problem in general!
+        solved by more microservices!
+            usually addressed with API gateways, whose job is to bring back
+            together data e.g. so it can all be displayed on one page for the user.
+            API gateways can be a trap - especially if we have one for the whole app,
+            it can become a bottleneck and it can wind up coupling the microservices
+            together as well as becoming single point of failure.
+    how to manage "transactions" (eventual consistency) across microservices?
+        hard problem!
+        we need to send data between microservices so it is consistent, but we don't
+        want to couple them together! as much as possible, microservices should not
+        know about each other so they can be autonomous.
+        usually addressed with some ansynchronous event- or message-based protocol
+        instead of HTTP.
+        one microservice publishes some event, and others listen to that event.
+        but they do not directly send requests to each other.
+    monitoring of service health in production
+    scalability of services and their resources
+    security in auth and service communication
+
+
+k8s
+    cluster
+        a set of machines (nodes) that kubernetes runs containers on.
+    node
+        a machine in a cluster (a VM or a physical server)
+    namespace
+        clusters can be divided into different namespaces if needed.
+        usually we stick to the default one.
+    cluster master
+        every cluster needs at least one master node.
+        the master nodes manage the other (worker) nodes.
+        with kubectl, we tell the master what to do, and it tells the workers what to do.
+    pod
+        a pod is the building block of kubernetes. an abstraction over one container.
+        technically it could contain several containers but usually just one.
+        pods can be given resource limits - how much CPU/memory they need,
+        how much they are allowed to request at max.
+        goes through states: pending, running; succeeded, failed.
+    deployment
+        an abstraction over pods. rather than managing each pod by hand,
+        we define a desired amount of pods (replicas), and let k8s make them for us
+        and distribute them automatically across the nodes. each replica (pod) will
+        be an instance of the same image.
+        deployments can be updated and rolled back without having to turn everything
+        off and on again.
+
+
+
+k8s
+    daemon
+    nodes
+    service
+    pod
+    deployment
+        schema
+
+
+one pod
+many pods
+one service
+
+k8s w/ minikube
+kubectl
+
+AKS
+    probably make with shell and then look at in portal
+
+B1s hour
+D2 10-15 min

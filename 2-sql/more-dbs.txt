@@ -1,0 +1,53 @@
+pizzadb.mdf master data file. first node in linked list. -> 4 GB?
+1.ndf not-master data file -> could limit size (like 1 GB)
+01.ldf log data file -> history of events
+
+if "serializable" = thread-safe, why bother with anything other than read_uncommitted (if somehow guaranteed only one DB user/thread) or serializable? in object-oriented code we would not settle for "oh, it's mostly thread-safe".
+
+Join
+    inner - A intersect B. intersection of two tables that have common set of keys(?)
+    outer
+        left - A
+        right - B
+        full - A union B
+    cross - cross product of rows. every row of A with every row of B
+    self
+
+UNION - all rows in either table, without duplicates
+UNION ALL - all rows in either table
+INTERSECT - all rows in both tables, without duplicates
+INTERSECT ALL - all rows in both tables
+EXCEPT - all rows in A (no duplicates) that are not in B
+EXCEPT ALL - all rows in A that are not in B
+
+SQL Execution Plan for profiling
+
+FETCH - fastest
+SEEK
+SCAN - slowest
+
+database <-> C#
+
+DB <-> data objects <-> XML <-> ODBC <-> ADO.NET <-> code objects <-> C#
+
+ODBC open database connecter
+ADO.NET active data object .NET
+    connected architecture - stay connected all the time
+        SqlDataReader!
+    disconnected architecture
+
+no, instead use
+ORM object relational mapper
+xHibernate
+    -> Entity Framework
+    code first approach - write C#, drives database. "application developer"
+        updatedb
+    data first approach - "reverse engineering"
+        scaffold-dbcontext
+behind entity framework is context, which abstracts connected/disconnected
+    eager loading
+    lazy loading
+
+LINQ language integrated query
+
+https://docs.microsoft.com/en-us/ef/core/querying/related-data#lazy-loading

@@ -1,0 +1,13 @@
+authentication - who are you
+authorization - what can you do
+security
+    azure active directory
+encryption
+    active directory via json web tokens (JWT) and HTTPS
+
+asp.net identity is more for local security. creates local database
+active directory does more stuff and scales better and allows single sign-on
+
+asp.net web api
+    httprequestmessage
+    httpresponsemessage

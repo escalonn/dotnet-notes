@@ -1,0 +1,31 @@
+ACID: properties of a transaction
+
+A - atomic
+    all or nothing. no partial effects.
+C - consistent
+    constraints of DB not violated.
+I - isolated
+    transactions can't interfere with one another.
+    it should be as though they are all run sequentially.
+    but we relax this principle!
+
+    isolation levels, weakest to strongest:
+        read_uncommitted
+            allows dirty read
+                can i read uncommited data?
+                (from other ongoing transactions)
+        read_committed
+            allows nonrepeatable read
+            can i read the same row twice and see different things?
+            (from another transaction changing it in between)
+            default for SQL Server
+        repeatable
+            allows phantoms
+            can i run the same query twice and see extra rows the second time?
+            (from another transaction adding a row)
+        serializable
+            blocks all those
+            higher possibility of deadlocks depending on how the queries are written
+D - durable
+    effects should not only be in volatile memory,
+    but persisted to non-volatile memory like hard drive.

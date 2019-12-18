@@ -1,0 +1,19 @@
+javascript - strict mode doesn't turn off dynamic typing
+content type header vs accept header
+swagger.json vs ui
+
+What does idempotent mean?
+How do we handle exceptions in an API with ASP.NET?
+What are the most common HTTP methods and what are they used for?
+What is WSDL?
+What does it mean for an HTTP method to be safe?
+What is hypermedia?
+What are some of the design principles of REST?
+As a REST client, how can I request JSON format from the server?
+    In ASP.NET, as a REST server, what is one way I can
+What are the five categories of HTTP status codes?
+What variable scopes exist in JavaScript, and how can you use each of them?
+What is strict mode in JavaScript?
+What are some differences between REST and SOAP.
+What are the motivations service-oriented architecture.
+What is Swagger?

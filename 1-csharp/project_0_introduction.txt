@@ -1,0 +1,20 @@
+here are the requirements. https://github.com/1904-apr22-net/trainer-code/wiki/Project-0 @channel
+it is due for presenting to an audience of the batch and QC on Wednesday May 8th.
+you can make any kind of store you want - pizza store, game store, etc
+next week (before the project is due), the requirements will be changing, to reflect a new requirement of data persistence with a SQL database hosted on Azure, accessed via Entity Framework.
+
+RestaurantReviews (now in trainer-code) is an example program that fulfills most of the requirements of project 0 - it is an app that lets you create/view/edit/delete restaurants and create/view/edit/delete reviews of those restaurants, using a menu-based console interface. i recommend studying it and running it. it is not a store app, and it has a data model that is too simple compared to what yours must be, but in other ways it is a good model.
+my Main method is quite huge, violating single responsibility principle, but that's OK because the console app is not very important, and will be discarded when we evolve project 0 into project 1.
+i recommend using some kind of menu-based interface like i do in my ConsoleUI project.
+
+you will want to begin with the business logic class library, with classes for customer, order, product, store location, etc, and with tests for that library (to do some TDD on any part of the project is required - i.e. write the test before the code)
+
+you will be on track if you have library and library tests done or nearly done, with console ui half done, by wednesday.
+
+complexity of data model for project 0: a location's inventory should not have an exclusively one-to-one relationship with products that the user orders.
+example of one-to-one: user orders game, store has inventory of game, inventory decreases by one.
+examples of complex: user orders pizza, store has inventory of ingredients like dough, cheese, toppings, which themselves decrease. another example: user orders bundle of games, store has inventory of games, all games in bundle decrease in inventory by one.
+
+there can be one-to-one stuff, but, there should be at least some complex stuff also.
+
+you are free to work alongside each other on project 0 and trade ideas and solutions to problems so long as code is not actually copied - that will be plagiarism of course and have repercussions.

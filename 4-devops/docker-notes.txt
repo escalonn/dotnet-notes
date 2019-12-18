@@ -1,0 +1,66 @@
+if we all had windows 10 professional, or linux, we could install real docker.
+but non-pro windows 10 doesn't support containers (yet?) so, we have Docker Toolbox.
+
+Docker Toolbox is meant to be one-click setup for running Linux containers on Windows using a small Linux virtual machine.
+
+docker run <image-name>
+    this starts a new container from the given image (downloading that image if necessary)
+    "-it" options after "run" we need when the CMD is some shell like bash,
+        to attach the container's input to the current terminal's input.
+docker pull <image-name>
+    just downloads the image (or updates, if there's some new version)
+docker build <dir>
+    <dir> should be the directory with the Dockerfile.
+    usually we cd to that directory beforehand anyway, so <dir> is "."
+    use "-t <image+tag>" to tag the image like "ConsoleApp:1.0".
+docker container ls
+    show all running containers
+docker container ls -a
+    show all running/stopped containers
+docker container prune
+    remove all stopped containers
+docker run --rm <image-name>
+    run container, and clean it up as soon as it has stopped
+docker rm <container-id>
+    clean up stopped container
+docker rm -f <container-id>
+    stop and clean up container
+docker images ls
+    show all images downloaded
+docker logs <container-id>
+    look at console output of a container
+docker run -d <image-name>
+    detach container from current terminal (run in background)
+docker run -it <image-name>
+    attach both input and output of current terminal to container (for running shell like /bin/bash)
+docker exec <container-id> <command>
+    run an additional command inside running container to look around/debug
+
+docker image:
+    template for container to start
+    has the whole file system
+    has a pointer to some program inside the image that should run
+        when we start the container
+    images are LAYERED - every image has some base image, adding
+        new layers on top of it
+
+Dockerfile:
+    provides instructions to build a new image from some base image.
+    FROM:
+        sets the base image to use for subsequent layers
+    WORKDIR
+    COPY
+    RUN
+    CMD
+    ENTRYPOINT
+    ARG
+    ENV
+    EXPOSE
+
+when we do a docker build:
+
+1. the entire directory contents (the "build context") is sent to the docker daemon.
+2. then, we run each command in the dockerfile.
+3. any COPY commands use that build context for the source.
+
+we can use .dockerignore to hide files from that step 1.

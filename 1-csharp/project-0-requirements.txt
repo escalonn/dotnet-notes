@@ -1,0 +1,36 @@
+# project 0: restaurant review application
+April 2018 .NET / Pushpinder Kaur, Nick Escalona
+## functionality
+* display top 3 restaurants by average rating
+* display all restaurants
+  * should allow more than one method of sorting
+* display details of a restaurant
+* display all the reviews of a restaurant
+* search restaurants (e.g. by partial name), and display all matching results
+* quit application
+## structure
+### library project
+* all business logic must be here
+### data project
+* manages database connection
+* use repository pattern for separation of concerns
+### client project
+* console application
+* should have no reference to data project
+* should provide a menu of possible actions for the user to enter
+* should handle invalid user input gracefully
+### test project
+* unit tests
+* should not cause actual database access
+## object model
+### restaurant
+* has a name and other relevant data (e.g. location)
+* has many reviews
+* has average rating, computed from all its reviews
+### review
+* has a rating and other relevant data (e.g. reviewer name)
+## technologies
+* .NET
+* ADO.NET Entity Framework
+* Azure SQL Server or Amazon RDS for SQL Server
+* NLog

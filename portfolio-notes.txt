@@ -1,0 +1,22 @@
+EF
+.NET/C#
+webapi/mvc
+angular/devops
+sql
+
+change industry equiv numbers to months
+
+.net 12-18
+6+ others
+
+
+about me - ~15 lines of fluff around actual technology in bold. first half stuff i want to do, 2nd half stuff i don't especially want to do, must be able to answer prompt on all of them.
+
+rules several have missed:
+- avoid Frivolous Capitalization of things That Don't Need It
+- first sentence of about me should not only be about back-end - should say you are a "full stack" developer, or, mention some front-end thing as well as the C#/.NET.
+- every bullet point needs a period at the end
+- first bullet point in about me should reiterate the full tech stack
+- every about me bullet point needs technologies and techniques bolded
+- main technology of every week of training needs to appear in about me.
+- there are rules for the "show globally" and "show on portfolio" checkboxes; follow them

@@ -1,0 +1,22 @@
+What is PAAS and give an example?
+What is SonarQube and what does it do for me? What is SonarCloud?
+What are some lessons you learned from project 1?
+How does having an automatic build pipeline promote the goals of DevOps?
+What are some Azure services you can tell me about?
+What is the difference between CI and CD?
+What is the difference between quality profile and quality gate in SonarQube?
+What is an SLA?
+What is DevOps?
+What are some characteristics of Agile development?
+What is the scrum board?
+What is Azure DevOps?
+
+How do we deploy our application?
+What is CI?
+How can I limit or open access to my Azure SQL DB?
+What is a resource group on Azure?
+What are the stages of a build pipeline?
+What is a Git branch?
+What does SonarQube do for us?
+
+How is a container different from a virtual machine?

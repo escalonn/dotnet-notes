@@ -1,0 +1,21 @@
+http get / post
+    query string
+    request body
+    route parameters
+
+actionresults
+    viewresult
+    redirectresult
+    emptyresult
+    contentresult (general)
+    fileresult
+    statuscoderesult
+    jsonresult
+
+partial views
+    @Html.Partial
+    go in shared folder
+
+viewdata
+viewbag
+tempdata

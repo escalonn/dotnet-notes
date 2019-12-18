@@ -1,0 +1,49 @@
+.NET
+    Classic - Windows, outdated. web forms
+    Standard - just a set of restrictions on Classic, no Windows-specific stuff
+    Core - subset of Standard
+
+In Standard:
+UWP - Desktop (Standard)
+*SignalR, MVC, WebAPI/WCF - Web Services (Core)
+*Entity Framework - Data (Core)
+Xamarin - Mobile (Standard)
+    write once, outputs iOS, Android
+
+Mono framework repackaged .NET Classic for Unix.
+really just worked for web stuff
+
+languages for .NET now
+C# F# VB.NET R Python JS/TS (Java with help of Red Hat)
+F# functional C#
+
+for C#
+CLI common language infrastructure spec
+    VES virtual execution system
+    BCL base class library (common primitive types)
+    CTS common type system
+
+implementations:
+    Mono
+    CLR common language runtime
+        the execution environment for a .NET application
+        JIT just in time compiler
+        gets assembly, compiles to machine code
+
+managed code
+    portability (same platform, different architecture)
+    memory management
+    performance
+    inter-operability (platform-independent)
+
+GAC global assembly cache
+strongly named. no two assemblies can have the same name
+%systemroot%\assembly and %systemroot%\Microsoft.NET\assembly
+more for .NET Classic. outdated.
+
+now instead use portable:
+NuGet.Config
+NuGet is package repository, networked where GAC is only on each machine
+deletes unused assemblies
+
+for VS 2017 Community install C#, (+ .NET, .NET Core), Web packages

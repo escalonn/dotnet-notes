@@ -1,0 +1,49 @@
+CLR
+    common runtime engine for all .net languages
+    gets assembly, compiles to machine code
+    managed code
+        portability (same platform, different architecture)
+        memory management
+        performance
+        inter-operability (platform-independent)
+polymorphism
+
+ADO.NET
+    connected arch
+        SqlDataReader
+            uses cursor
+            need connection string, and database, and credentials
+            need SQL query, SELECT * FROM A
+    disconnected arch
+        SqlDataAdapter
+
+EF
+    code first
+        implement dbcontext with dbsets
+        migration to db server
+
+delegates are reference types for functions, according to signature.
+    function pointer without memory access
+    allows storing functions for actual invoking later
+
+cloud computing
+    opposite of using on-premises network
+    use servers in wider network outside company, maintained by someone else
+
+some random extras
+    mvc filters and testing
+        https://msdn.microsoft.com/magazine/mt767699.aspx
+    repository pattern
+        https://deviq.com/repository-pattern/
+    https://stackoverflow.com/questions/2876616/returning-ienumerablet-vs-iqueryablet
+
+    https://dotnet.microsoft.com/learn/dotnet/architecture-guides
+
+    https://docs.microsoft.com/en-us/dotnet/standard/modern-web-apps-azure-architecture/work-with-data-in-asp-net-core-apps
+
+    async Main is added in C# 7.2
+
+    Windows offers a rich native API, in the form of flat C APIs, COM and WinRT. We’ve had support for P/Invoke since .NET Core 1.0, and have been adding the ability to CoCreate COM APIs and Activate WinRT APIs as part of the .NET Core 3.0 release.
+
+    "Under the covers, this demo is using COM interop features like NOPIA, object equivalence and custom marshallers."
+    https://github.com/dotnet/samples/tree/master/core/extensions/ExcelDemo

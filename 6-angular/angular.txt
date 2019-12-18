@@ -1,0 +1,55 @@
+angularjs                                       angular
+    angularjs.org                               angular.io
+    library, pure javascript                    framework, all typescript
+    based on MVVm (model view viewmodel)        components
+                                                    template (like view)
+                                                    logic (class)
+                                                    scope
+    modules                                     modules are more like namespaces/packages, multi file
+    controllers
+    services (service, factory, provider)       services
+    templates                                   templates (in components)
+    directives (bit like angular component)
+    out for 8 years                             barely out 1 year
+
+MV* pattern
+    MVC model view controller
+    MVVM model view viewmodel - controller logic taken over by routing and views/viewmodels
+    MVP model view presenter. presenter based on app state, more "powerful" than controller.
+        not really used, more heavy.
+
+single page application
+
+index.ts
+    import { MainCom } "./MainCom.ts"
+    mainCom.init
+
+maincom.ts
+    import { NgModule } 'angular/core'
+
+    @NgModule ({
+        imports
+        xexports
+        providers
+    })
+
+    export class MainCom implements NgInit (
+        constructor()
+        key: value
+        methodname()
+    )
+
+othercom.ts
+    import { }
+    @Component({
+        selector
+        template
+        style
+    })
+
+jasmine is test library
+karma is test runner
+
+
+    templates
+        styles

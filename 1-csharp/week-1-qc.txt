@@ -1,0 +1,37 @@
+Visual Studio
+.NET Overview
+    what is .net
+what are some qualities of c# as a programming language
+    object-oriented, statically-typed/type-safe, managed/garbage-collection, unified type system, exception handling
+
+framework overview
+    what is assembly
+        library/application
+OOP concepts
+    four pillars
+    SOLID
+class, interface, struct, enum
+value type vs reference type
+    user-defined value types = struct
+a property vs a field
+data types, type casting
+    upcasting (implicit), downcasting (explicit)
+    Convert class
+    implicit conversions (e.g. integers to decimal type)
+    explicit conversions (e.g. decimal to integer)
+control statements - if, for, foreach, while, switch
+access modifiers public, protected internal, internal, protected, private
+extended modifiers
+exception handling - try, catch, finally, throw
+debugging, breakpoint
+generics
+collections
+    List
+data serialization
+    XMLSerializer
+    can we customize with attributes?
+        make it attribute with [XmlAttribute] attribute
+unit testing
+lambda expressions
+delegates without events
+logging

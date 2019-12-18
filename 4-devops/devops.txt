@@ -1,0 +1,152 @@
+on-premises deployment
+    IT bottleneck, moves code from repo
+    to dev server, test server, staging server, production server
+    overhead in IT as well, diminishing returns on adding more people
+    dev deployment takes too long and thus happens on lots of changes at once so debugging is harder
+
+deploy to testing, staging, production, etc
+    can be manual approval or automated based on conditions
+    can be batch processed on time intervals like every hour
+
+development and operations team working together to agree on the pipeline
+for automated building and deploying of code to a server
+
+CI (continuous integration) - code to server
+    build process (automated)
+        build, analyze, test, notify, deploy to dev server
+        based on scripts that IT manages
+    includes packaging
+
+people process product
+    people of "development + operations"
+        dev
+        plus IT, QA governance, stakeholders/client
+
+IT -> devops engineering team
+
+CD (continuous deployment)
+    beyond CI, automate from dev to test server -
+        code goes back to build process for packaging process, then to test server
+            packaging process includes package repo separate from code repo
+                contains binaries not source
+    CDe (continuous delivery)
+        sometimes differentiated from deployment
+        meaning, deploy to final production server
+
+EDIT:
+ok we reviewed this topic & talked it over, i thought i was giving you guys the most common definition, instead i had given you a rarer definition.
+here is the "real answer" (although, just like "polymorphism," not everyone agrees on that real answer, and wherever you work may have a different definition):
+continuous deployment means we have an automatic deployment all the way to production, with no manual approval required (if all our tests pass).
+continuous delivery still takes us to production, but it has some amount of manual approval, manual trigger (again, if all our tests pass).
+https://www.gocd.org/2018/01/17/continuous-delivery-beginners-guide/
+
+move testing, staging, production servers to cloud (probably not dev)
+    AWS, Azure, Google Cloud (more commercial)
+    IBM, Red Hat, VMWare (more enterprise)
+    government versions of all these, stays in country borders
+    only pay for what you use. not paying for on-premises server when don't need one
+
+IAAS - infrastructure as a service
+    from cloud you get just a server that you can change OS or anything on
+PAAS - platform AAS
+    from cloud you get IAAS with runtimes/software but still access to server too,
+    except can't change OS
+SAAS - software AAS
+    from cloud you get PAAS with software, probably limited to exactly the one thing
+    like Azure SQL, you don't access server underneath
+FAAS (new) - function AAS
+    just a method
+
+hybrid cloud
+    connect on-premises infrastructure to cloud infrastructure
+    maybe for security
+multi cloud
+    use more than one cloud provider for redundancy
+    if one provider is down, able to switch to another to limit downtime
+
+SLA service level agreement
+    cloud provider guarantees some amount of uptime. less than 100%. 99.95% at best.
+        late 2017 SLA up to 99.99% for some services (sql, vm). 50 minutes in a year
+
+for what we will use
+    AWS
+        EC2 (VM) - our build server - EBS (drive)
+            "EC2" - elastic compute cloud
+                onboard drive - lives as long as VM lives
+                    instance storage
+                three on team
+                    one will run Jenkins (windows)
+                    one will run the app (windows)
+                    one will run SonarQube (windows)
+            "EBS" - elastic block store
+                block storage
+            Jenkins build server
+                Groovyscript - manage: import analyze build package deploy
+                MsBuild & Nuget
+                    except maybe not MsBuild, maybe really dotnet cli
+                SonarQube - static analysis
+                MSDeploy - package & deploy
+                Slack - notification
+                alternatives to Jenkins -
+                    TravisCI
+                    CircleCI
+                    for .NET:
+                        TFS: on-premises
+                            more legacy or for secretive stuff
+                        VSTS: online/cloud
+                            way for the future™
+                    GitLab/CIRunners
+                    Bamboo (by Atlassian)
+                    TeamCD (by JetBrains)
+                    GoCD
+                        built from ground up for CD
+                        others were built for CI and extended to CD
+        S3 - drive storage
+            "S3" simple storage service
+            storage for webapp like images
+        (also has "RDS" for DB like Azure DB. not as nice as Azure DB)
+    Azure
+        App Service - our webapp
+        Azure DB - our sql server
+
+drive storage -
+    like a folder on local machine
+    like dropbox, google drive, onedrive, box
+    can access through webapp
+block/disk storage - Azure Disk, Azure Managed Disk (new)
+    like hard drive on local machine
+    must access through OS
+    attached to one machine at a time
+file storage
+    for big files or something
+    shared across many machines
+
+azure disk - like disk you attach to one machine at a time,
+azure files - like disk you attach to many machines
+azure blob - object store. doesn't have a filesystem
+    store images for webapps to fetch, log files
+    stream audio, video
+    best option for very large files
+    aws version is called S3
+
+a big advantage of cloud computing is the ease of scaling and the ability to pay only for what resources you use when you use them.
+scaling is something we have to think about regardless of cloud or on-premises.
+in terms of scaling we have two terms: _scale out_ and _scale up_.
+scale up (vertical) means, the resources we have (VM, disk, db, etc), we want them bigger. upgrade with more memory, faster throughput.
+scale out (horizontal) means: we want more copies of the same resources we currently have.
+each has different advantages - scale up has less overhead in general, but has practical limits, and usually requires some downtime.
+scale out improves availability (if one server crashes), no downtime, but could raise issues with session data.
+both are far easier in cloud than with on-premises servers, especially scaling out, which it is possible to automate.
+there are buttons on most azure resources for Scale out and Scale up.
+
+
+Flow
+    Github Flow
+        CI on master branch, feature branches are on their own
+
+How do we deploy our application?
+What is CI?
+What is a security group?
+What are the stages of a build pipeline?
+What is a Git branch?
+What does SonarQube do for us?

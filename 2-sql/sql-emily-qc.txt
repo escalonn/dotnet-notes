@@ -1,0 +1,28 @@
+What is your experience with relational databases?
+    What is an RDBMS?
+        What dialect of SQL have you been using?
+            What does the T stand for?
+            What does the SQL stand for?
+What is normalization?
+    What is the third normal form?
+What is multiplicity?
+How would you express a many-to-many relationship in a relational database?
+What is referential integrity?
+    WHat is the difference between a primary key and a foreign key?
+        What are some characteristics of them?
+            Can primary keys be null? Foreign keys?
+            Duplicates?
+What is the different between DDL and DML?
+    What's the difference between DROP and TRUNCATE?
+What is a constraint?
+    Can you give a few examples?
+What is a clustered index?
+    What is an index?
+        What is a composite key?
+What is an IDENTITY column?
+What is the syntax for implementing a FOREIGN KEY constraint with ALTER?
+    What is a DEFAULT constraint?
+What's the difference between a JOIN and a UNION?
+What are the properties of a good transaction?
+    What is a transaction?
+        What is a trigger?

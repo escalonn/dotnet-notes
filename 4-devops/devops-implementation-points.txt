@@ -1,0 +1,38 @@
+
+also for fred - recommended quality gate for them, and, minimum code coverage
+
+<10% code duplication
+50% code coverage
+B on everything
+
+
+steps for creating vsts agent
+vsts: create token with agent pool read/write, save to file.
+
+
+sudo apt update
+sudo apt upgrade
+sudo apt install apt-transport-https
+sudo apt update
+wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository ppa:git-core/ppa
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update
+sudo apt install openjdk-8-jre dotnet-sdk-2.2 git nodejs gcc g++ make yarn gnupg-agent docker-ce docker-ce-cli containerd.io
+sudo usermod -aG docker ubuntu
+sudo reboot
+wget https://vstsagentpackage.azureedge.net/agent/2.148.1/vsts-agent-linux-x64-2.148.1.tar.gz
+mkdir agent
+cd agent
+tar zxf ~/vsts-agent-linux-x64-2.148.1.tar.gz
+./config.sh
+sudo ./svc.sh install
+sudo ./svc.sh start
+
+nick https://dev.azure.com/revaturexyz
+a65opfqsz4igczc5p7ysncfakj5d5tv2ge6ijz4sxd2hdbnnnr7q

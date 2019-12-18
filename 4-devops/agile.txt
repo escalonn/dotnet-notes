@@ -1,0 +1,13 @@
+agile/scrum
+
+scrum/standup meeting. each person quickly says
+    what are you up to
+    what have you been up to
+    is anything stopping you from doing what you want to do
+
+sprint. allocate set time for set amount of work to be done.
+    more often than not you do not meet the amount.
+    most companies 3-4 weeks. past 6 weeks is bad idea in practice.
+
+standup/sprint review
+    did we accomplish what set out to do in sprint

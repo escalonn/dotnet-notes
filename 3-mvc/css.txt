@@ -1,0 +1,156 @@
+- Introduction to CSS
+    we apply css rules to things - some properties, to some things by a selector
+    p { color: red; }
+    selector(s) { property: value; }
+    properties semicolon separated, selector comma separated
+    comments /* */
+    cascade
+      which properties override which other properties?
+      1. author styles & importance
+        special override: put "!important" after a rule, it will win over all unimportant rules.
+        but don't use this - instead, use specificity
+        author styles override user-agent styles (browser defaults)
+      2. specificity
+        how specific is the rule, heuristic for how many elements it could match
+          1000 if it's inline style (style="")
+          100 for each id selector
+          10 for each class selector
+          1 for each element selector
+      3. source order
+        tie break. which one was defined last
+    inheritance
+      SOME properties are inherited by children, if it makes sense.
+      font options are inherited, color options are inherited (you have to UNset them in the children if you don't want that)
+      margin, border, padding not inherited. (you have to set them again in the children if you want that)
+      can be customized.
+- Box Model
+    margin border padding
+    top right bottom left
+        shorthand properties
+- Selectors
+- Properties and Rules
+- Typography and Coloring
+    font-style (italic, etc)
+    font-size
+    font-family (sans-serif, serif, monospace)
+    color: #00ff00, or web names (sets foreground color)
+    background-color
+- Position and Display
+  position:
+    static (the default)
+    relative (does nothing by itself; defines meaning of top, right, bottom, left: relative to its normal position)
+    absolute (move it out of the normal document flow, onto its own layer.
+      span 100% of parent's width, and whatever height its children needs.
+      top, right, bottom, left now mean, distance from the walls of the page --
+        or, if it's inside some "relative" element -- distance from the walls of that element)
+    fixed (fixed in the browser's viewport, regardless of scrolling.)
+  display:
+    block (like a block element)
+      float property modifies block element flow - lets e.g. other text flow around it to the left or the right.
+    inline (like an inline element)
+    none (turn off display of the element, as though it weren't even there in the DOM.)
+  visibility: hidden (invisible but still takes up space)
+
+
+
+- Introduction to Foundation
+- Responsive Web Design
+- Semantic Web Content
+- Web Accessibility
+- Media Queries
+    conditionally apply styles based on screen size or type. can check screen width, height, aspect ratio, portrait/landscape, etc.
+    there is a "print" screen type for customizing the styles for printing a page
+    more complex things like "does the user have a mouse that can hover other things? or just a touchscreen?"
+- Team Oriented Environment"
+
+DOM, document object model.
+html and css text format is the serialized form
+in browser memory, it is the DOM
+
+selectors
+    * - all
+    tag - header, div span
+    class - *.<classname> == .<classname>
+        <tag>.<classname> ==
+    id - #<idname>
+        id is most efficient way to select a single element
+    [attribute=value] - attr has value
+    [attribute~=value] attr contains val in its val
+        other similar attribute selectors
+    combinators:
+        div, div - one or the other, both
+        div div - ancestor descendant
+        div>div - parent child
+        p+div immediate next sibling
+        p~div any sibling
+
+"#Region2 .latitude"
+
+pseudo-classes
+    elements that exist in some special state or another
+<selector> : link
+           : active (being clicked on)
+           : visited (visited link)
+           : focus (keyboard select with tab or click)
+           : valid
+           : invalid
+           : blur
+           : hover (moused over)
+           : nth-child(aN+b)
+           : first-child
+           : last-child
+           : nth-of-type(aN+b)
+           : first-of-type
+           : last-of-type
+           : not()
+
+pseudo-element
+    elements that are in some special relation to other elements
+<selector> :: before
+<selector> :: selection
+<selector> :: after {
+    content: "html code" (inserted at end of the element's content)
+}
+
+
+div [first-of-type] [first-child]
+    div [first-child]
+    div
+div
+    p
+    span
+    p
+p
+div
+
+external author CSS (link rel stylesheet href)
+  the best way. can reference from multiple files
+internal author CSS (style)
+inline author CSS
+  the worst way
+user-agent CSS (browser) (we "undo" this with css resets)
+user CSS (user options to browser for css, accessibility extensions, etc)
+
+user agent
+author
+important
+specificity
+inline
+
+use
+zurb foundation OR
+bootstrap
+
+css reset
+  a style sheet that zeroes-out the browser defaults to prevent inconsistencies
+Normalize.css
+  more recent alternative
+  removes inconsistencies between browsers, but preserves some useful defaults
+
+"adaptive"
+write a css for every screen type
+"responsive"
+page reformats in response without reloading. harder to make
+
+responsive features in html - srcset for images, different sources for different screen sizes
+to prevent pre-loading the wrong image before CSS is even read

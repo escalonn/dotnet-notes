@@ -1,0 +1,6 @@
+recent updates to azure - what's new
+azure cosmos db
+redis and azure redis cache
+azure active directory
+azure key vault
+azure functions

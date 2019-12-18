@@ -1,0 +1,115 @@
+javascript is interpreted
+it is a compile target of many libraries and then
+prototype-based
+    object-oriented without classes
+    instead of class as template for object,
+        an object can be a prototype for more objects
+dynamically typed. with 6 basic types
+using ECMAScript 5, + some 6. latest JS is ES2019
+
+functions are first-class, are just objects, like arrays
+
+types: number, string, boolean, null, undefined, object, symbol (es6)
+typeof
+functions are objects, but typeof calls them "function" for convenience
+null is null, but typeof calls it "object" and this is kept only for backwards compatibility
+have arrays too (objects)
+     array.ForEach
+
+type conversion all over the place
+regular equality ==, does type coercion
+strict equality ===, is the good one that does not coerce types. if the type is different, it's not equal.
+
+function declaration
+function sayHi() {
+  alert( "Hello" );
+}
+expression
+let sayHi = function() {
+  alert( "Hello" );
+};
+functions are values like delegates are in c#
+arrow functions (es6)
+method shorthand sayHi() { alert("Hello") } in object
+
+constructors are just functions that set on "this" and are called with "new". can set methods too.
+
+has classes with es6, but just syntax over prototypal inheritance. class extends too.
+
+debugger;
+console.log()
+
+es5 strict mode:
+turned some silent JS errors into thrown errors.
+- assignments that fail throw errors
+turns some sloppy practices into syntax errors.
+- not allowed to assign to undeclared variable, must declare first
+
+es6:
+    const
+    block scope (let)
+    arrow functions
+        this
+    method syntax for function properties
+    default parameters
+    string interpolation `-- ${x} --`
+    classes with constructors, inheritance
+    symbol type
+    various useful built-in functions like string searching
+    Promises
+    es6 modules (import, export)
+    Set and Map data structures
+    for of
+    getters/setters
+    internationalization features (number/date/currency format)
+    spread, destructuring
+
+falsy / truthy
+    false / true
+    +-0-or-NaN / 1-or-other-number
+    null-and-undefined / {}-or-any-object
+    empty-string / any-other-string
+
+global/document scope, function/local scope
+
+hoisting -
+    declarations in a function are moved to the top of the function, not
+    function statements
+
+closure -
+    reference something which is no longer in scope.
+    define inner function referencing variable in outer function
+    inner function keeps a reference to that variable, keeps it alive
+
+JSON.stringify
+JSON.parse
+
+callbacks, callback functions
+    a function with callbacks takes a second function as parameter
+    the first function's result is passed to the second function
+    and the first function returns the return value of that
+
+immediately-invoked function expression
+    write a function without storing it anywhere and invoke it right away.
+    anonymous
+
+javascript references:
+    https://egghead.io/
+    https://github.com/getify/You-Dont-Know-JS
+    https://javascript30.com/
+    book JavaScript: The Good Parts by Douglas Crockford
+
+UPPERCASE variables:
+    convention - readonly
+
+compiles to javascript:
+    typescript
+        made by microsoft, backed by angular, most common
+    babel
+        more hip
+    coffeescript
+    elm
+    nativescript
+        new
+    flow
+        backed by facebook

@@ -1,0 +1,7 @@
+a dropdown menu will be a select element having some name attribute, and each option in it will have some value attribute.
+the form data will have (name)=(value) (the value of the selected option), and model binding will work on that name & value just like any other form control.
+the main trouble is generating the correct HTML using the HTML helper (dropdownlistfor) or tag helper (select).
+if you're using the tag helper, then asp-for will indicate the property that will wind up as the name attribute, and the asp-items will indicate the collection of value and text pairs that will be the options.
+docs (showing only one way to do it): https://docs.microsoft.com/en-us/aspnet/core/mvc/views/working-with-forms?view=aspnetcore-3.0#the-select-tag-helper
+
+stack overflow (showing loads of ways to do it plus extra helpful info): https://stackoverflow.com/a/34624217

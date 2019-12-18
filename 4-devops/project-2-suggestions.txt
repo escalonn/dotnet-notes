@@ -1,0 +1,17 @@
+ecommerce like Amazon.com
+finance like ETrade.com (math/market) like with yahoo finance api
+chat/bot like discord/slack
+youtube/games/twitch/streaming
+
+architecture
+    client / mvc + angular
+    domain / c#
+    api / web api
+    data / ef + sql
+    test / xunit or mstest
+
+documentation
+    description (4-5 lines) not list of user stories but description
+    data erd diagram (10-15, <20 tables)
+    object model
+    technology stack

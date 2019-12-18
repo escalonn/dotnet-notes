@@ -1,0 +1,48 @@
+week 4 (devops) content - sdlc, git, devops, cloud, docker
+  sdlc questions
+    waterfall, Agile, scrum, kanban
+  git questions
+    branching, merging, pull request, conflict resolution
+  devops questions
+    what is devops?
+    what is continuous integration?
+    what are typical stages of a CI build pipeline, and what are some tools that can manage them for us?
+      azure devops (pipelines), appveyor, jenkins, travisci, circleci, gocd
+    how does having an automatic build pipeline promote the goals of DevOps?
+    what is continuous deployment? continuous delivery? does azure devops enable these, or only CI?
+      it does, using release pipelines alongside build pipelines
+    what is static analysis & what tool have you used for it? what is the benefit towards devops/CI?
+      sonarcloud
+    What is the difference between quality profile and quality gate in SonarQube/SonarCloud?
+    what is technical debt?
+    what is code coverage?
+    how do we deploy our application?
+  cloud questions:
+    what is the business value of cloud services over on-premises services?
+    what is hybrid cloud?
+    distinguish infrastructure-as-a-service, platform-, and software-.
+      examples: azure VM & azure disk (iaas). azure app service, azure pipelines (paas). gmail, project 1, azure devops, etc (saas)
+    what is an SLA?
+    what is a resource group on Azure?
+  docker questions:
+    how is a container different from a virtual machine?
+      with VMs, hypervisor software is an adapter for the host OS and hardware that presents virtual hardware to a guest OS. we can run apps in that guest OS just as if it were the host OS. with containers, Docker is an adapter for the real OS and disk that presents a virtual OS and disk to a single app/process. VMs run a whole OS in isolation; containers run one app in isolation, with much less overhead than a VM. however we cannot run linux containers in windows or vice versa.
+    what is the relationship between docker container and docker image?
+      the image is a template for the container to begin executing from. the image holds an efficient snapshot of the file system and any other data needed for the container, built up in layers from some base image. images are immutable and persistent. we can start many containers from one image and those containers are more ephemeral.
+    what is the business value of using containers compared to physical servers or VMs?
+      containers provide high speed, high repeatability, and high scalability for building our apps as well as deploying our apps.
+    what is the dockerfile? what are some commands we have in it?
+      dockerfile is the instructions to build an image.
+      FROM (set base image for subsequent commands)
+      RUN (run some command from shell)
+      COPY (copy files from outside docker into the image)
+      CMD, ENTRYPOINT (configure what command will be executed to start the container)
+      WORKDIR (change directories inside the image)
+      EXPOSE (mark some ports inside the container to be exposed outside it)
+      ARG (allow for build-time arguments to customize the image)
+      ENV (set environment variables)
+    what steps would you take to debug a container that is behaving wrongly?
+      some possible answers; check the logs with "docker logs"; start a shell inside the container using "docker exec" and check the files inside or run other commands; start a new container from the same image and watch its output in the terminal; look at the dockerfile that the container's image was built from for any bugs; see if the same wrong behavior is occurring if you run the app outside docker and try debugging from there.
+    what is one advanced technique we can use for building our .NET apps in docker?
+      two answers; multi-stage build: include additional FROM statements to switch to different base images, and copy useful output out while leaving behind large build-time dependencies like the .NET Core SDK.
+      docker layer caching: copy the .csproj (project) files first, and run "dotnet restore" to fetch 3rd-party dependencies, before copying the rest of the source code. docker will cache layers so long as their input files have no changed, so we don't need to re-download those dependencies every time we build the image if they haven't changed.

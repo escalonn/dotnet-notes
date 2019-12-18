@@ -1,0 +1,62 @@
+an app is a collection of modules (NgModules)
+    root module, feature modules
+    a functional unit of components and things those components need
+    Modules provide context for components
+    @NgModule decorator
+Component
+    class responsible for a view to be displayed
+    containing data and logic
+    associated to an HTML template
+Decorators in TypeScript are functions that modify classes
+    used by Angular to attach metadata.
+Templates
+    refer to directives (including components)
+    have data binding syntax to connect component data and DOM.
+        interpolation: string component data
+        property binding: one way bind component data to some DOM property (on a directive or a plain element)
+    can use pipes to transform data for display
+    template reference variables, introduced with #<name> on an element
+        <input #heroInput> {{heroInput.value}}
+    template expressions, e.g. value of ngFor, ngIf, inside of {{}}
+        no side-effects allowed. can't use "=", etc
+        refer directly to component properties
+    template statements, RHS of event binding
+        allows side-effects, that's the whole point. you can use =, etc. just put that
+        logic in the component and call it as a function though.
+    all in the context of the component
+Directives
+    components
+    structural directives ngIf, ngFor, ngSwitch
+        add new elements to the page, rearrange the DOM somehow
+    attribute directives e.g. ngStyle, ngClass, ngModel, ...
+        change the appearance or behavior of some elements
+
+Services
+    logic or data not associated with a specific view
+    @Injectable
+    Injected into anything that needs them - components, other services, etc.
+
+class MyComponent {
+    data: string
+}
+@Input and @Output properties are used to pass data down to child components and back
+
+
+
+# interpolation with pipe
+<img src="{{data | myFormat}}"></img>
+    we can use interpolation when the result needs to
+
+# property binding
+<img [src]="data"></img>
+<img [ngClass]="data"></img>
+
+<child-view [childData]="data"></child-view>
+
+# event binding
+<div #myDiv></div>
+<img (click)="myFunction(data, myDiv)"></img>
+
+<div *ngFor="let item of items"></div>
+
+<input [(ngModel)]="name"></input>

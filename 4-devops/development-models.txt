@@ -1,0 +1,49 @@
+SDLC - software development life cycle
+
+Waterfall - works for mission critical systems, IP, security, what doesn't change a lot.
+cannot adapt well to change. expensive/slow
+    requirements, 6-12 mo
+    design, 4-6 mo
+    build, 12-18 mo
+    (test, 6-9 mo)
+    deploy, ~3 mo
+
+Big Bang - works for proof of concept. quick. not sustainable
+    requirements
+    design, build, test
+    deploy
+
+Iterative (& Spiral) - client is involved. quick, short-sighted
+spiral is one type of iterative, where each iteration is mini-waterfall.
+  > requirement
+  | design
+  | build, test
+  \ deploy
+
+Agile -
+    iterative and also incremental. we don't have the entire thing planned in detail when we start.
+    CMMI Capability Maturity Model Integration, accountability
+        bureaucracy overload, govt contracts
+        6 levels? revature on level 3?
+    Scrum - simpler, less overhead
+        Backlog - list of stories and issues needed for the project.
+        Sprint - several weeks planned in advance, with planning beforehand and retrospective/review afterwards. estimate how much effort needed for stories, and choose some from backlog to implement this sprint.
+        Story - expected user action on application.
+        Issue - expected user defect
+        Capacity - amount of productive work hours available in a sprint.
+        Velocity - amount of actual points completed in a sprint.
+        task
+        Planning
+        Review
+        Standup - daily meeting where you share what you accomplished the previous day, what you will be working on this coming day, and any blockers you have, what you need from other people.
+    Kanban
+        from Toyota, means signboard
+        status-oriented - Backlog, Todo, Doing, Done
+            In progress, testing, ready to release, released
+        work items/stories/issues move from left to right in a board of statuses.
+        limits on how many points can be in a particular state at one time, reevaluated continuously. bottlenecks become easily visible.
+        continuously evaluating and adapting, no fixed sprints.
+
+scrum focuses on strict schedule to complete set number of stories, with reflection/evolution considered after each sprint of few weeks
+kanban focuses on limiting work-in-progress, with reflection considered continuously
+both visualize the status of stories on boards moving from the left to Done on the right

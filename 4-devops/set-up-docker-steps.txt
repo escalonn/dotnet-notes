@@ -1,0 +1,8 @@
+1. have our application ready to package.
+2. make publish profile in VS and publish.
+    OR, dotnet publish -o ./Package
+3. write Dockerfile (pointing to that published output)
+4. build Docker image
+    in vagrant (cd /vagrant), docker build -t docker-mvc .
+5. run docker container from image
+    docker container run -p 9000:80 docker-mvc

@@ -1,0 +1,17 @@
+put --no-incremental on the build step of our api and mvc
+
+# event binding
+<div #myDiv></div>
+<img (click)="myFunction(data, myDiv)"></img>
+
+some points to whiteboard:
+    dependency injection - PokemonComponent needs PokemonService needs HttpClient
+    jasmine spec - describe, it 'should work', expect(testSubject).toFulfillCondition
+        testingmodule replaces the normal module for whatever we are testing,
+        allows substituting different dependencies for test purposes, like RouterTestingModule
+
+HttpClient
+    promise
+        .then, chaining
+    observable
+        .subscribe, reactive

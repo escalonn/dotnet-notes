@@ -1,0 +1,112 @@
+https://www.guru99.com/wsdl-web-services-description-language.html
+https://martinfowler.com/articles/richardsonMaturityModel.html
+https://docs.microsoft.com/en-us/aspnet/core/web-api
+https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design
+https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-implementation
+https://restfulapi.net/
+https://octoperf.com/blog/2018/03/26/soap-vs-rest/
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle
+https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity
+
+level 1: identify resources as urls.
+level 2: use http methods semantically, and status codes
+level 3: use hypermedia.
+
+distinguish resources from representations
+resources get distinct URLs, distinguish representations with headers
+follow conventions with HTTP methods
+
+uniform interface
+
+client-server
+stateless
+cacheable
+layered system
+(code on demand)
+
+methods
+    GET: safe (generate no change to visible system state (e.g. caching allowed))
+    GET, PUT, DELETE: idempotent (result of 1 request is identical to result of N requests - subsequent requests don't change anything. turning switch on, vs. toggling switch.)
+    POST is not safe or idempotent. POST N times, create N copies.
+        this is why the browser says "are you sure you want to send thsi request again" when you refresh or click "back" through forms and such
+
+other methods:
+    PATCH (allowed to be non-idempotent. partial replacement of resource)
+    HEAD (like GET, except, only send me the headers, not the body. client maybe wants to just see if resource exists, not necessarily get a representation of it. safe.)
+    OPTIONS (tell me what things I can do with this resource (e.g. which HTTP methods are allowed) - responds with "Allow" header. safe, idempotent)
+    TRACE (repeat back to me what you receive from me. for diagnostic purposes. idempotent)
+
+most important: get should be safe, post (and others) we can do changes.
+
+status codes
+    100 informational - this request-response is still ongoing
+        100 continue: you sent the headers, ok, now send the body
+    200 successful
+        200 ok: successful request
+            for get
+            Ok(...)
+        201 created: successful creation of resource. should generally return a copy of the resource created
+            for post
+            should also include Location header saying where it's at.
+            in web api: CreatedAtRoute(...)
+        204 no content: success but we are not returning anything
+            for put and delete
+            NoContent()
+    300 redirection
+        301 moved permanently: resource isn't here
+        302 found: resource isn't here, browser usually automatically requests new URL with GET
+            RedirectTo...(...)
+        304 not modified: you had e.g. "if-modified-since" header, and the resource hasn't been modified
+    400 client error
+        400 bad request
+            BadRequest()
+        401 unauthorized: really means unauthenticated. you did not identify yourself.
+            Unauthorized()
+        402 payment required: meme status code
+        403 forbidden: the true unauthorized. you dont' ahve the rights to do this
+            Forbidden()
+        404 not found
+            NotFound()
+        405 method not allowed: on this resource
+        406 not acceptable: you used "accept" header and we can't give you that content type
+        418 i'm a teapot: you asked me to brew coffee
+    500 server error
+        500 internalservererror
+            InternalServerError()
+        501 not implemented - usually we will implement it in future. like notimplementedexception
+        502 bad gateway - this server didn't make a mistake, but we had to call some OTHER server, and IT sent us something invalid
+
+return types iactionresult
+actionresult<T> with flexibility
+regular classes
+
+content-type header
+user-agent header
+
+content negotiation
+    accept header (media type, request)
+
+set-cookie (response)
+cookie (request)
+content-length (bytes)
+content-type (media type)
+
+contentresult (text/plain) (or just return string)
+jsonresult (application/json)
+
+objectresult supports content negotiation based on accept header
+
+add xml with
+services.AddMvc()
+    .AddXmlSerializerFormatters();
+
+[Produces("application/json")]
+forces controller or action to override content negotiation and only produce this type
+
+defaults... strings -> 200 ContentResult
+null -> 204 no content
+
+[FormatFilter]
+looks for {format} (can be optional with ?) in the Route
+
+customformatters exist

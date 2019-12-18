@@ -1,0 +1,5 @@
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/index
+https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/value-types
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/boxing-and-unboxing
+https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/method-parameters
+    click through to params, ref, and out.

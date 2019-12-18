@@ -1,0 +1,21 @@
+Clone that repo from our batch GitHub org.
+Make a new branch named with your first name, all lowercase, without accents.
+    To do this, we use `git checkout -b nick` to create a new branch called
+        `nick` starting at the current commit.
+    We can create the branch without switching to it by running `git branch nick`.
+    We can switch branches freely (if there are no un-committed changes) with
+        `git checkout nick`, `git checkout master`, etc.
+Push your code to that branch on GitHub.
+    `git push` already operates on just the current branch.
+
+Remember to add a proper gitignore first.
+Using the dotnet CLI, make a new project named `FizzBuzz` in a folder named `FizzBuzz`.
+Write your code in the Program.cs class file.
+(So the path will be: `<repo>/FizzBuzz/Program.cs`).
+
+For each number from 1 to 1000 in order,
+* print "Fizz" for the ones divisible by 3 (& not 5)
+* print "Buzz" for the ones divisible by 5 (& not 3)
+* print "Fizzbuzz" for the ones divisible by both 3 and 5
+* print the number itself, for all the rest of the numbers
+Also, I want to know, at the end, how many Fizz, how many Buzz, how many Fizzbuzz.

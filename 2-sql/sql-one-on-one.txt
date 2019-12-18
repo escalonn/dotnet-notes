@@ -1,0 +1,21 @@
+What is required for first normal form?
+What is a transitive dependency?
+What is required for the second normal form?
+What is the purpose of a foreign key constraint?
+What is the role of DataSet objects in ADO.NET?
+What is an ORM?
+What is a join in SQL?
+    What is the difference between an inner join and a full outer join in SQL?
+What is a union in SQL?
+What is a constraint in SQL?
+What is an aggregate function and where can we use them?
+What is the database-first approach in Entity Framework?
+What is the difference between a stored procedure and a function in SQL?
+What is the role of the DbContext in Entity Framework?
+What is your experience with relational databases?
+    What is an RDBMS?
+Explain the properties of a transaction.
+What is multiplicity?
+How would you express a many-to-many relationship in a relational database?
+What is a one-to-many relationship and how would you represent it in C# and in SQL?
+What does the "Include" method do in Entity Framework?

@@ -1,0 +1,27 @@
+most events bubble.
+in an event handler:
+    `this` is bound to the current element the event is running on
+        unless this is an arrow function. then, `this` is not re-bound.
+    `event.target` is the element causing the event.
+    `event.stopPropagation()` prevents later elements from running their handlers.
+    `event.stopImmediatePropagation()` prevents even later handlers on this element from running.
+    neither of these is a very good idea.
+    `event.preventDefault()` stops the browser's own default event handler.
+        like submitting a form when you click on a submit button or hit ENTER in a field, or selecting text when you drag over it.
+        default browser events and default browser CSS are responsible for all familiar dynamic behavior and look of pages. links behave like links just because of default browser DOM events.
+
+some ways to run javascript when the DOM is ready:
+    window load - waits longer than necessary
+    document DOMContentLoaded
+
+"capturing" is also possible for events, where we start at the window object, and then descend to the target element. if so, capturing runs first, then the target, then bubbling.
+http://javascript.info/article/bubbling-and-capturing/eventflow.png
+we can call `addEventListener(event, handler, capturing = false)` with third argument true to get capturing instead of bubbling.
+
+bubbling is default - "local authority is the first to respond, and afterwards higher authority finds out about it"
+
+document.createElement
+
+pyramid of doom, callback hell
+    promises
+        promise.then(success, failure)

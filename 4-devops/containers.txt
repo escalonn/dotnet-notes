@@ -1,0 +1,55 @@
+container - package code plus resources/environment it needs to run.
+can be easily made too big, bigger than necessary, too big to run on some server you might want.
+started life on linux, sort of also on windows server '16 now
+    -> an instance of an image
+    code
+    package
+    image
+        set of intstructions to build a container??
+        has file, Dockerfile
+            base image (e.g. ubuntu, ultimately kernel)
+            pull code
+            run tools
+            start app
+    resources
+    commands
+
+containers
+    docker - more used
+    kubernetes - not containers, but the other 5
+    coreos
+    rkt
+    apache mesos - only container and cluster network
+
+docker
+    container
+    orchestration
+    cluster
+    service
+    network
+    monitoring
+
+virtual machine
+    host | OS | VM engine        | guest OS | multiple apps
+container
+    host | OS | container engine | multiple apps
+
+VM, app fails it can bring down guest OS.
+VM, guest OS demands up-front static resources. container doesn't
+
+vagrant reload = reload all vagrantfile. maybe also relaod --provision
+vagrant provision = reload all vagrantup
+
+docker
+-----
+run, cmd, entrypoint
+    entrypoint defaults to /bin/sh -c
+    cmd is passed to the entrypoint
+    cmd is more useful for debugging since you can replace with with the final arg to container run
+
+swarm
+    networks
+    volumes
+    stacks
+        services
+scaling rule in the cloud..?

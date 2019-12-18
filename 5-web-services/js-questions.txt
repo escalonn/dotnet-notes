@@ -1,0 +1,26 @@
+What is JavaScript and what do we use it for?
+    What kind of programming language is it? How does it differ from Java, for example?
+What is CORS? (Cross Origin Resource Sharing)
+What is Cross-Site Scripting?
+What is "loosely typed"?
+    How do I declare a string in JavaScript?
+        Can I assign a variable with a string and then a number?
+            Do you want to rephrase your answer?
+What are the different scopes of a variable?
+    What is the difference between using "var" and "let"?
+What is the difference between truthy and falsy values in JavaScript?
+Let's go over a conditional in JavaScript. I can either use double-equal or triple-equal signs to evaluate. What's the difference?
+    What is an anonymous function?
+What is a callback function?
+    Why would we want [a function passed as a parameter]?
+        What's an example of a callback function?
+Tell me what you know about AJAX. How does it work and why do we use it?
+    Why would I use it instead of submitting a form?
+Walk me through the basic syntax of an AJAX call.
+How does a JavaScript event work?
+What is the DOM API?
+Tell me something about how JavaScript handles OO principles. How does JS handle objects?
+What is a closure?
+Tell me some issues using JavaScript?
+    What is semicolon injection?
+        What is hoisting?

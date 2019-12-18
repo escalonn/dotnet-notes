@@ -1,0 +1,64 @@
+class, interface, struct, enum
+data types
+type casting
+    any rules with type casting? can you cast anything to anything?
+    what is an issue to watch out for when casting numeric types?
+    if you make an invalid cast in your code, do you get a compile error or a runtime exception?
+        (could be either)
+control statements
+    what is a foreach statement? when would you want to use one?
+        if you wrote you own collection class, and wanted to use it in a foreach statement
+        what would you need to do?
+            (implement IEnumerable. important interface to recognize because of LINQ, very useful set of extension methods to IEnumerable)
+            what is the yield keyword for?
+                ()
+exception handling
+    try, catch, finally, throw
+debugging
+    what is a breakpoint?
+generics
+    what are generics? type parameters, compile time
+    if you put a string into a list of ints, do you get a compile error or a runtime error?
+        compile - generics are enforced at compile time
+collections
+    list, stack, queue, linkedlist, dictionary,
+data serialization
+    how can i serialize an object to a binary file on disk?
+        must add [serializable] attribute on class
+        BinaryFormatter object.
+        by default, serializes everything, including private members.
+    can I serialize to XML?
+        yes, XMLSerializer, or DataContractSerializer object.
+        XMLSerializer by default, only serializes public members
+        DataContractSerializer by default, only serializes when you mark with [DataMember]
+    how do we customize serialization of our classes?
+        add attributes, typically
+design pattern overview
+    factory method, singleton
+        singleton vs static class, why not use static class
+    do you know any others?
+delegates
+    What is a delegate? What can I use it for?
+        a delegate is a typed reference to a method with a certain signature.
+        with them, you can pass methods as arguments to other methods, store methods in data structures, and so on. more flexible, functional style of programming. event handlers naturally work with delegates.
+lambda expressions
+    what does the syntax look like for a lambda expression?
+    can I write a lambda expression for a delegate that doesn't return anything, like void return type?
+        (yes, with empty parentheses)
+    can i declare local variables in a lambda expression?
+        you can put braces after the lambda operator and have multiple statements in the braces, including local variables or anything else. technically this is called a "statement lambda", not a lambda expression exactly.
+    mention that lambdas are useful with LINQ
+logging
+    what are the benefits of using a specialized logging package instead of writing to files on your own?
+        more flexible to write to different targets, to databases, etc., with runtime configuration. don't need to solve this problem again every app. another developer debugging your app will have less trouble.
+asynchronous, parallel programming
+    describe how you would use async, await keywords
+    what return type do asynchronous methods need to have?
+        Task
+    what is the relationship between Tasks and individual threads?
+        it depends. simple async/await runs on only one thread in most contexts. parallelism/threading and async are two different concepts. simple async/await just takes turns.
+    i have a collection of objects. how can i call a method on each object asynchronously?
+    how can i call a method on each object in parallel, with multiple threads?
+        parallel.foreach
+        threadpool is another, more unwieldy way to do this
+    there is a common pitfall in parallel programming called deadlock. what is deadlock? do you know any ways to avoid it?

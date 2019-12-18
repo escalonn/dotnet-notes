@@ -1,0 +1,17 @@
+// after the associates deal with the awkwardness of this example, with the method hiding and so forth, i show
+//   doing it with composition instead of inheritance, which is also a little awkward but less so.
+// i don't really use this exercise anymore because any inheritance-based example will necessarily be incorrect,
+//   since any client could modify the state bypassing the memory logic just by upcasting, even if we hid all the parent class methods
+//   that modified the list
+
+// but it would be good to replace it with something
+
+MemoryList class -
+should inherit from List
+should in some fashion keep track of elements that have previously been in the list
+should be designed, tested, and implemented with TDD and pair programming
+should have a complete set of unit tests (don't test unchanged List methods - that would be the responsibility of Microsoft with their own List unit tests.)
+should be documented with XML comments (`///`)
+you will likely find the `base` keyword helpful, look it up (edited)
+
+also - List's methods are not marked `virtual`... so we will use `new` instead of any overriding even though that's not good practice.

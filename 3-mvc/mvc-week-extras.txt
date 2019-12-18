@@ -1,0 +1,73 @@
+https://developer.mozilla.org/en-US/docs/Web
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app
+https://docs.microsoft.com/en-us/aspnet/core/mvc/overview
+
+https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets
+
+"right way" to do database seeding https://docs.microsoft.com/en-us/ef/core/modeling/data-seeding
+
+https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation
+https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro#tag-helpers-compared-to-html-helpers
+https://docs.microsoft.com/en-us/aspnet/core/mvc/views/working-with-forms
+
+https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters
+
+sometimes we use models for forms, but we don't want to user to be able to set all the properties on that model, e.g. `Id`... or maybe... `LoggedInUsername` or `IsAdmin`! this is a _security vulnerability_ called *over-posting* (when the client POSTs more data than you wanted him to, filling in extra fields, that the server might wrongly trust the values of.)
+"unsafe" solution #1: just be careful you ignore those other property values in your POST action method.
+"safe" solution #1: make a new view model that lacks `Id` and use that.
+"safe" solution #2: put `[BindNever]` attribute on `Id`.
+safe but old-fashioned kinda undocumented way: use `[Bind]` attr like: `public IActionResult Create([Bind("Name,FavFood,Desc,BirthDate")] Person person)` to prevent all but the specificed fields from binding. (edited)
+
+
+the headache of logging EF with console app is all gone - we can set up NLog or Serilog easily for both EF and ASP.NET.
+NLog: https://github.com/NLog/NLog.Web/wiki/Getting-started-with-ASP.NET-Core-2
+   package `NLog.Web.AspNetCore`
+   in `Program.CreateWebHostBuilder` with `.UseNLog()`.
+Serilog: https://github.com/serilog/serilog-aspnetcore
+   package `Serilog.AspNetCore`
+   in `Program.CreateWebHostBuilder` with `.UseSerilog()`.
+then `ILogger` service is automatically registered and can be requested by controller constructor or anywhere else that wants to log things. exceptions that come out of EF or ASP.NET are automatically logged, but other exceptions, you should log yourself.
+(you still need to configure the logging as before, cf. the docs... NLog uses nlog.config xml file, while Serilog needs package `Serilog.Sinks.File` at least for file logging, and configures it with code, or, looks in appsettings.json using `Serilog.Settings.Configuration`)
+
+
+ef example:
+// this example's separation of concerns is not great because
+// business rules (when an order is placed, inventory decreases)
+// is being coded in the data access layer.
+public void PlaceOrder(Order order)
+{
+    // omitted: check the location's inventory to make sure this will work,
+    // check that all the entities really exist, etc.
+
+    var dbCustomer = _context.Customers.Find(order.Customer.Id);
+    var dbLocation = _context.Locations
+        .Include(l => l.Inventories)
+            .ThenInclude(i => i.Product)
+        .First(l => l.Id == order.Location.Id);
+
+    var dbOrder = new Data.Order
+    {
+        Customer = dbCustomer,
+        Location = dbLocation
+    };
+    // a dictionary is a sequence of key-value pairs
+    dbOrder.OrderLines.AddRange(order.Products.Select(pq => new Data.OrderLine {
+        ProductId = _context.Products.Find(pq.Key.Id)
+        Quantity = pq.Value
+    }));
+
+    // update the dbLocation's Inventory stuff:
+    foreach (var orderLine in dbOrder.OrderLines)
+    {
+        var inventory = dbLocation.Inventories.First(i => i.Product == orderLine.Product);
+        inventory.Quantity -= orderLine.Quantity;
+    }
+
+    // add all new reachable entities (the order and the order-lines)
+    _context.Add(dbOrder);
+
+    // apply all these changes as one transaction, not piece by piece
+    _context.SaveChanges();
+}

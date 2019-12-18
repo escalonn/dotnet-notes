@@ -1,0 +1,91 @@
+week 3 (mvc) content - 1/3 html/css, 2/3 mvc
+  html/css questions
+    https://gitlab.com/revature_training/html-css-team/blob/master/html-css-evaluation-materials/qc-questions.md
+    some others
+    What is the difference between HTML4 and HTML5?
+      The primary one is consistent, defined error handling
+      Many elements have been added directly to the language that are currently (in HTML4) Flash or JS-based hacks, such as <canvas>, <video>, and <audio>. Useful things such as Local Storage, new input types such as date for which the browser can expose easy user interface, and browser-supported form validation will make developing web applications much simpler for the developers, and make them much faster for the users.
+      What is the first tag you put in an HTML document?
+      What is the DOCTYPE for HTML5?
+      What tag does your entire HTML document go inside?
+      What goes into the HTML Head and Body tags?
+      What are some general HTML tags?
+      What is the HTML markup for creating a table?
+      How do you create a List in HTML?
+      What is the difference between the HTML "div" and "span"?
+      What is the difference between HTML4 and HTML5?
+      What are the different ways to include CSS in your code? What is the best practice?
+      If there are several CSS rules that conflict, which one will win?
+      What is Responsive Web Design?
+      What are CSS Selectors?
+      What are the CSS Combinators and what are their functions?
+  mvc questions
+    What is the MVC design pattern?
+      model, view, controller. controller receives requests, manages models, and chooses the view to respond with. model encapsulates application state and doesn't depend on controller or view. views present the data from the models with HTML/CSS/JS, and don't depend on controller. separation of concerns, testability.
+    What is ASP.NET MVC and what is its overall lifecycle?
+      client sends HTTP request. routing sends the request to a particular controller and particular action method. filters and model binding run. the action method runs and returns a view, usually with its model. the view is rendered into HTML/CSS/JS and sent back to the client as HTTP response. (bonus if they describe middleware or filters in more detail)
+    How can you make a view strongly-typed, & what are the benefits of doing so?
+      Use @model Razor directive at the top of the view (.cshtml) file to tie the view to one type it is allowed to receive. benefit is compile-time type checking, catch developer errors more easily.
+    You have data in several different objects and your view needs all of them. Can you pass the view many models? How do you address this?
+      A view can accept only one object as its model. we can introduce a new view model class, which will contain as members everything this view needs to see. also, views can accept collections.
+    How can you get data from the user into the controller?
+      in the URL as route parameter or query string parameter; in the request body as form data from forms with POST method. model binding will put the data from those sources into the parameters of the action method, if the name and type are compatible.
+    What is Razor syntax for? What is a Razor expression?
+      when a view is rendered, Razor syntax is rendered into standard HTML. It can be written in the .cshtml file and allows writing display logic in a C# style. Razor expressions are introduced with @-sign: whatever value they are evaluated to in C# is converted to a string and placed in the HTML.
+    How would you use Razor to display a list of items in a view?
+      make the view strongly-typed to a collection of the appropriate model. make an HTML table, and use @foreach Razor loop to include a row element for every item.
+    How can you present the property names and values in a user-friendly way, different from their standard C# format (e.g. "Birth Date" instead of "BirthDate"; "May 1, 2001" instead of "2001-05-01T01:00:00")?
+      you could hard-code these in the view, but the right way is to use Data Annotations on the model properties (Display, DisplayFormat) and use HTML helpers @Html.DisplayNameFor (for the names) and @Html.DisplayFor (for the values) in the view.
+    Distinguish tag helpers and HTML helpers, and give some examples of each.
+      Both of these are part of Razor syntax, and generate HTML for us. HTML helpers look more like C#, we call them as methods starting with @Html., and pass parameters: e.g. DisplayFor, DisplayNameFor, ActionLink, BeginForm, EditorFor. tag helpers look like HTML, but they use extra attributes that start with asp-: e.g. a/anchor (asp-action, asp-controller, asp-route-*), form (asp-action, asp-controller), input (asp-for), label (asp-for).
+    Apart from the model, what are our options for passing data from the controller into the view and what are their limitations?
+      ViewData is a string-to-object dictionary that can be accessed by the controller and also by the view. it does not survive into subsequent requests, and we have to cast any data we take out, so it is more error-prone. ViewBag is a special "dynamic" object in C#, providing access to the same ViewData using property-access syntax. TempData is like ViewData, except the values are stored somewhere across multiple requests (in cookies by default). values in TempData are marked for deletion when we read them without Peek method, but they can be unmarked with Keep method.
+    What is dependency injection? What good is it? How do I implement it in ASP.NET?
+      Dependency injection is a design pattern whereby classes do not instantiate their dependencies, but receive them as parameters. It allows for a more loosely coupled design and makes unit testing much more feasible. in ASP.NET, we must register dependencies as services in the Startup class. the class that wants the dependency should include it as a constructor parameter. in the ASP.NET MVC lifecycle, the constructor is instantiated by the framework, and the framework will provide all nested dependencies needed for that controller. the best practice (dependency inversion principle) is to have classes depend on interfaces, while Startup registers concrete instances for those interfaces.
+    What are the different lifetimes for registered services in ASP.NET? which ones have you used in your code, and why?
+      transient services are created each time they are requested. scoped services are created once per HTTP request. singleton services are created once period. entity framework's dbcontext uses scoped lifetime by default, so repository classes that use that dbcontext should have scoped lifetime too.
+    How are client-side and server-side validation handled in ASP.NET MVC?
+      Both are driven by Data Annotations on the properties of the model. client-side validation is implemented by using the right HTML helpers and tag helpers in forms. server-side validation is implemented by model binding to a class with Data Annotations, and checking the ModelState object in the action method (ModelState.IsValid). we could also place exception handling (whether with try-catch, filters, or middleware) under server-side validation.
+    What is mocking and what problem does it solve for us in unit testing? how have you used it in C#?
+      testing a class against the concrete dependencies used at runtime is not truly unit testing. mocking allows us to easily construct dependencies with the minimum behavior required by the classes we want to unit test. in C# we have a NuGet package called Moq, enabling us to unit test our controller classes, without having to use the real repository implementation they need at runtime.
+    How does your MVC app talk to the SQL database?
+      we use Entity Framework as an ORM to connect to the database, and repository design pattern to abstract those details from our MVC code. the action methods in our controllers call repository methods to read/write data, and those repositories read from the db using the DbSets in the DbContext, and write to the db using the SaveChanges method.
+    What is CSRF, and how do you address it in ASP.NET MVC?
+      Cross-site request forgery is a security concern whereby a malicious website tricks a client into sending form data to your server. the server can prevent it by generating a token alongside every form sent with any response, and refusing to process form data that is received, unless a valid token is sent along with it. the form tag helper automatically includes an anti-forgery token, and it is validated on the server with the ValidateAntiForgeryToken filter (an attribute on the action method receiving the form).
+    some others
+      What is the request lifecycle?
+      Is MVC a client-side or server-side technology?
+      What are the types of filters?
+        Authorization, Resource, Action, Exception, and Result
+      What do action filters do?
+      In what order are the filters executed?
+        Authorization, Resource, Action, Exception, and Result
+      What is the Razor View Engine?
+      What's the advantage of using C# in HTML with Razor?
+      What are the different ways of sending data between the Controller and the View?
+      What is the difference between ViewData and ViewBag?
+      What is the difference between TempData and ViewData?
+      Between TempData and ViewData, which one will survive a redirect action?
+      What is an HTML Helper?
+      What's the difference between a TextBox Helper and a TextBoxFor Helper?
+      What is a Tag Helper?
+      What makes Tag and HTML Helpers different from regular HTML tags?
+      What is the difference between Html.Partial and Html.RenderPartial?
+      What is a Partial View?
+      How do you render a Partial View?
+      What is a Section?
+      Where do you place scripts that you want to be available to all views?
+      How is a Shared View different from a Layout?
+      What is the difference between Session Data and TempData?
+      What are some of the advantages to using MVC over just HTML?
+      What is Scaffolding?
+      How does MVC talk to the Database?
+      What is the DB Context?
+      What is Entity Framework?
+      What is the difference between Eager Loading and Lazy Loading?
+      How does Entity Framework connect a C# Object to a Database Object?
+      How do you connect a Model to a View?
+      What is a Strongly Typed View?
+      What is a Weakly Typed View?
+      What does the @Model Directive do?
+      What does the Anti-Forgery Token do?
