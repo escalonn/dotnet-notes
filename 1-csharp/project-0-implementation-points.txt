@@ -4,3 +4,5 @@ making more explicit some points for the separation of concerns in project 0...
 3. the ef-generated classes should not be modified to add business logic. that is the job of the business logic library project.
 4. somewhere you will need to convert between data access objects and business logic objects, and it should not be in the console app.
 5. there should not be any use of Console except in the console app project.
+
+https://martinfowler.com/bliki/PresentationDomainDataLayering.html
