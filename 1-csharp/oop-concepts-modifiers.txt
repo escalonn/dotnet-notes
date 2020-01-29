@@ -10,14 +10,16 @@ e.g. list implements enumerable interface, i can write iterating methods that us
 e.g. primitives like string, int
 
 encapsulation
-a group of related properties, methods, and other members are treated as a single unit or object.
-restricting access to information within objects. the object controls access to its data.
+a group of related data and behavior are treated as a single unit or object.
+the object controls access to its data.
+e.g. a public field must be validated everywhere it is changed, but a property can be validated by the object that owns it
 e.g. calculator might store intermediate calculations in fields, they should be private or protected so that this can't be interfered with in a way that breaks the calculation
 
 polymorphism
-ability to treat derived class objects as though they were base class objects or any other implementor of interface
-we can implement the same interface many different ways. we can overload methods, and override virtual methods.
+ability to substitute different implementations
 we can use delegates to inject custom behavior into methods. we can use generics to allow for many different types to be used.
+we can treat derived class objects as though they were base class objects or any other implementor of interface
+we can implement the same interface many different ways. we can overload methods, and override virtual methods.
 a kind of abstraction. abstract the contract from the concrete objects.
 e.g. a collection of animals could contain birds and fish that both know how to move from one place to another, but one implements it with swimming and the other implements it with flying.
 
@@ -37,21 +39,21 @@ Open/closed principle
     software entities should be open for extension, but closed for modification.
     code you write should not be modified all the time. instead it should be somehow extensible,
         able to handle new conditions.
-    open: class should usually not be sealed, so they can be subclassed. or use interfaces.
-        in some cases... allow for callback functions, or event handlers, or model binding that is tolerant of extra fields (will see in ASP.NET)
+    open: class should usually not be sealed, so they can be subclassed. or use interfaces. allow for polymorphism.
+        in some cases... allow for callback functions, or event handlers, or deserialization that is tolerant of unexpected data (will see in ASP.NET)
     closed: classes and especially interfaces should be stable and well-defined, not changing their behavior or members, not breaking compatibility with every version
 Liskov substitution principle
     objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program. cf. design by contract.
-    rather: substitutability in a looser sense, because the formal LSP is too strong to be useful.
+        easy to violate with inheritance - writing subclasses which violate the expected functionality of the parent class, e.g. circle-ellipse problem
 Interface segregation principle
     many client-specific interfaces are better than one general-purpose interface.
-    split large interfaces into smaller, specific ones for the sake of less coupling
+    split large interfaces into smaller, specific ones for the sake of loose coupling
 Dependency inversion principle
     one should depend upon abstractions, not concretions.
     instead of tightly coupling classes to other classes, extract interfaces, and have each class
         depend on the interfaces of other classes.
     more testable, more robust to later evolution of the code.
-    one implementation of this is dependency injection - we will see this in ASP.NET and in Angular.
+    one implementation of this is dependency injection (we will see this in ASP.NET and in Angular).
 
 
 
