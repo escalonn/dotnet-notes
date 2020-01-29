@@ -14,6 +14,8 @@ a group of related data and behavior are treated as a single unit or object.
 the object controls access to its data.
 e.g. a public field must be validated everywhere it is changed, but a property can be validated by the object that owns it
 e.g. calculator might store intermediate calculations in fields, they should be private or protected so that this can't be interfered with in a way that breaks the calculation
+https://deviq.com/encapsulation/
+https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/architectural-principles#encapsulation
 
 polymorphism
 ability to substitute different implementations
@@ -22,19 +24,23 @@ we can treat derived class objects as though they were base class objects or any
 we can implement the same interface many different ways. we can overload methods, and override virtual methods.
 a kind of abstraction. abstract the contract from the concrete objects.
 e.g. a collection of animals could contain birds and fish that both know how to move from one place to another, but one implements it with swimming and the other implements it with flying.
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/polymorphism
 
 inheritance
 ability to derive a new class from a preexisting class, gaining its data and behavior
 e.g. a memory list could derive from list, inherit all its behavior, and additionally keep track of any removed elements. don't have to reimplement all list behavior.
-
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/inheritance
 
 
 
 SOLID
 implemented partly by object-oriented languages inherently - & partly by us the programmers.
+https://deviq.com/solid/
+https://java-design-patterns.com/principles/
 Single responsibility principle
     a class should have only a single responsibility
     methods should be short and simple
+    https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/architectural-principles#single-responsibility
 Open/closed principle
     software entities should be open for extension, but closed for modification.
     code you write should not be modified all the time. instead it should be somehow extensible,
@@ -54,6 +60,7 @@ Dependency inversion principle
         depend on the interfaces of other classes.
     more testable, more robust to later evolution of the code.
     one implementation of this is dependency injection (we will see this in ASP.NET and in Angular).
+    https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/architectural-principles#dependency-inversion
 
 
 
