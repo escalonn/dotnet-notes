@@ -2,6 +2,7 @@ SDLC - software development life cycle
 
 Waterfall - works for mission critical systems, IP, security, what doesn't change a lot.
 cannot adapt well to change. expensive/slow
+    feasibility
     requirements, 6-12 mo
     design, 4-6 mo
     build, 12-18 mo
@@ -22,6 +23,8 @@ spiral is one type of iterative, where each iteration is mini-waterfall.
 
 Agile -
     iterative and also incremental. we don't have the entire thing planned in detail when we start.
+    emphasize working software over detailed design
+    emphasize rapid or daily collaboration between stakeholders devs customers
     CMMI Capability Maturity Model Integration, accountability
         bureaucracy overload, govt contracts
         6 levels? revature on level 3?
