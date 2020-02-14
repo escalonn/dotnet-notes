@@ -48,18 +48,20 @@ form tag helper
 label tag helper <label asp-for="Name">, the label for some value (html helper - labelfor)
 input tag helper
     <input asp-for="Name" /> same as @Html.EditorFor(m => m.Name) or displayfor
-validation tag helper - for client-side validation (and the results of server-side validation when form is rejected).
+validation message tag helper - for client-side validation (and the results of server-side validation when form is rejected).
     <span asp-validation-for="">. html helper: Html.ValidationMessageFor
-    leverages jquery to display validation error messages and prevent the form from being submitted.
+    leverages data attributes and jquery to display validation error messages
+    and prevent the form from being submitted. also can display server-site model state errors.
 validation summary tag and html helpers -
 select tag helper and Html.DropDownListFor
     asp-for="Country" asp-items="Model.Countries"
     you give it the list of all, and also the property to put the currently selected one in.
     the list should be List<SelectListItem> property on the model.
     it's possible to get the items from an enum as well, can search how to do that.
-a (anchor) tag helper (or Html.ActionLink)
+anchor (a) tag helper (or Html.ActionLink)
     asp-controller, asp-action, asp-route-{name}
     link to a specific route / controller / action in your application
+    (Url.Action for when you just need the URL, not a whole element)
 we don't need to say "Model." with asp-for, but we do for most of the other tag helpers.
 
 still need server side validation because user could have javasript disabled or be malicious.
@@ -85,7 +87,9 @@ routing
         more precise control
         can use [controller], [action], [route]
         can have multiple routes that all work
-    you can mix them
+        can be named as well, for the same purpose as convention-based routes
+    you can mix them within an application, but an action which uses
+        attribute routing becomes unreachable from convention-based routing
 
 dependency injection using registered services
     adddbcontext (scoped)
@@ -95,7 +99,7 @@ dependency injection using registered services
 
 filters https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters
     authorization filters - control access
-    resource filters - implement caching
+    resource filters
     (then model binding happens)
     action filters - run just before or just after the action method to manipulate inputs or result
         can do server-side validation here in just one place
@@ -110,6 +114,16 @@ model binding
     [fromroute]
     [frombody]
     [bind]
+
+partial views
+    Html.PartialAsync
+    by default, partial view will receive the same model as the parent view
+        and also the same viewdata/viewbag collection
+view components
+    Component.InvokeAsync
+    vc:* (it defines its own tag helper)
+    ViewComponentResult
+    can be parameterized
 
 test controllers https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/testing
 
