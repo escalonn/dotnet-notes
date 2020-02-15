@@ -15,3 +15,19 @@ seek: SQL Server is able to look up what it needs much faster (binary search) us
 azure query performance insights
 sql profiler (not available for azure sql db)
 in some cases, a join-based query can be faster than a subquery-based query, namely when the subquery is doing some EXISTS check based on the values from the outer query. we should replace that with INNER JOIN.
+
+ADO.NET consistent interface with many providers
+    for specific data access technologies e.g. sql server and odbc
+each provider implements IDbConnection, IDbCommand, IDataReader, IDataAdapter.
+connection connects to the database
+command sends commands/queries over a connection and returns data if applicable,
+    as a data reader (command.ExecuteReader()), DataSet (via a data adapter), or single value
+data reader iterates forward (reader.Read()) through database result set
+    holds one row at a time - get current values with reader[columnName]
+    used (directly) in connected architecture
+        very memory-efficient
+data adapter loads a db result set into memory, and can apply changes back to the db
+    used in disconnected architecture
+DataSet holds tabular data, usually from a db result set
+    usually filled by a data adapter (adapter.Fill(dataSet))
+    contains DataTables, which contain DataRows and DataColumns
