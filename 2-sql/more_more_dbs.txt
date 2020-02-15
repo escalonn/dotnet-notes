@@ -51,3 +51,17 @@ code-first
 
 Entity Framework also needs a database provider to implement
     its abstractions for a specific db technology e.g. sql server, sqlite, inmemory, etc
+
+explicit loading - load related data explicitly after original query
+    uses Entry and Load methods. manual lazy loading in bulk - no real reason to use it.
+eager loading - load related data as part of original query
+    preferred way. Include, ThenInclude. take advantage of sql joins.
+lazy loading - load related data at the moment of accessing each navigation property
+    do not use - subject to n+1 problem, not worth it.
+    disabled by default - enabled with UseLazyLoadingProxies call
+    and virtual keyword on properties. (virtual is otherwise unnecessary on entities)
+
+entitystates: unchanged, added, modified, deleted, detached
+    access/modify entity state directly with context.Entry(entity).EntityState
+    these reflect ef's tracking behavior, and are read on savechanges to
+    generate the commands to send to the db
