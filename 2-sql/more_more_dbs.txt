@@ -17,7 +17,7 @@ sql profiler (not available for azure sql db)
 in some cases, a join-based query can be faster than a subquery-based query, namely when the subquery is doing some EXISTS check based on the values from the outer query. we should replace that with INNER JOIN.
 
 ADO.NET consistent interface with many providers
-    for specific data access technologies e.g. sql server and odbc
+    for specific data access technologies e.g. sql server, odbc, etc
 each provider implements IDbConnection, IDbCommand, IDataReader, IDataAdapter.
 connection connects to the database
 command sends commands/queries over a connection and returns data if applicable,
@@ -31,3 +31,23 @@ data adapter loads a db result set into memory, and can apply changes back to th
 DataSet holds tabular data, usually from a db result set
     usually filled by a data adapter (adapter.Fill(dataSet))
     contains DataTables, which contain DataRows and DataColumns
+
+object-relational mapper
+    e.g. Hibernate, Django, Entity Framework
+    EF versions: EF 6, EF Core
+
+database-first
+    reverse engineer edmx model from db (but not in EF core)
+    reverse engineer entity classes directly from db
+model-first
+    edmx file, made with gui designer, manually or reverse-engineered from db
+    can generate database scripts from the model
+    can generate entity classes from the model
+    not supported by ef core
+code-first
+    write entity classes, connect to database
+    can create the database if it doesn't exist
+    can generate and apply migrations to manage the db structure via code
+
+Entity Framework also needs a database provider to implement
+    its abstractions for a specific db technology e.g. sql server, sqlite, inmemory, etc
