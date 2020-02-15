@@ -23,7 +23,8 @@ view depends on just model
 model depends on nothing
     part of separation of concerns; testability
 
-models should be strongly typed. that gives us the benefit of type checking and intellisense in the view.
+views should be strongly typed. that gives us the benefit of type checking and intellisense in the view.
+the alternative is dynamic views, which treats Model as dynamic type
 
 razor syntax
     razor expressions - start with @ character. like @DateTime.Now
@@ -42,17 +43,25 @@ razor syntax
         for some reason microsoft loves to mix them together.
         https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro#tag-helpers-compared-to-html-helpers
 
+Html.DisplayNameFor and Html.DisplayFor html helpers
+    configured via display data annotations like DisplayAttribute and DataTypeAttribute
 form tag helper
     includes anti-forgery token to prevent a malicious website from getting your browser to make requests to my website.
     makes every form submission i receive require it to send also a unique token that i put on that copy of the form when i made it.
-label tag helper <label asp-for="Name">, the label for some value (html helper - labelfor)
+    Html.BeginForm, doesn't automatically include anti-forgery token, used with using statement to wrap the form
+    in HTML, the default form method is GET, but the form tag helper's default method is POST.
+label tag helper <label asp-for="Name">, the label for some value (html helper - Html.LabelFor)
 input tag helper
-    <input asp-for="Name" /> same as @Html.EditorFor(m => m.Name) or displayfor
+    <input asp-for="Name" /> same as @Html.EditorFor(m => m.Name)
+    Html.EditorForModel will make inputs for every model property, but harder to customize
+    if a model is passed to the view, the form control will begin populated with the model's values
 validation message tag helper - for client-side validation (and the results of server-side validation when form is rejected).
     <span asp-validation-for="">. html helper: Html.ValidationMessageFor
     leverages data attributes and jquery to display validation error messages
-    and prevent the form from being submitted. also can display server-site model state errors.
-validation summary tag and html helpers -
+    and prevent the form from being submitted. also can display server-side ModelState errors.
+validation summary tag helper and html helper (Html.ValidationSummary)
+    <div asp-validation-summary="">, attr value All, ModelOnly, or None
+    also can display server-side ModelState errors.
 select tag helper and Html.DropDownListFor
     asp-for="Country" asp-items="Model.Countries"
     you give it the list of all, and also the property to put the currently selected one in.
@@ -65,19 +74,20 @@ anchor (a) tag helper (or Html.ActionLink)
 we don't need to say "Model." with asp-for, but we do for most of the other tag helpers.
 
 still need server side validation because user could have javasript disabled or be malicious.
+any errors detected server-side during model binding show up in ModelState of the controller
+    check ModelState.IsValid
 ultimately, client-side validation is more for user experience. faster error, don't need to submit the form to see it didn't work.
 
-DataAnnotations
-    required (non-nullable types are already required)
-    emailaddress
-    datatype
-    range
-    stringlength
-    regularexpression
-
-we can add our own validationattribute classes
-
-any errors detected server-side during model binding show up in ModelState of the controller
+data annotations
+    display and edit
+        Display
+        DataType (control what kind of form control is used by helpers)
+    validation (can replace the default error messages)
+        Required (non-nullable types are already required)
+        Range
+        StringLength
+        RegularExpression
+        can add custom validation attributes: subclass ValidationAttribute, override IsValid
 
 routing
     convention (put in startup.cs)
@@ -85,9 +95,10 @@ routing
         we name them, so we can reference them with html helpers or tag helpers to generate links.
     or attribute routing (put in attributes on controllers and action methods)
         more precise control
-        can use [controller], [action], [route]
+        can use [Route], or [Http*]
         can have multiple routes that all work
         can be named as well, for the same purpose as convention-based routes
+        if controller has RouteAttribute, its template will be prefixed to the actions' templates
     you can mix them within an application, but an action which uses
         attribute routing becomes unreachable from convention-based routing
 
@@ -109,6 +120,10 @@ filters https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters
 [HttpPost] attribute
 
 model binding
+    form values (Request.Form)
+    route values
+    query strings (Request.QueryString)
+    files
     [bindnever]
     [fromquery]
     [fromroute]
