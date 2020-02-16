@@ -5,6 +5,9 @@
         like an "interface" which both Framework and Core "implement"
     Core - subset of Standard
 
+https://docs.microsoft.com/en-us/dotnet/standard/components
+https://docs.microsoft.com/en-us/dotnet/standard/glossary
+
 In Standard:
 UWP - Desktop (Standard)
 *SignalR, MVC, WebAPI/WCF - Web Services (Core)
@@ -40,8 +43,9 @@ implementations:
         used by Unity for games
     .NET Framework
         CLR common language runtime (VES)
+            a virtual machine that runs intermediate language
             JIT just in time compiler
-                gets assembly, compiles to machine code
+                gets assembly, compiles to machine code on the fly
             memory management / garbage collection
             exception handling
             thread management
