@@ -141,6 +141,35 @@ use
 zurb foundation OR
 bootstrap
 
+bootstrap
+  css + js for reusable components to build responsive uis quickly.
+  depends on jquery and popper.js.
+  color classes: *-primary, *-secondary, *-success, etc.
+  alerts - bar with feedback message for user
+    class alert.
+  buttons
+    element button, class btn.
+    many options
+  dropdowns (structure:)
+    inside class dropdown, class dropdown-toggle and class dropdown-menu
+    inside the menu, classes dropdown-item
+  forms & form controls
+    surround label and input with class form-group
+    class form-control on input
+  navs - navigation menu
+    inside class nav, classes nav-item; inside that, class nav-link
+    class active for the current one
+  navbars - fancier version of nav
+    classes navbar and navbar-expand-* for some size e.g. -sm
+    navbar-nav for the nav part
+    supports collapsing
+  modals
+    display popup messages, to be closed by user action
+    inside class modal, class modal-dialog; inside that, class modal-content
+    inside the content, modal-header/-body/-footer
+    data attributes to control the modal
+
+
 css reset
   a style sheet that zeroes-out the browser defaults to prevent inconsistencies
 Normalize.css
