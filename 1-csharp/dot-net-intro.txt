@@ -73,7 +73,7 @@ implementations:
         uses .NET Native AOT compiler & runtime (VES)
         CoreFx (Standard Libraries), same as .NET Core
     older kinda abandoned implementations:
-        NET Compact Framework (Windows Phone)
+        .NET Compact Framework (Windows Phone)
         Micro Framework (embedded) (new 3rd party successor nanoFramework)
         Portable.NET (hostile 3rd party GNU version)
 
