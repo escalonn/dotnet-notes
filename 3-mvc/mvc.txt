@@ -77,6 +77,15 @@ we can add our own validationattribute classes
 
 any errors detected server-side during model binding show up in ModelState of the controller
 
+client-side validation - could use built-in HTML validation attributes,
+    but they are limited. the built-in html & tag helpers are designed to work with
+    microsoft's jquery unobstrusive validation library, which uses the jquery validate jquery plugin. the helpers put html5 data attributes onto the form controls, which
+    the validation library uses to configure validation logic and display validation messages
+    on the client-side.
+this enables data annotations in one place to drive consistent validation on both server-side and client-side.
+custom client-side validation is also possible; see documentation.
+https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation#custom-client-side-validation
+
 routing
     convention (put in startup.cs)
         tried in order, fallback, so the default and most general one should go last
