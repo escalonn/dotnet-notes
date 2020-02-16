@@ -1,9 +1,4 @@
-.NET
-    Classic - Windows, outdated. web forms
-    Standard - just a set of restrictions on Classic, no Windows-specific stuff
-        set of APIs that are implemented by the Base Class Library of a .NET implementation
-        like an "interface" which both Framework and Core "implement"
-    Core - subset of Standard
+
 
 https://docs.microsoft.com/en-us/dotnet/standard/components
 https://docs.microsoft.com/en-us/dotnet/standard/glossary
@@ -14,9 +9,6 @@ UWP - Desktop (Standard)
 *Entity Framework - Data (Core)
 Xamarin - Mobile (Standard)
     write once, outputs iOS, Android
-
-Mono framework repackaged .NET Classic for Unix.
-really just worked for web stuff
 
 languages for .NET now
 C# F# VB.NET R Python JS/TS (Java with help of Red Hat)
@@ -36,12 +28,18 @@ CLI common language infrastructure spec
         defines classes, structs, enums, interfaces, delegates,
         access modifiers, inheritance, value/reference types, etc.
 
+.NET Standard - not an implementation
+    versioned set of APIs that are implemented by the
+        Base Class Library of a .NET implementation
+    libraries can compile targetting .NET Standard and
+        the same assembly can be used by any .NET implementation
+        compatible with that version of .NET Standard.
+
 implementations:
-    Mono
-        Mono runtime (VES)
-        used by Xamarin for Mobile
-        used by Unity for games
     .NET Framework
+        from 2002, original implementation, Windows-only
+        last version 4.8 released 2019
+        gets updates from Windows Update
         CLR common language runtime (VES)
             a virtual machine that runs intermediate language
             JIT just in time compiler
@@ -50,14 +48,42 @@ implementations:
             exception handling
             thread management
         FCL framework class library (Standard Libraries)
+        implements .NET Standard 2.0, but won't go any further than that
     .NET Core
+        from 2016, redesigned and architecturally simplified successor to .NET Framework
+        open source, cross-platform, better support for DevOps, command-line, container scenarios
+        gets updates from manual installs / NuGet
+        .NET Framework frameworks were gradually ported to or redesigned for Core
+            (like EF Core, EF 6, ASP.NET Core, WinForms, WPF), finished though
         CoreCLR (VES)
+            the CLR for Core
             has a JIT as well, RyuJIT
             all the features of the CLR
-            "the CLR for .NET Core"
         CoreFX (Standard Libraries)
+    Mono
+        from 2004, open source, cross-platform (Unix)
+            originally reverse-engineered from .net framework
+            but only some frameworks were implemented
+        3rd party at first, adopted by microsoft from 2016
+        Mono runtime (VES)
+        more support for AOT compilation as opposed to JIT
+        used by Xamarin for mobile
+            runtimes for iOS, Android, Mac
+        used by Unity for games
     UWP
-        .NET Native
+        for windows 10/xbox apps
+        uses .NET Native AOT compiler & runtime
+    older kinda abandoned implementations:
+        NET Compact Framework (Windows Phone)
+        Micro Framework (embedded) (new 3rd party successor nanoFramework)
+        Portable.NET (hostile 3rd party GNU version)
+
+future plans (late 2020+)
+    deprecate .NET Framework
+    keep CoreCLR and Mono runtimes, converge them so they
+        are more interchangable
+
+    rename .NET Core as .NET
 
 managed code
     portability (same platform, different architecture)
@@ -65,14 +91,22 @@ managed code
     performance
     inter-operability (platform-independent)
 
+Visual Studio - IDE
+    some older frameworks focused more on GUI development scenarios,
+    or otherwise tied down to Visual Studio. with .NET Core, much more
+    freedom in tools.
+MSBuild - build system
+Roslyn - C# compiler (and VB)
+    also provides source code analysis, intellisense, etc.
+    (older c# compiler is csc.exe, distributed with .net framework)
+
 GAC global assembly cache
 strongly named. no two assemblies can have the same name
+nothing ever gets removed from it
 %systemroot%\assembly and %systemroot%\Microsoft.NET\assembly
-more for .NET Classic. outdated.
+for .NET Framework.
 
-now instead use portable:
-NuGet.Config
+now instead .NET Core uses cross-platform:
+NuGet.Config / csproj PackageReferences
 NuGet is package repository, networked where GAC is only on each machine
-deletes unused assemblies
-
-for VS 2017 Community install C#, (+ .NET, .NET Core), Web packages
+doesn't keep around unused assemblies
