@@ -40,7 +40,7 @@ razor syntax
         the LINQ query syntax of MVC. for frontend barbarians to feel more comfortable.
         does many things html helpers can do, but not all of them.
         for some reason microsoft loves to mix them together.
-        https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-2.0#tag-helpers-compared-to-html-helpers
+        https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro#tag-helpers-compared-to-html-helpers
 
 form tag helper
     includes anti-forgery token to prevent a malicious website from getting your browser to make requests to my website.
@@ -111,7 +111,27 @@ model binding
     [frombody]
     [bind]
 
-test controllers https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/testing?view=aspnetcore-2.0
+configuration in asp.net core
+    pulled from configuration providers at runtime
+    WebHost.CreateDefaultBuilder adds several app configuration providers:
+    - appsettings.json
+    - appsettings.{Environment}.json
+    - user secrets, when in Development environment
+    - environment variables
+    - command-line arguments
+    later providers override earlier providers
+    it's all customizable if you want to change or extend what CreateDefaultBuilder does
+        you can get config from Azure Key Vault, Azure App Configuration,
+        INI files, XML files, JSON files, in-memory collections, and others
+    values show up in IConfiguration service, available from the Startup ctor
+    rather than injecting IConfiguration into other classes, use the options pattern
+        for a more encapsulated and strongly typed approach
+        https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options
+    config read from JSON in nested objects (heirarchical)
+        is flattened so that ":" (colon) represents nesting.
+        "__" (double underscore) also works; colon isn't supported on some systems.
+
+test controllers https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/testing
 
 Moq video
 https://youtu.be/Krj3-h198KQ
