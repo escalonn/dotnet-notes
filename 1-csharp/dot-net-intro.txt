@@ -72,18 +72,20 @@ implementations:
         used by Unity for games
     UWP
         for windows 10/xbox apps
-        uses .NET Native AOT compiler & runtime
+        uses .NET Native AOT compiler & runtime (VES)
+        CoreFx (Standard Libraries), same as .NET Core
     older kinda abandoned implementations:
         NET Compact Framework (Windows Phone)
         Micro Framework (embedded) (new 3rd party successor nanoFramework)
         Portable.NET (hostile 3rd party GNU version)
 
 future plans (late 2020+)
-    deprecate .NET Framework
+    deprecate .NET Framework (but keep it supported with fixes)
     keep CoreCLR and Mono runtimes, converge them so they
         are more interchangable
-
     rename .NET Core as .NET
+    transition to using nullable reference types in C#
+    move Mono/Xamarin to use CoreFx
 
 managed code
     portability (same platform, different architecture)
@@ -91,10 +93,21 @@ managed code
     performance
     inter-operability (platform-independent)
 
-Visual Studio - IDE
+Visual Studio - traditional IDE
+    dates back to 1997
     some older frameworks focused more on GUI development scenarios,
     or otherwise tied down to Visual Studio. with .NET Core, much more
     freedom in tools.
+    excellent reputation for a free IDE
+    supports many languages, not just .NET languages
+    written in .NET Framework, Windows-only
+    there's a version for Mac in Mono, but it's not as good
+Visual Studio Code - new
+    from 2015
+    Electron app, cross-platform
+    usage focus on extensibility, many reliable vendor & third-party extensions
+    grown in popularity since launch, now very popular
+    more lightweight in some ways
 MSBuild - build system
 Roslyn - C# compiler (and VB)
     also provides source code analysis, intellisense, etc.
