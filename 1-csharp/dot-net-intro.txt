@@ -1,6 +1,8 @@
 .NET
     Classic - Windows, outdated. web forms
     Standard - just a set of restrictions on Classic, no Windows-specific stuff
+        set of APIs that are implemented by the Base Class Library of a .NET implementation
+        like an "interface" which both Framework and Core "implement"
     Core - subset of Standard
 
 In Standard:
@@ -19,16 +21,39 @@ F# functional C#
 
 for C#
 CLI common language infrastructure spec
-    VES virtual execution system
-    BCL base class library (common primitive types)
+    VES virtual execution system, aka the runtime.
+        the execution environment for a .NET application
+    Standard Libraries
+        includes:
+        BCL base class library
+            common data types for numbers, strings, etc.
+            exceptions, attributes, collections, delegates, I/O, threads
+        also reflection, networking, parallel programming
     CTS common type system
+        defines classes, structs, enums, interfaces, delegates,
+        access modifiers, inheritance, value/reference types, etc.
 
 implementations:
     Mono
-    CLR common language runtime
-        the execution environment for a .NET application
-        JIT just in time compiler
-        gets assembly, compiles to machine code
+        Mono runtime (VES)
+        used by Xamarin for Mobile
+        used by Unity for games
+    .NET Framework
+        CLR common language runtime (VES)
+            JIT just in time compiler
+                gets assembly, compiles to machine code
+            memory management / garbage collection
+            exception handling
+            thread management
+        FCL framework class library (Standard Libraries)
+    .NET Core
+        CoreCLR (VES)
+            has a JIT as well, RyuJIT
+            all the features of the CLR
+            "the CLR for .NET Core"
+        CoreFX (Standard Libraries)
+    UWP
+        .NET Native
 
 managed code
     portability (same platform, different architecture)
