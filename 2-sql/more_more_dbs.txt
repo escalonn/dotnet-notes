@@ -65,3 +65,18 @@ entitystates: unchanged, added, modified, deleted, detached
     access/modify entity state directly with context.Entry(entity).EntityState
     these reflect ef's tracking behavior, and are read on savechanges to
     generate the commands to send to the db
+
+ef schema configuration:
+conventions, Fluent API, data annotations
+conventions:
+    e.g. property named Id or (type name)Id = entity key
+Fluent API:
+    code in DbContext.OnModelCreating, ModelBuilder.Entity
+    ToTable - set db table name
+data annotations
+    introduces a dependency on the entity classes on entity framework,
+        and maybe even on the specific data provider - not good
+    e.g. [Key] = entity key
+    [Required] => not null constraint
+    [StringLength] => length of sql string type
+    [NotMapped] => hidden from EF
