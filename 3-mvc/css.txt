@@ -169,6 +169,13 @@ bootstrap
     inside the content, modal-header/-body/-footer
     data attributes to control the modal
 
+css preprocessors
+  css doesn't allow for DRY principle too much.
+  preprocessors let you define variables for reuse, sets of declarations
+    for reuse, and more.
+  Sass is the most common, usually using extension .scss.
+  Less is also used. similar feature set, somewhat different syntax.
+  the browser cannot understand either of them; they are compiled into css server-side.
 
 css reset
   a style sheet that zeroes-out the browser defaults to prevent inconsistencies
