@@ -30,3 +30,26 @@ TDD test-driven development
     only write enough code to pass the test.
     then refactor & cleanup the code.
     work in small steps.
+
+logging
+    how do you diagnose errors or bugs in an app deployed to production?
+    you can't use the debugger
+    you really don't want to have to rebuild and redeploy the code just to begin
+        to investigate a problem
+    you should have written logging code beforehand.
+    we use third-party logging libraries like Serilog and NLog because many apps
+        benefit from similar abstractions. for example, we can change logging
+        targets/providers without modifying any actual app code.
+    log levels in .NET:
+        Critical - app-wide failures, like invalid db connection
+        Error - unhandled exception, that doesn't break the whole app
+        Warning - unexpected conditions, handled exceptions.
+        Information - important points in the flow of the app, so we can see it's ok
+        Debug - track large amounts of data
+        Trace - track very large amounts of data, when debugging specific things
+    log Critical and Error in production,
+        and maybe Warning and Info, but not Debug or Trace (too noisy,
+        potential performance penalty)
+    in Development, log everything but Trace depending on needs in the moment
+    we can log whole exceptions as well as strings - good,
+        so we can see their stack traces
