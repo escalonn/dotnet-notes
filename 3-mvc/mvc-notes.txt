@@ -73,10 +73,18 @@ anchor (a) tag helper (or Html.ActionLink)
     (Url.Action for when you just need the URL, not a whole element)
 we don't need to say "Model." with asp-for, but we do for most of the other tag helpers.
 
-still need server side validation because user could have javasript disabled or be malicious.
+client-side validation is more for user experience. faster error, don't need to submit the form to see it didn't work.
+still need server side validation because user could have javascript disabled or be malicious.
 any errors detected server-side during model binding show up in ModelState of the controller
     check ModelState.IsValid
-ultimately, client-side validation is more for user experience. faster error, don't need to submit the form to see it didn't work.
+
+client-side validation - could use built-in HTML validation attributes,
+    but they are limited. the built-in html & tag helpers are designed to work with
+    microsoft's jquery unobstrusive validation library, which uses the jquery validate jquery plugin. the helpers put html5 data attributes onto the form controls, which
+    the validation library uses to configure validation logic and display validation messages
+    on the client-side.
+this enables data annotations in one place to drive consistent validation on both server-side and client-side.
+custom client-side validation is also possible; see documentation.
 
 data annotations
     display and edit
@@ -88,6 +96,26 @@ data annotations
         StringLength
         RegularExpression
         can add custom validation attributes: subclass ValidationAttribute, override IsValid
+
+configuration in asp.net core
+    pulled from configuration providers at runtime
+    WebHost.CreateDefaultBuilder adds several app configuration providers:
+    - appsettings.json
+    - appsettings.{Environment}.json
+    - user secrets, when in Development environment
+    - environment variables
+    - command-line arguments
+    later providers override earlier providers
+    it's all customizable if you want to change or extend what CreateDefaultBuilder does
+        you can get config from Azure Key Vault, Azure App Configuration,
+        INI files, XML files, JSON files, in-memory collections, and others
+    values show up in IConfiguration service, available from the Startup ctor
+    rather than injecting IConfiguration into other classes, use the options pattern
+        for a more encapsulated and strongly typed approach
+        https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options
+    config read from JSON in nested objects (heirarchical)
+        is flattened so that ":" (colon) represents nesting.
+        "__" (double underscore) also works; colon isn't supported on some systems.
 
 routing
     convention (put in startup.cs)
@@ -170,3 +198,5 @@ MVC crash course:
 - validation (client-side, server-side, ModelState, Data Annotations) [https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation]
 - dependency injection [https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection, the first half]
 - (anything about Razor Pages can pretty much be ignored)
+
+i recommend doing a mini-project using Entity Framework Core and ASP.NET Core MVC, with a database with one or two tables, and a UI with at least three or four views, which is not just a copy of the tutorial's. [https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app]
