@@ -3,3 +3,23 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/value
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/boxing-and-unboxing
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/method-parameters
     click through to params, ref, and out.
+
+testing
+    unit test
+        check smallest unit of functionality
+        should be isolated from runtime dependencies
+        advantages: easy to diagnose failures
+        can be written earlier in development, and thus guard against regressions
+            across more of the product's lifetime
+        easiest to automate
+    integration test
+        check how two or more components work together
+    acceptance test
+        verify that aspects of the whole system's functionality meet
+        functional or technical requirements
+
+TDD test-driven development
+    write (failing) tests before code.
+    only write enough code to pass the test.
+    then refactor & cleanup the code.
+    work in small steps.
