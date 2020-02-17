@@ -13,10 +13,17 @@ testing
             across more of the product's lifetime
         easiest to automate
     integration test
-        check how two or more components work together
+        check how two or more components work together, up to the whole system
+        usually slower to run
+        use integration tests for typical scenarios rather than every
+            possible permutation - unit testing is a more efficient way to cover
+            unusual edge cases.
+        we can write integration tests using all the same libraries as unit
+            testing, e.g. xUnit
     acceptance test
         verify that aspects of the whole system's functionality meet
         functional or technical requirements
+        might be manual or automated
 
 TDD test-driven development
     write (failing) tests before code.

@@ -174,8 +174,12 @@ test controllers https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/te
     it's more useful to test action in conjunction with things like model binding, model
     validation, and filters than to test it in isolation. ASP.NET has some leaky abstractions
     here which make it less unit-testable than it might be.
+integration testing is well-supported in ASP.NET Core too:
+    https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests
+    test the response produced by the app for a given request
+    you can register mock services in place of real ones for even more control.
 
-unit-testing classes with dependencies is best handled with dependency injection
+unit-testing classes with dependencies (e.g. most controllers) is best handled with dependency injection
     and a mocking framework like Moq or NSubstitute. Moq is the most common.
     good tutorial Moq video: https://youtu.be/Krj3-h198KQ
     writing test double classes by hand is awkward and time-consuming compared
