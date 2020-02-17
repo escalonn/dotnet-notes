@@ -80,3 +80,11 @@ data annotations
     [Required] => not null constraint
     [StringLength] => length of sql string type
     [NotMapped] => hidden from EF
+
+possible exercise:
+    take a project with an ADO.NET repository implementation and provide an Entity Framework
+        repository implementation that must behave identically
+    verify automatically with unit tests
+    requires interpreting SQL, getting exposure to ADO.NET code and
+        seeing some of the motivation for ORM, seeing motivation for
+        repository pattern, and of course practicing EF implementation.

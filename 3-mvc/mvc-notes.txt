@@ -97,13 +97,28 @@ data annotations
         RegularExpression
         can add custom validation attributes: subclass ValidationAttribute, override IsValid
 
+asp.net core runtime environment names
+    Production is default
+    Development is common alternative assumed by the templates for use in development
+        typically, Development environment will switch on behaviors useful for debugging,
+        like the developer exception page, non-minified css and js, disabled caching,
+        or more verbose logging, but the developer has full control over this.
+    Staging is sometimes used
+    any other environment name can be used and checked for by code
+    environment variable ASPNETCORE_ENVIRONMENT is read to determine the environment
+    there is an environment tag helper which will either keep or remove its contents
+        depending on environment.
+    https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments
+
 configuration in asp.net core
     pulled from configuration providers at runtime
     WebHost.CreateDefaultBuilder adds several app configuration providers:
     - appsettings.json
-    - appsettings.{Environment}.json
-    - user secrets, when in Development environment
+    - appsettings.{Environment}.json (different configs per environment)
+    - user secrets (but only when in Development environment!)
     - environment variables
+    - environment variables from the right runtime profile in launchSettings.json
+        (dotnet run uses "Project", VS uses "IIS Express" by default)
     - command-line arguments
     later providers override earlier providers
     it's all customizable if you want to change or extend what CreateDefaultBuilder does
@@ -143,7 +158,8 @@ filters https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters
     action filters - run just before or just after the action method to manipulate inputs or result
         can do server-side validation here in just one place
     exception filters - handle exceptions thrown at any previous step
-        alternative to error-handling middleware, which is put in startup.cs and is global
+        alternative to error-handling middleware (e.g. UseExceptionHandler),
+        which is put in startup.cs and is global
     result filter - just before & just after preparing the result to be sent and sending it
 [HttpPost] attribute
 
@@ -216,3 +232,8 @@ MVC crash course:
 - (anything about Razor Pages can pretty much be ignored)
 
 i recommend doing a mini-project using Entity Framework Core and ASP.NET Core MVC, with a database with one or two tables, and a UI with at least three or four views, which is not just a copy of the tutorial's. [https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app]
+
+possible exercise:
+    make (or begin with) an mvc app that has more than one URL.
+    implement functionality so every page displays a count of the number of times that URL has been visited.
+    (correct techs to use: middleware, singleton service, layout, and either viewdata/viewbag or @inject)
