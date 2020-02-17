@@ -169,9 +169,21 @@ view components
     can be parameterized
 
 test controllers https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/testing
+    some people say it's not worth very much to unit test controllers in ASP.NET,
+    because of how much controller behavior is tied to the request processing pipeline:
+    it's more useful to test action in conjunction with things like model binding, model
+    validation, and filters than to test it in isolation. ASP.NET has some leaky abstractions
+    here which make it less unit-testable than it might be.
 
-Moq video
-https://youtu.be/Krj3-h198KQ
+unit-testing classes with dependencies is best handled with dependency injection
+    and a mocking framework like Moq or NSubstitute. Moq is the most common.
+    good tutorial Moq video: https://youtu.be/Krj3-h198KQ
+    writing test double classes by hand is awkward and time-consuming compared
+        to using mocks with Moq, especially when interfaces with many members need
+        to be mocked, but only some of the members are relevant to the test.
+        (that is an indication that you're not following the interface
+        segregation principle, but sometimes we are constrained by the libraries
+        and frameworks we depend on)
 
 
 example for using hidden fields with collections nested inside a model:
