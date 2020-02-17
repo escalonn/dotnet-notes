@@ -48,20 +48,10 @@
     block (like a block element)
       float property modifies block element flow - lets e.g. other text flow around it to the left or the right.
     inline (like an inline element)
+    flex - layout children of this element with Flexbox, configured with other properties
+      like justify-content
     none (turn off display of the element, as though it weren't even there in the DOM.)
   visibility: hidden (invisible but still takes up space)
-
-
-
-- Introduction to Foundation
-- Responsive Web Design
-- Semantic Web Content
-- Web Accessibility
-- Media Queries
-    conditionally apply styles based on screen size or type. can check screen width, height, aspect ratio, portrait/landscape, etc.
-    there is a "print" screen type for customizing the styles for printing a page
-    more complex things like "does the user have a mouse that can hover other things? or just a touchscreen?"
-- Team Oriented Environment"
 
 DOM, document object model.
 html and css text format is the serialized form
@@ -137,37 +127,62 @@ important
 specificity
 inline
 
-use
-zurb foundation OR
-bootstrap
+media queries
+  conditionally apply styles based on screen size or type. can check screen width, height, aspect ratio, orientation, color/monochrome, dpi, etc.
+  there is a "print" screen type for customizing the styles for printing a page
+  can use with @media in selector, or with media attribute on link element (external style)
+  e.g. "@media screen and (max-width: 500px)"
+
+the design should look good on any screen and device
+  "adaptive"
+    write stylesheets for several different screen sizes & types, load the right one
+      using css media queries
+  "responsive"
+    write one stylesheet which uses media queries and other CSS features to
+      let the page reformat without reloading, as the window resizes. harder to make
+
+responsive features in html - srcset for images, different sources for different screen sizes
+to prevent pre-loading the wrong image before CSS is even read
+
+css libraries -
+  zurb foundation, bootstrap
 
 bootstrap
   css + js for reusable components to build responsive uis quickly.
   depends on jquery and popper.js.
   color classes: *-primary, *-secondary, *-success, etc.
-  alerts - bar with feedback message for user
-    class alert.
-  buttons
-    element button, class btn.
-    many options
-  dropdowns (structure:)
-    inside class dropdown, class dropdown-toggle and class dropdown-menu
-    inside the menu, classes dropdown-item
-  forms & form controls
-    surround label and input with class form-group
-    class form-control on input
-  navs - navigation menu
-    inside class nav, classes nav-item; inside that, class nav-link
-    class active for the current one
-  navbars - fancier version of nav
-    classes navbar and navbar-expand-* for some size e.g. -sm
-    navbar-nav for the nav part
-    supports collapsing
-  modals
-    display popup messages, to be closed by user action
-    inside class modal, class modal-dialog; inside that, class modal-content
-    inside the content, modal-header/-body/-footer
-    data attributes to control the modal
+  size breakpoints: xs, sm (~phone size); md (~tablet size); lg, xl (~desktop size)
+  based on 12-column grid system
+    inside class container or container-fluid, class row
+      inside row, class col, or col-1 to col-12, defining column width out of 12,
+      can also use size breakpoints.
+      e.g. "col-12 col-md-4" means, 33% width if size md and above, else 100% width
+    classes align-items-* control vertical alignment of cols within the row, and
+    classes justify-content-* control horizontal alignment
+  some components
+    alerts - bar with feedback message for user
+      class alert.
+    buttons
+      element button, class btn.
+      many options
+    dropdowns (structure:)
+      inside class dropdown, class dropdown-toggle and class dropdown-menu
+      inside the menu, classes dropdown-item
+    forms & form controls
+      surround label and input with class form-group
+      class form-control on input
+    navs - navigation menu
+      inside class nav, classes nav-item; inside that, class nav-link
+      class active for the current one
+    navbars - fancier version of nav
+      classes navbar and navbar-expand-* for some size e.g. -sm
+      navbar-nav for the nav part
+      supports collapsing
+    modals
+      display popup messages, to be closed by user action
+      inside class modal, class modal-dialog; inside that, class modal-content
+      inside the content, modal-header/-body/-footer
+      data attributes to control the modal
 
 css preprocessors
   css doesn't allow for DRY principle too much.
@@ -182,11 +197,3 @@ css reset
 Normalize.css
   more recent alternative
   removes inconsistencies between browsers, but preserves some useful defaults
-
-"adaptive"
-write a css for every screen type
-"responsive"
-page reformats in response without reloading. harder to make
-
-responsive features in html - srcset for images, different sources for different screen sizes
-to prevent pre-loading the wrong image before CSS is even read
