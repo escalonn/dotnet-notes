@@ -11,3 +11,9 @@ the UI calls the repo methods, or when there is something more complicated in te
 the mapper class is only called from the repository methods, so, it would just mean copy+pasting the mapper method bodies into all the repo methods that call them.
 
 the mapper class's only purpose is to avoid the code duplication that that strategy would involve.
+
+--------
+
+idea for demo/project, library application
+    an administrative user may approve checking out books, adding books, loaning books, and throwing away destroyed books
+    a regular user can make requests to lend books or browse them

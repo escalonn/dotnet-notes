@@ -29,10 +29,14 @@ this section is helpful if you are working with forms in your project 1.5 with j
 
 also:
 
-https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting?view=aspnetcore-2.2
+https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting
 
 skim this to learn what XSS is, and at least one technique or feature in ASP.NET to prevent it. similar concept to SQL injection.
+razor expressions automatically html-encode strings.
+but they do not js-encode them, which they should be if in a js context like <script></script>!!
+    you can do it manually by @injecting a JavaScriptEncoder and using Encode method.
 
-https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-2.2
+
+https://docs.microsoft.com/en-us/aspnet/core/security/cors
 
 read the opening paragraph for understanding, and then use the suggestions to enable CORS on your API, _if_ you wish to make AJAX requests from the MVC website to the backend service. not necessary if HttpClient is the only thing accessing your API. (edited)

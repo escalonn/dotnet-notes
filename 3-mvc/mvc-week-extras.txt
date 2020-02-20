@@ -21,6 +21,13 @@ sometimes we use models for forms, but we don't want to user to be able to set a
 safe but old-fashioned kinda undocumented way: use `[Bind]` attr like: `public IActionResult Create([Bind("Name,FavFood,Desc,BirthDate")] Person person)` to prevent all but the specificed fields from binding. (edited)
 
 
+preventing CSRF - use form tag helper;
+    then use ValidateAntiForgeryToken on the actions, or AutoValidateAntiforgeryToken on controller/global
+    to validate on every non-safe http method (yes POST, no GET)
+    the token comes in a hidden form control, using name __RequestVerificationToken
+    if not using form tag helper, can still get token with @Html.AntiForgeryToken()
+
+
 the headache of logging EF with console app is all gone - we can set up NLog or Serilog easily for both EF and ASP.NET.
 NLog: https://github.com/NLog/NLog.Web/wiki/Getting-started-with-ASP.NET-Core-2
    package `NLog.Web.AspNetCore`
