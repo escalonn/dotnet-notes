@@ -39,4 +39,10 @@ but they do not js-encode them, which they should be if in a js context like <sc
 
 https://docs.microsoft.com/en-us/aspnet/core/security/cors
 
-read the opening paragraph for understanding, and then use the suggestions to enable CORS on your API, _if_ you wish to make AJAX requests from the MVC website to the backend service. not necessary if HttpClient is the only thing accessing your API. (edited)
+read the opening paragraph for understanding, and then use the suggestions to enable CORS on your API, _if_ you wish to make AJAX requests from client-side to the backend service.
+    not necessary if a backend (like with .NET HttpClient) is the only thing accessing your API.
+"same-origin" is defined by having the same scheme (http/s), host (e.g. w/ or w/o www.), and port.
+    when configuring WithOrigins, make sure you don't put a trailing slash /
+
+cors policies can be applied per-controller or per-action by using EnableCors, DisableCors attrs.
+    this makes sense if e.g. some origins don't need permission to access all parts of the API
