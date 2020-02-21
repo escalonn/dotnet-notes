@@ -65,13 +65,13 @@ validation summary tag helper and html helper (Html.ValidationSummary)
 select tag helper and Html.DropDownListFor
     asp-for="Country" asp-items="Model.Countries"
     you give it the list of all, and also the property to put the currently selected one in.
-    the list should be List<SelectListItem> property on the model.
+    the list should be some IEnumerable<SelectListItem> (e.g. SelectList) property on the model.
     it's possible to get the items from an enum as well, can search how to do that.
 anchor (a) tag helper (or Html.ActionLink)
     asp-controller, asp-action, asp-route-{name}
     link to a specific route / controller / action in your application
     (Url.Action for when you just need the URL, not a whole element)
-we don't need to say "Model." with asp-for, but we do for most of the other tag helpers.
+we don't need to say "Model." with asp-for, but we do for most of the other tag helper attrs.
 
 client-side validation is more for user experience. faster error, don't need to submit the form to see it didn't work.
 still need server side validation because user could have javascript disabled or be malicious.
@@ -204,6 +204,25 @@ unit-testing classes with dependencies (e.g. most controllers) is best handled w
         (that is an indication that you're not following the interface
         segregation principle, but sometimes we are constrained by the libraries
         and frameworks we depend on)
+
+caching
+    parts of views: cache tag helper, cache parts of the rendered html in memory for performance/responsiveness.
+        enabled attr for a condition, default true
+        expires-* attrs for expiry, default 20 min. several options
+        vary-by-* attrs to distinguish cache by user, by query, by route, by anything, etc.
+        priority attr to influence cache expiry (a suggestion, not guaranteed)
+        something like a viewcomponent that accesses the database would be a great candidate for this type of caching
+    data caching
+        not enabled by default - setup with AddMemoryCache in ConfigureServices, then inject IMemoryCache
+        write cache with Set(object key, object value), read cache with TryGetValue(object key, out object value)
+        or, use GetOrCreateAsync with a lambda to do both.
+        can configure caching options (expiry, etc) with extra parameters
+    distributed cache
+        stores serialized data or html outside the server, can be used by many app instances at once
+        configure IDistributedCache with some provider, e.g. sql server or redis.
+        for data, SetAsync, GetAsync(string key, byte[] value)
+        for html, <distributed-cache> tag helper that works like cache tag helper
+            its behavior falls back to regular cache tag helper, if IDistributedCache isn't configured
 
 
 example for using hidden fields with collections nested inside a model:
