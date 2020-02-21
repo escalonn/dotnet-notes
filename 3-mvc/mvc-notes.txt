@@ -224,23 +224,49 @@ caching
         for html, <distributed-cache> tag helper that works like cache tag helper
             its behavior falls back to regular cache tag helper, if IDistributedCache isn't configured
 
+state management
+    http is stateless - requests are independent of each other
+    we may want some continuity between requests, or to handle authentication
+    we can store state client-side:
+        query strings: limited by url size, least secure option for sensitive data, logged often,
+            can interfere with caching if caching is desired, easily modified by user.
+            use only for minimal amounts of non-sensitive data
+        hidden fields: (input type="hidden") somewhat easily modified by user; can only be sent by
+            form submission. especially useful for multi-page form workflows
+        cookies: key-value-pair storage maintained by browser per-domain.
+            sent by client to server on every request until expiry (customizable) or server unsets them.
+            authentication tokens fit this model very well.
+            but keeping too much data in cookies will bloat and slow down every request.
+            browsers also impose a limit.
+        from javascript we can use html5 web storage api (sessionstorage, localstorage)
+    storing state server-side:
+        caching
+        session state: store data per-session in memory or in a distributed store
+            uses cookies to identify the client. if enabled, access using HttpContext.Session
+    server-side state may be unable to scale to large numbers of users,
+        but client-side state has no such problems.
+
+    TempData: dictionary of string to object. data is removed after the request
+        that reads it, unless Keep or Peek methods are used to keep it longer.
+        by default, puts data in cookies. can easily configure to use session state instead.
+
 
 example for using hidden fields with collections nested inside a model:
 
-<form asp-action="Post">
-    @for (int i = 0; i < Model.Count; i++)
-    {
-        @Html.Hidden($"items[{i}].Id", Model[i].Id)
-        @Html.Hidden($"items[{i}].Name", Model[i].Name)
-    }
-    <input type="submit" value="Post" class="btn btn-default" />
-</form>
+    <form asp-action="Post">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            @Html.Hidden($"items[{i}].Id", Model[i].Id)
+            @Html.Hidden($"items[{i}].Name", Model[i].Name)
+        }
+        <input type="submit" value="Post" class="btn btn-default" />
+    </form>
 
-well actually in that case the model IS a collection
-i don't remember why it has items[i] instead of just [i] which would work for sure
-    maybe i was model binding to a parameter named `items`
+    well actually in that case the model IS a collection
+    i don't remember why it has items[i] instead of just [i] which would work for sure
+        maybe i was model binding to a parameter named `items`
 
-https://docs.microsoft.com/en-us/aspnet/core/mvc/models/model-binding
+    https://docs.microsoft.com/en-us/aspnet/core/mvc/models/model-binding
 
 MVC crash course:
 - model, view, controller [https://docs.microsoft.com/en-us/aspnet/core/mvc/views] [https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers]

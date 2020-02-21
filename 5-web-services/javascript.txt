@@ -93,6 +93,11 @@ immediately-invoked function expression
     write a function without storing it anywhere and invoke it right away.
     anonymous
 
+html5 web storage api, storing string-string key-value pairs.
+    functions setItem, getItem, removeItem, clear.
+    localStorage - shared between tabs, lives forever
+    sessionStorage - specific to tab, gone when tab is closed
+
 javascript references:
     https://egghead.io/
     https://github.com/getify/You-Dont-Know-JS
