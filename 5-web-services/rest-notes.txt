@@ -16,13 +16,30 @@ distinguish resources from representations
 resources get distinct URLs, distinguish representations with headers
 follow conventions with HTTP methods
 
-uniform interface
+REST is an architectural style for systems like the web, where info of many different types is distributed widely.
+the web follows REST mostly, and some parts follow it much more than others.
+today we usually consider REST in the context of web services, rather than the context of web pages and browsers.
+REST does not require HTTP but in practice we are almost always using HTTP.
+    HTTP's spec fits the requirements of REST very well; REST constraints have influenced the design of HTTP.
+    some things about HTTP do not fit REST: e.g. cookies.
+REST means, any system following its architectural constraints.
+in the industry, though, "REST" is often understood as an HTTP-based web service (that doesn't use hypermedia).
 
-client-server
-stateless
-cacheable
-layered system
-(code on demand)
+client-server (separation of concerns, reuse interface across platforms, evolve client and server independently)
+stateless (client, not server, stores session state; each request must have all info needed to understand it. scalable)
+cache (some responses should be cacheable by the client)
+uniform interface (between client and server, not one tied to implementations. loose coupling)
+    identification of resources (some info or concept that can be named and represented)
+        e.g. "latest version of code" and "version 1.2 of code" are different resources,
+        even if the underlying value is the same right now. "the next event" and "all events this week" are resources
+        we can link to resources and the links shouldn't break if the value changes or the representations change
+    manipulation of resources through representations
+        all actions are done by sending representations of intended state of a resource.
+        representations have a media type, e.g. html, json, xml, jpg.
+    self-descriptive messages
+    hypermedia as the engine of application state
+layered system (servers can be clients to other servers; each only knows about what it's directly connected to)
+(code on demand) (optional. clients can download code for new features, like applets or scripts)
 
 methods
     GET: safe (generate no change to visible system state (e.g. caching allowed))
