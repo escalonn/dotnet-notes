@@ -61,6 +61,15 @@ some only for response (e.g. Server)
 some for both (e.g. Cache-Control)
 some for both, to describe the body when there is one (e.g. Content-Type, Content-Length)
 
+headers
+    accept (request)
+    content-type
+    user-agent (request)
+    set-cookie (response)
+    cookie (request)
+    content-length (bytes)
+    content-type (media type)
+
 methods
     GET: safe (generate no change to visible system state (e.g. caching allowed))
     GET, PUT, DELETE: idempotent (result of 1 request is identical to result of N requests - subsequent requests don't change anything. turning switch on, vs. toggling switch.)
@@ -106,6 +115,7 @@ status codes
             NotFound()
         405 method not allowed: on this resource
         406 not acceptable: you used "accept" header and we can't give you that content type
+            the server doesn't have to use 406, it can decide to use a fallback media type
         418 i'm a teapot: you asked me to brew coffee
     500 server error
         500 internalservererror
@@ -114,29 +124,43 @@ status codes
         502 bad gateway - this server didn't make a mistake, but we had to call some OTHER server, and IT sent us something invalid
         505 HTTP version not supported
 
-return types iactionresult
-actionresult<T> with flexibility
-regular classes
+ASP.NET Core has support for REST HTTP services.
+works just like MVC, except we don't use views, we mostly use json media type instead of html.
+rather than using convention-based routing, we use attribute routing,
+    and we'll usually have a different action method for every supported HTTP method on a given resource.
+    the URL will be based on the resource, and not involve the action method name.
+    attributes: HttpGet, HttpPost, HttpPut, HttpDelete, etc.
 
-content-type header
-user-agent header
+the parent class of MVC's Controller is ControllerBase.
+for APIs, we use ControllerBase, because the extra stuff Controller has is just for views.
+we put [ApiController] attribute on the controllers, which changes some default behaviors:
+- requires attribute routing
+- automatic HTTP 400 errors from model binding.
+    equivalent to having "if (!ModelState.IsValid) return BadRequest(ModelState);" as a global action filter.
+- changes some model binding behavior to be more restrictive by default:
+    - complex type parameters are implicitly [FromBody]
+    - any parameter matching a route parameter name is implicitly [FromRoute]
+    - almost everything else is implicitly [FromQuery]
 
-content negotiation
-    accept header (media type, request)
-
-set-cookie (response)
-cookie (request)
-content-length (bytes)
-content-type (media type)
+return types
+- IActionResult types
+- any non-IActionResult type -> same as Ok(obj) if not null, NoContent if null.
+- actionresult<T> with flexibility
+    uses implicit casts to let you either return non-IActionResult types directly, or,
+    any IActionResult type.
 
 contentresult (text/plain) (or just return string)
 jsonresult (application/json)
 
-objectresult supports content negotiation based on accept header
+content negotiation
+    accept header (media type, request)
+    in ASP.NET Core, use Consumes attr to limit what media types that action will accept.
 
-add xml with
-services.AddMvc()
-    .AddXmlSerializerFormatters();
+objectresult supports content negotiation based on accept header
+many helper methods return types dervied from objectresult.
+
+ASP.NET Core supports application/json, text/json, and text/plain by default.
+    add xml in Startup.ConfigureServices with services.AddControllers().AddXmlSerializerFormatters();
 
 [Produces("application/json")]
 forces controller or action to override content negotiation and only produce this type
