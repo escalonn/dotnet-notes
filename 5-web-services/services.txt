@@ -7,39 +7,20 @@ SOA
     all that matters is the contract of the service
         two contract patterns, SOAP and REST
     SOAP
-        (simple object access protocol)
+        (originally meant: simple object access protocol)
         a protocol useful for SOA
         messaging protocol with envelope containing header and body
             can send WSDL to give operation contract
         has rules about how to connect and what format to talk over
-            A - address
-                e.g. URL, URI
-            B - binding
-                what transport protocol e.g. HTTP over TCP, UDP
-                SOAP is NEUTRAL about transport protocols, while REST is tied to HTTP
-            C - contract
-                serialization/deserialization rules
-                XML conventionally system <-> client
-                JSON conventionally system <-> user
-                    service contract - i will provide menu of operation contract
-                    operation contract
-                    data contract
-                        data members
-                    fault contract - i will send error messages
-                    transaction behavior
-                        ACID, atomic consistent isolated durable
         rules are defined within WSDL, description protocol
-            Web Services Description Language
+            Web Services Description/Definition Language
         SOAP is very common for web services
         it is verbose, clear, more secure (can secure both message and "pipe"
             with a different transport protocol because SOAP is protocol-neutral)
-        every call comes with the WSDL definition
         with WebInvoke/WebGet can put REST type behavior in SOAP
     REST
         Representational state transfer
-        a framework
-        just address. make binding and contract inferrable from address
-        always HTTP
+        in practice, always HTTP
         HTTP Verbs
             GET
             POST
@@ -47,11 +28,6 @@ SOA
             DELETE
         hypermedia = restful service
             for every call, send additional info about
-    SOAP vs REST:
-        SOAP provides entire service contract, every endpoint, with every call, heavy.
-        REST provides relevant "next steps" (hypermedia), nearby endpoints, with every call,
-            and the rest of the contract is implied by HTTP methods.
-Protocols
 
 SOAP vs REST
 - rest = http, soap = any protocol. over http, just uses POST.
@@ -66,25 +42,31 @@ SOAP vs REST
 - soap errors = faults. rest errors = 4xx, 5xx status codes.
 
 
+XML more commonly used between multiple servers.
+JSON more commonly used between server and browser.
+
 WCF windows communication foundation
-    server-side actual implementation, .net framework/classic only.
-    client-side, it's in .net core, anyone should be able to handle it.
-    types:
+    server-side actual implementation, .net framework only.
+    client-side, it's in .net core too
+    project types:
         application svc
-        library svc (doesn't have web.config, so some other application will
-            have to give it context to run)
+        library svc (so some other application will have to give it context to run)
         syndication svc
-
-XML conventionally system <-> client
-JSON conventionally system <-> user
-
-what is a web service?
-what is the basic structure of a soap message?
-what is protocol binding in soap?
-what are the five groups of http status codes?
-what is the role of the accept header in http? what about content-type?
-what are some advantages and disadvantages of service-oriented architecture?
-what is the purpose of the WSDL file?
-what are the most common http verbs, and what are they used for?
-how does a rest service communicate error conditions to the client? what about a soap service?
-what is the difference between operationcontract and servicecontract
+    wcf services communicate through endpoints. every endpoint has:
+        A - address: a URL to identify and locate the endpoint
+        B - binding:
+            e.g. BasicHttpBinding.
+            what transport protocol e.g. HTTP over TCP, TCP, UDP, MSMQ
+                in theory SOAP can use many protocols, but HTTP is common,
+                where every message is sent as the body of a POST request.
+            what encoding, what security requirements
+        C - contract
+            client-server request-reply pattern by default, but
+                supports other scenarios too
+            service contract - i will provide menu of operation contract
+                operation contract
+            data contract
+                datamember attribute
+            fault contract - i will send error messages
+            transaction behavior
+                ACID, atomic consistent isolated durable
