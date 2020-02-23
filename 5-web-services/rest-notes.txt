@@ -41,6 +41,26 @@ uniform interface (between client and server, not one tied to implementations. l
 layered system (servers can be clients to other servers; each only knows about what it's directly connected to)
 (code on demand) (optional. clients can download code for new features, like applets or scripts)
 
+for websites, the browser implementations dominate the situation and drive how servers will behave,
+    e.g. what sort of HTTP headers they will send, and how they will interpret different parts of HTTP.
+    this was once more true (IE dominance), then it got a little better,
+    and it's starting to get worse as Chrome dominates the market more.
+        e.g. Edge used to have its own rendering engine, but recently switched to Chrome's. one big reason was, because too many websites depended on Chrome-specific behavior to work best, as opposed to only depending on standards.
+    this makes the web less RESTful.
+for web services, there is much wider diversity in client implementations, although browsers' XMLHttpRequest
+    (used for AJAX) behavior matters a lot. so the HTTP standard carries a lot more weight as a reference point for
+    everybody. that is the uniform interface HTTP services should be following if they want to do REST.
+
+HTTP message structure: head (start-line, headers (optional)), empty line, body (optional)
+HTTP request message structure
+    start-line: HTTP method, request URI, HTTP version
+HTTP response message structure
+    start-line (called the status line): HTTP version, status code, status text (aka reason phrase, canned description of status code)
+some headers are only for request (e.g. Accept)
+some only for response (e.g. Server)
+some for both (e.g. Cache-Control)
+some for both, to describe the body when there is one (e.g. Content-Type, Content-Length)
+
 methods
     GET: safe (generate no change to visible system state (e.g. caching allowed))
     GET, PUT, DELETE: idempotent (result of 1 request is identical to result of N requests - subsequent requests don't change anything. turning switch on, vs. toggling switch.)
@@ -92,6 +112,7 @@ status codes
             InternalServerError()
         501 not implemented - usually we will implement it in future. like notimplementedexception
         502 bad gateway - this server didn't make a mistake, but we had to call some OTHER server, and IT sent us something invalid
+        505 HTTP version not supported
 
 return types iactionresult
 actionresult<T> with flexibility
