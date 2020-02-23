@@ -9,6 +9,9 @@ type checking and type conversion:
     x.GetType(): returns the runtime type.
         can compare using typeof operator: "== typeof(T)"
         (avoid; probably violates Liskov substitution principle)
+    (T)x: cast operator. does explicit conversion if possible,
+        otherwise throws InvalidCastException. handles all conversions, including
+        numeric and user-defined.
     x is T: return true when x is not null and
         the runtime type of x can be explicitly converted to T.
         handles upcasting & downcasting, but NOT numeric conversions
@@ -18,9 +21,6 @@ type checking and type conversion:
         unlike cast, doesn't throw exceptions.
         handles upcasting & downcasting, but NOT numeric conversions
             or any user-defined conversions.
-    (T)x: cast operator. does explicit conversion if possible,
-        otherwise throws InvalidCastException. handles all conversions, including
-        numeric and user-defined.
     user-defined conversions:
         use sparingly.
         implicit:
