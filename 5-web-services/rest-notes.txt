@@ -141,6 +141,7 @@ we put [ApiController] attribute on the controllers, which changes some default 
     - complex type parameters are implicitly [FromBody]
     - any parameter matching a route parameter name is implicitly [FromRoute]
     - almost everything else is implicitly [FromQuery]
+    (can still override this of course. we also have [FromHeader] and [FromForm].)
 
 return types
 - IActionResult types
@@ -163,7 +164,7 @@ content negotiation
         use Produces result filter to limit what media types that action's result will use.
 
 objectresult supports content negotiation based on accept header
-many helper methods return types dervied from objectresult.
+many helper methods return types derived from objectresult.
 
 [FormatFilter]
 looks for {format} (can be optional with ?) in the Route
