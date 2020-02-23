@@ -102,3 +102,11 @@ logging
     in Development, log everything but Trace depending on needs in the moment
     we can log whole exceptions as well as strings - good,
         so we can see their stack traces
+
+publishing/deployment
+    framework-dependent deployment (fdd)
+        published app does not contain the clr - it must already be installed
+        on the system that runs the app. default.
+    self-contained deployment (scd)
+        published app does contain a copy of the clr - you must configure which
+        platforms will be supported.

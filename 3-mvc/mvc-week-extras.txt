@@ -47,21 +47,28 @@ the ConfigureWebHostDefaults method implementation decides which, based on the c
     this is the default, e.g. with dotnet run.
     Kestrel is a lightweight cross-platform HTTP server. relatively new,
         does not support all the features of a mature general-purpose web server.
+    Kestrel is not usually used in production by itself.
     manually configured with a UseKestrel call
 - in-process in IIS or IIS Express
     Kestrel is not used; instead, IIS HTTP Server is.
-    this is a module in IIS or IIS Express which runs in its same process.
+    this is a server in IIS or IIS Express which runs in its same process.
+    IIS and IIS Express use something called the ASP.NET Core Module
+        to be able to handle this. for IIS, it's installed with the
+        ASP.NET Core Hosting Bundle.
     the in-process hosting model is the default in IIS, or in Visual Studio
         (based on the launch profile with commandName iisExpress).
+    only for Windows.
     manually configured with a UseIIS call
 - out-of-process in IIS or IIS Express
-    Kestrel is used, with IIS or IIS Express forwarding HTTP to and from it
+    Kestrel is used, with IIS/IIS Express forwarding HTTP to and from it
         (reverse proxy).
+    ASP.NET Core Module is also used by IIS/IIS Express to achieve this scenario.
     in csproj, <AspNetCoreHostingModel>OutOfProcess will enable this this when
         it would otherwise use in-process.
+    also only for Windows.
     manually configured with a UseIISIntegration call
 - Kestrel with some non-IIS reverse proxy server forwarding to it
-    this is also an option. e.g. Nginx, Apache.
+    this is also an option. e.g. Nginx (used on Linux), Apache (cross-platform).
     from the point of view of ASP.NET Core, it is mostly the same as the first option.
 when using a reverse-proxy, we could describe it as the "web server" in
     contrast to Kestrel in the role of "app server".
