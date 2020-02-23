@@ -4,6 +4,55 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/boxing-an
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/method-parameters
     click through to params, ref, and out.
 
+type checking and type conversion:
+    there are some subtle differences between these.
+    x.GetType(): returns the runtime type.
+        can compare using typeof operator: "== typeof(T)"
+        (avoid; probably violates Liskov substitution principle)
+    x is T: return true when x is not null and
+        the runtime type of x can be explicitly converted to T.
+        handles upcasting & downcasting, but NOT numeric conversions
+            or any user-defined conversions.
+        "x is T y": same thing, but also declare new variable y.
+    x as T: does explicit conversion if possible, otherwise returns null.
+        unlike cast, doesn't throw exceptions.
+        handles upcasting & downcasting, but NOT numeric conversions
+            or any user-defined conversions.
+    (T)x: cast operator. does explicit conversion if possible,
+        otherwise throws InvalidCastException. handles all conversions, including
+        numeric and user-defined.
+    user-defined conversions:
+        use sparingly.
+        implicit:
+            "public static implicit operator T1(T2 x) { //..."
+            should be coded to never throw exceptions or lose data, like the
+                built-in implicit conversions.
+            especially use sparingly, because mostly invisible.
+        explicit:
+            "public static explicit operator T1(T2 x) { //..."
+
+operator overloading
+    use sparingly.
+    almost every operator can be overloaded.
+    suited most for types that should feel like numeric types
+        or other primitive built-in types.
+    note that string overloads == and != to use value equality, even though
+        it's a reference type, because it's just more convenient that way.
+    from the official Microsoft guidelines:
+        "DO NOT be cute when defining operator overloads."
+
+indexers
+    a special kind of property which effectively overloads indexing operator []
+    good to use on collections.
+
+extension methods
+    syntactic sugar for static methods, therefore tightly coupled to
+        one implementation.
+    EF Core and ASP.NET Core love these, but use sparingly.
+    LINQ is a well-motivated use of extension methods.
+
+nullable value types
+
 testing
     unit test
         check smallest unit of functionality
