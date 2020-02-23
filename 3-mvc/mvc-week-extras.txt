@@ -45,9 +45,8 @@ the ConfigureWebHostDefaults method implementation decides which, based on the c
     profile configured in launchSettings.json and some other things.
 - Kestrel
     this is the default, e.g. with dotnet run.
-    Kestrel is a cross-platform HTTP server. relatively new, did not use to
-        be as suitable to be connected directly to the internet without a
-        more mature server as a reverse proxy.
+    Kestrel is a lightweight cross-platform HTTP server. relatively new,
+        does not support all the features of a mature general-purpose web server.
     manually configured with a UseKestrel call
 - in-process in IIS or IIS Express
     Kestrel is not used; instead, IIS HTTP Server is.
@@ -63,6 +62,14 @@ the ConfigureWebHostDefaults method implementation decides which, based on the c
     manually configured with a UseIISIntegration call
 - Kestrel with some non-IIS reverse proxy server forwarding to it
     this is also an option. e.g. Nginx, Apache.
+    from the point of view of ASP.NET Core, it is mostly the same as the first option.
+when using a reverse-proxy, we could describe it as the "web server" in
+    contrast to Kestrel in the role of "app server".
+why use a reverse proxy?
+- could manage many apps in one web server
+- firewall or load-balancing features the app server doesn't support
+- separate the concerns of the client-facing server from the needs of
+    ASP.NET Core itself
 
 ef example:
 // this example's separation of concerns is not great because
