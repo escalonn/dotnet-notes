@@ -16,9 +16,9 @@ https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters
 
 sometimes we use models for forms, but we don't want to user to be able to set all the properties on that model, e.g. `Id`... or maybe... `LoggedInUsername` or `IsAdmin`! this is a _security vulnerability_ called *over-posting* (when the client POSTs more data than you wanted him to, filling in extra fields, that the server might wrongly trust the values of.)
 "unsafe" solution #1: just be careful you ignore those other property values in your POST action method.
-"safe" solution #1: make a new view model that lacks `Id` and use that.
-"safe" solution #2: put `[BindNever]` attribute on `Id`.
-safe but old-fashioned kinda undocumented way: use `[Bind]` attr like: `public IActionResult Create([Bind("Name,FavFood,Desc,BirthDate")] Person person)` to prevent all but the specificed fields from binding. (edited)
+solution #2: make a new view model that lacks `Id` and use that.
+solution #3: put `[BindNever]` attribute on `Id`.
+solution #4: use `[Bind]` attr like: `public IActionResult Create([Bind("Name,FavFood,Desc,BirthDate")] Person person)` to prevent all but the specificed fields from binding.
 
 
 preventing CSRF - use form tag helper;
@@ -31,13 +31,38 @@ preventing CSRF - use form tag helper;
 the headache of logging EF with console app is all gone - we can set up NLog or Serilog easily for both EF and ASP.NET.
 NLog: https://github.com/NLog/NLog.Web/wiki/Getting-started-with-ASP.NET-Core-2
    package `NLog.Web.AspNetCore`
-   in `Program.CreateWebHostBuilder` with `.UseNLog()`.
+   in `Program.CreateHostBuilder` with `.UseNLog()`.
 Serilog: https://github.com/serilog/serilog-aspnetcore
    package `Serilog.AspNetCore`
-   in `Program.CreateWebHostBuilder` with `.UseSerilog()`.
+   in `Program.CreateHostBuilder` with `.UseSerilog()`.
 then `ILogger` service is automatically registered and can be requested by controller constructor or anywhere else that wants to log things. exceptions that come out of EF or ASP.NET are automatically logged, but other exceptions, you should log yourself.
 (you still need to configure the logging as before, cf. the docs... NLog uses nlog.config xml file, while Serilog needs package `Serilog.Sinks.File` at least for file logging, and configures it with code, or, looks in appsettings.json using `Serilog.Settings.Configuration`)
 
+ASP.NET Core is not itself an HTTP server; it needs some HTTP server implementation.
+there are several scenarios, these are the main ones.
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers
+the ConfigureWebHostDefaults method implementation decides which, based on the chosen
+    profile configured in launchSettings.json and some other things.
+- Kestrel
+    this is the default, e.g. with dotnet run.
+    Kestrel is a cross-platform HTTP server. relatively new, did not use to
+        be as suitable to be connected directly to the internet without a
+        more mature server as a reverse proxy.
+    manually configured with a UseKestrel call
+- in-process in IIS or IIS Express
+    Kestrel is not used; instead, IIS HTTP Server is.
+    this is a module in IIS or IIS Express which runs in its same process.
+    the in-process hosting model is the default in IIS, or in Visual Studio
+        (based on the launch profile with commandName iisExpress).
+    manually configured with a UseIIS call
+- out-of-process in IIS or IIS Express
+    Kestrel is used, with IIS or IIS Express forwarding HTTP to and from it
+        (reverse proxy).
+    in csproj, <AspNetCoreHostingModel>OutOfProcess will enable this this when
+        it would otherwise use in-process.
+    manually configured with a UseIISIntegration call
+- Kestrel with some non-IIS reverse proxy server forwarding to it
+    this is also an option. e.g. Nginx, Apache.
 
 ef example:
 // this example's separation of concerns is not great because
