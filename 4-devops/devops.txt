@@ -121,13 +121,57 @@ file storage
     for big files or something
     shared across many machines
 
-azure disk - like disk you attach to one machine at a time,
-azure files - like disk you attach to many machines
-azure blob - object store. doesn't have a filesystem
-    store images for webapps to fetch, log files
-    stream audio, video
-    best option for very large files
-    aws version is called S3
+Azure SQL Database
+    scale without downtime
+    automatic backups, geo-replication, failure detection
+    security, monitoring
+Azure Cosmos DB
+Azure Cache for Redis
+    good as a distributed cache (server-side caching)
+    concurrent DB connections are a bottleneck, so adding a cache alongside a SQL DB
+    makes a lot of sense if queried data is not changing all the time.
+Azure VM
+Azure App Service
+    deployment slots
+    autoscaling, load balancing
+    WebJobs - background tasks to run in an app service
+Azure Application Insights (monitoring)
+Azure Service Fabric (container orchestrator for microservices)
+Azure Kubernetes Service (container orchestrator for microservices)
+Azure Functions (serverless; code triggered by http request or some event in azure)
+    comparable to AWS Lambda
+Azure CDN - global cache of static content, e.g. html, js, images
+    customers get files from closest location to them. browser-oriented caching.
+    https://<endpointname>.azureedge.net
+Azure Key Vault - store keys, secrets, connection strings, etc. securely without
+    having to redeploy the app to modify them, and without storing them in code.
+    method to get secret at runtime: KeyVaultClient.GetSecretAsync
+    https://<YOUR_VAULT_NAME>.vault.azure.net
+Azure Active Directory - identity service provider. verify identity of users and
+    apps within an organization (a directory)
+
+Azure Stack - for hybrid cloud. provide azure services from on-premises hardware.
+
+Azure Resource Manager templates
+
+Azure Storage
+    azure managed disk - like disk you attach to one machine at a time
+    azure files - like disk you attach to many machines (file share)
+        good for hybrid cloud scenarios
+    azure blob - object store. doesn't have a filesystem
+        inside the storage accuont, "containers"; inside container, blobs.
+        http://<storageaccountname>.blob.core.windows.net/<containername>/<blobname>
+        store images for webapps to fetch, log files
+        stream audio, video
+        best option for very large files
+        aws version is called S3
+    Azure Queues - store messages in queues
+    Azure Tables - NoSQL schema-less data storage
+    for most storage resources, besides managed disks, you need a
+        storage account to hold them.
+
+Azure Service Bus - like Azure Queues, but with some differences,
+    some more advanced features. supports AMQP, transactions.
 
 a big advantage of cloud computing is the ease of scaling and the ability to pay only for what resources you use when you use them.
 scaling is something we have to think about regardless of cloud or on-premises.
