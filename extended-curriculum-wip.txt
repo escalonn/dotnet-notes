@@ -1,0 +1,87 @@
+shell commands (cd, ls, echo, nano, mkdir, cat, grep, touch, which, find, pwd)
+pipe, output redirect?
+PATH environment variable
+
+Basic Intro to .Net (history, libraries, components and architecture)
+variables
+Control flow
+    conditionals (if, else-if, switch)
+    loops(while, do-while, for)
+Basic logic problems - fizzbuzz, grading system, display patterns etc….
+Arrays ( single dimensional )
+Assignment on array and string problems (swapping, palindrome. fibonacci, reversal etc….)
+Scopes of variables
+creating additional methods for code reuse
+C# programs - File structure, Naming Convention, Hello World program anatomy
+
+Intro to hackerrank and intro to basic logic practise
+Methods and parameters (named, optional, params, command line args)
+Strings in C#
+foreach loop
+Paired programming to solve intermediate problems like factorial, searching an array etc
+handling user input
+    console read
+    command-line arguments
+
+Basics of OOP
+creating non-static classes
+Method overloading and overriding
+Access Specifiers
+Structs, classes and objects
+Constructors and new keyword
+Properties
+Inheritance, this and base keyword
+var
+Extended Modifiers ( abstract, static, partial, sealed)
+Assignment on object and class leveraging polymorphism and inheritance
+
+Abstraction in detail, abstract class vs interface
+Static class
+
+Datatypes (value vs reference) with heap and stack references
+
+OOP with depth
+
+------
+
+visual studio
+git
+.NET
+namespace vs assembly
+
+Intro to Data Structures and Algorithm designs
+Arrays, multidimensional arrays (2-D, jagged)
+Collections Non generics (Stack, Queue, ArrayList, HashTable etc...)
+Generic Collections
+List vs Array
+Linked List vs List
+List vs Dictionary
+Generic vs Non-Generic collections
+Basics of sorting algorithm
+IEnumerable
+Bubble sort
+Whiteboarding
+
+More algorithms problem solving Eg; Binary search tree
+Intro to complexity of algorithm, Big-O Notation
+Recursion
+Fibonacci w/ recursion vs w/ iteration
+Merge sort w/ recursion
+Comparing complexity of bubble sort vs merge sort
+
+Collections review
+Exceptions
+Custom Exceptions
+String concatenation vs String builder vs String buffer
+Singleton Pattern
+
+Intro Testing and Logging
+MSTest/NUnit/xUnit
+Phases of Unit Testing
+
+----
+
+Basics of threads
+async
+Garbage Collection - finalize and destructor
+Reflections and attributes
