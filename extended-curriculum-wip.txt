@@ -1,28 +1,27 @@
 shell commands (cd, ls, echo, nano, mkdir, cat, grep, touch, which, find, pwd)
-pipe, output redirect?
+pipe, output redirect
 PATH environment variable
-
 Basic Intro to .Net (history, libraries, components and architecture)
 variables
 Control flow
     conditionals (if, else-if, switch)
     loops(while, do-while, for)
+handling user input - console read
 Basic logic problems - fizzbuzz, grading system, display patterns etc….
-Arrays ( single dimensional )
-Assignment on array and string problems (swapping, palindrome. fibonacci, reversal etc….)
-Scopes of variables
-creating additional methods for code reuse
-C# programs - File structure, Naming Convention, Hello World program anatomy
 
-Intro to hackerrank and intro to basic logic practise
-Methods and parameters (named, optional, params, command line args)
+variable scope
+creating additional methods for code reuse
+Arrays ( single dimensional )
 Strings in C#
+Assignment on array and string problems (swapping, palindrome. fibonacci, reversal etc….)
+
+Intro to hackerrank/codesignal and intro to basic logic practise
+Methods and parameters (named, optional, params, command line args)
+handling user input - command-line arguments
 foreach loop
 Paired programming to solve intermediate problems like factorial, searching an array etc
-handling user input
-    console read
-    command-line arguments
 
+C# programs - File structure, Naming Convention, Hello World program anatomy
 Basics of OOP
 creating non-static classes
 Method overloading and overriding
@@ -30,12 +29,8 @@ Access Specifiers
 Structs, classes and objects
 Constructors and new keyword
 Properties
-Inheritance, this and base keyword
 var
-Extended Modifiers ( abstract, static, partial, sealed)
-Assignment on object and class leveraging polymorphism and inheritance
 
-Abstraction in detail, abstract class vs interface
 Static class
 
 Datatypes (value vs reference) with heap and stack references
@@ -61,6 +56,11 @@ Basics of sorting algorithm
 IEnumerable
 Bubble sort
 Whiteboarding
+
+Inheritance, this and base keyword
+Extended Modifiers ( abstract, static, partial, sealed)
+Abstraction in detail, abstract class vs interface
+Assignment on object and class leveraging polymorphism and inheritance
 
 More algorithms problem solving Eg; Binary search tree
 Intro to complexity of algorithm, Big-O Notation
