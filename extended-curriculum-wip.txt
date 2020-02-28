@@ -1,7 +1,9 @@
+tools: git, vs code, .net core sdk
 shell commands (cd, ls, echo, nano, mkdir, mv, cp, cat, grep, touch, which, find, pwd)
+minimal intro to git - clone, pull
 pipe, output redirect
 PATH environment variable
-Basic Intro to .Net (history, libraries, components and architecture)
+Basic Intro to .NET (history, libraries, components and architecture)
 variables
 Control flow
     conditionals (if, else-if, switch)
@@ -13,12 +15,14 @@ variable scope
 creating additional methods for code reuse
 Arrays ( single dimensional )
 Strings in C#
-Assignment on array and string problems (swapping, palindrome. fibonacci, reversal etc….)
+Assignment on array and string problems (swapping, palindrome. fibonacci, reversal etc.)
 
 Intro to hackerrank/codesignal and intro to basic logic practise
 Paired programming to solve intermediate problems like factorial, searching an array etc
+basic git - clone, status, add, commit, push; creating a repo on github.
 
 C# programs - File structure, Naming Convention, Hello World program anatomy
+
 Static class
 creating non-static classes
 new keyword
