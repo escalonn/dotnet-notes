@@ -1,0 +1,13 @@
+week 1
+
+age in years on all planets
+https://exercism.io/my/solutions/aa1c598b596a453d9175fbcc314e9dac
+
+contiguous substrings of length n
+https://exercism.io/my/solutions/cf492600b7894edb86ecd3c38b591de2
+
+
+write a program and use git to keep track of it, uploading it to your personal code repo.
+the program should: ask the user for some multi-word term, like "central processing unit", and print the acronym for that term (in this case, "CPU").
+use multiple methods.
+split the changes across multiple commits, at least two: right after you run dotnet new, and at the end once the program is done.

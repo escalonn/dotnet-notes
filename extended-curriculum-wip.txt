@@ -1,4 +1,4 @@
-shell commands (cd, ls, echo, nano, mkdir, cat, grep, touch, which, find, pwd)
+shell commands (cd, ls, echo, nano, mkdir, mv, cp, cat, grep, touch, which, find, pwd)
 pipe, output redirect
 PATH environment variable
 Basic Intro to .Net (history, libraries, components and architecture)
@@ -7,7 +7,7 @@ Control flow
     conditionals (if, else-if, switch)
     loops(while, do-while, for)
 handling user input - console read
-Basic logic problems - fizzbuzz, grading system, display patterns etc….
+Basic logic problems - fizzbuzz, grading system, display patterns etc.
 
 variable scope
 creating additional methods for code reuse
@@ -16,26 +16,27 @@ Strings in C#
 Assignment on array and string problems (swapping, palindrome. fibonacci, reversal etc….)
 
 Intro to hackerrank/codesignal and intro to basic logic practise
-Methods and parameters (named, optional, params, command line args)
-handling user input - command-line arguments
-foreach loop
 Paired programming to solve intermediate problems like factorial, searching an array etc
 
 C# programs - File structure, Naming Convention, Hello World program anatomy
-Basics of OOP
+Static class
 creating non-static classes
-Method overloading and overriding
-Access Specifiers
-Structs, classes and objects
-Constructors and new keyword
+new keyword
 Properties
 var
-
-Static class
+foreach loop
 
 Datatypes (value vs reference) with heap and stack references
 
+Basics of OOP
 OOP with depth
+Access Specifiers
+Structs, classes and objects
+Constructors
+
+Method overloading and overriding
+
+Advanced Methods and parameters (named, optional, params, command line args)
 
 ------
 
