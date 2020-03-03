@@ -11,3 +11,24 @@ write a program and use git to keep track of it, uploading it to your personal c
 the program should: ask the user for some multi-word term, like "central processing unit", and print the acronym for that term (in this case, "CPU").
 use multiple methods.
 split the changes across multiple commits, at least two: right after you run dotnet new, and at the end once the program is done.
+
+
+fizzbuzz
+
+-------
+ideas:
+
+luhn formula
+https://exercism.io/my/solutions/2b9ff454e17641b1bf0c4cefff88e927
+
+maybe transpose?
+https://exercism.io/my/solutions/41edfdfebbd64dd5ba0be27d7ce2cd83
+
+maybe to show strategy design pattern -
+    rock paper scissors
+
+https://raw.githubusercontent.com/Morasiu/ProgrammingChallenges/master/docs/list.png
+
+for events:
+    game board where piece controls his own movement?
+    manually-implemented logging? (static event?)

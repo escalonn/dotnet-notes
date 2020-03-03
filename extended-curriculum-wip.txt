@@ -1,3 +1,30 @@
+tools: VS Code, Bash, Git, .NET Core CLI
+shell:
+    echo, cat, grep, mkdir, touch, cd, ls, which, find, pwd, rm, mv, cp,
+    absolute paths, relative paths, /, ~, ., .., |, >, >>, $
+    PATH environment variable, shell variables
+Git: clone, pull, status, add, commit, push
+.NET: basics of Framework vs. Core.
+C#:
+    procedural fundamentals
+    variables
+    basic data types, operators, control flow
+    (static) methods
+    console input and output
+    strings, parsing strings as numbers
+    arrays
+
+did not cover:
+nano
+shell script
+shell control flow
+shell input, output, error
+C# namespace, class, object, project, instance method, compilation
+foreach
+var
+
+--------
+
 tools: git, vs code, .net core sdk
 shell commands (cd, ls, echo, nano, mkdir, mv, cp, cat, grep, touch, which, find, pwd)
 minimal intro to git - clone, pull

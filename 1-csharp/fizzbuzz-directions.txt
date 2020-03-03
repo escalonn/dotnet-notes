@@ -9,6 +9,10 @@ Push your code to that branch on GitHub.
     `git push` already operates on just the current branch.
 
 Remember to add a proper gitignore first.
+
+-------
+
+Push your code to your personal code repo (e.g. mine is 2002-feb24-net/nick-code)
 Using the dotnet CLI, make a new project named `FizzBuzz` in a folder named `FizzBuzz`.
 Write your code in the Program.cs class file.
 (So the path will be: `<repo>/FizzBuzz/Program.cs`).
@@ -19,3 +23,5 @@ For each number from 1 to 1000 in order,
 * print "Fizzbuzz" for the ones divisible by both 3 and 5
 * print the number itself, for all the rest of the numbers
 Also, I want to know, at the end, how many Fizz, how many Buzz, how many Fizzbuzz.
+Your code should calculate that, and, put the numbers you get in a comment, so I
+can see them without running the code.
