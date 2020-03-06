@@ -24,7 +24,7 @@ https://exercism.io/my/solutions/2b9ff454e17641b1bf0c4cefff88e927
 maybe transpose?
 https://exercism.io/my/solutions/41edfdfebbd64dd5ba0be27d7ce2cd83
 
-maybe to show strategy design pattern -
+maybe to show interfaces, dependency inversion, and strategy design pattern -
     rock paper scissors
 
 https://raw.githubusercontent.com/Morasiu/ProgrammingChallenges/master/docs/list.png

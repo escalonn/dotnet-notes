@@ -48,68 +48,76 @@ Intro to hackerrank/codesignal and intro to basic logic practise
 Paired programming to solve intermediate problems like factorial, searching an array etc
 basic git - clone, status, add, commit, push; creating a repo on github.
 
-C# programs - File structure, Naming Convention, Hello World program anatomy
+------
 
+C# programs - File structure, Naming Convention, Hello World program anatomy
+foreach loop
 Static class
 creating non-static classes
+fields
+Basics of OOP
+public vs private
+Generic Collections
+List vs Array
+
+Intro to Data Structures and Algorithm designs
+HashSet
+Arrays, multidimensional arrays (2-D, jagged)
+Basics of sorting algorithm
+Bubble sort
+Constructors
 new keyword
+
+debugger
+Recursion
+Fibonacci w/ recursion vs w/ iteration
+Merge sort w/ recursion
+Whiteboarding
 Properties
 var
-foreach loop
+
+
+Dictionary
+Intro to complexity of algorithm, Big-O Notation
+More algorithms problem solving Eg; Binary search
+Comparing complexity of bubble sort vs merge sort
+
+String concatenation vs String builder vs String buffer
+
+Collections review
+Exceptions
+Custom Exceptions
+
+Linked List vs List
+
+namespace vs assembly
 
 Datatypes (value vs reference) with heap and stack references
 
-Basics of OOP
-OOP with depth
-Access Specifiers
-Structs, classes and objects
-Constructors
-
-Method overloading and overriding
+Structs
 
 Advanced Methods and parameters (named, optional, params, command line args)
 
 ------
 
 visual studio
-git
-.NET
-namespace vs assembly
 
-Intro to Data Structures and Algorithm designs
-Arrays, multidimensional arrays (2-D, jagged)
-Collections Non generics (Stack, Queue, ArrayList, HashTable etc...)
-Generic Collections
-List vs Array
-Linked List vs List
-List vs Dictionary
-Generic vs Non-Generic collections
-Basics of sorting algorithm
-IEnumerable
-Bubble sort
-Whiteboarding
-
-Inheritance, this and base keyword
-Extended Modifiers ( abstract, static, partial, sealed)
-Abstraction in detail, abstract class vs interface
-Assignment on object and class leveraging polymorphism and inheritance
-
-More algorithms problem solving Eg; Binary search tree
-Intro to complexity of algorithm, Big-O Notation
-Recursion
-Fibonacci w/ recursion vs w/ iteration
-Merge sort w/ recursion
-Comparing complexity of bubble sort vs merge sort
-
-Collections review
-Exceptions
-Custom Exceptions
-String concatenation vs String builder vs String buffer
-Singleton Pattern
+Non generic Collections (Stack, Queue, ArrayList, HashTable etc...)
 
 Intro Testing and Logging
 MSTest/NUnit/xUnit
 Phases of Unit Testing
+
+Singleton Pattern
+
+Inheritance, this and base keyword
+Access Specifiers
+Method overloading and overriding
+Interface
+Extended Modifiers (abstract, static, sealed)
+Abstraction in detail, abstract class vs interface
+Assignment on object and class leveraging polymorphism and inheritance
+IEnumerable
 
 ----
 
