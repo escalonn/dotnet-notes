@@ -25,6 +25,36 @@ var
 
 --------
 
+
+C# programs - File structure, Naming Convention, Hello World program anatomy
+foreach loop, var
+Static class
+creating non-static classes
+concepts of object and class (basic OOP)
+fields
+properties
+constructors, new
+public and (default) private for class members
+    (no protected/internal)
+namespace, using directive
+value type and reference type (basics)
+jagged and multidimensional arrays
+generic collections (List, HashSet, Dictionary)
+sorting algorithms, conceptually and in code
+Bubble sort
+Recursion
+Fibonacci w/ recursion vs w/ iteration
+Merge sort w/ recursion
+debugger (in VS code)
+Intro to complexity of algorithm, Big-O Notation
+
+did not cover:
+    solutions, multiple projects
+    visual studio
+    non-generic collections (ArrayList)
+
+--------
+
 tools: git, vs code, .net core sdk
 shell commands (cd, ls, echo, nano, mkdir, mv, cp, cat, grep, touch, which, find, pwd)
 minimal intro to git - clone, pull
@@ -76,13 +106,12 @@ Whiteboarding
 Properties
 var
 
-
 Dictionary
 Intro to complexity of algorithm, Big-O Notation
-More algorithms problem solving Eg; Binary search
 Comparing complexity of bubble sort vs merge sort
 
 String concatenation vs String builder vs String buffer
+More algorithms problem solving Eg; Binary search
 
 Collections review
 Exceptions

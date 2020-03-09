@@ -1,0 +1,17 @@
+1. Push your code to your personal code repo (e.g. mine is 2002-feb24-net/nick-code).
+2. Make a new project named `PersonList` in a folder named `PersonList`. (So the path to the
+   Program.cs file will be: `<repo>/PersonList/Program.cs`).
+
+3. Create a Person class to represent a person, having (1) a name, and (2) at least one other piece
+   of data. Do not use any public fields.
+4. Implement 1 or more constructors, to enforce a requirement that a Person can't exist without a
+   name.
+5. Override ToString method, to show the name of each Person.
+
+6. In the Program class, create a List of at least five Persons, and use Console to show the user
+   the List's contents.
+7. Implement a method that will efficiently check for any duplicate names in a List of Persons,
+   returning true or false.
+8. Implement a method that will sort a List of Persons by name, using *insertion sort*.
+9. In a comment, describe the difference between insertion sort and bubble sort.
+10. Call these two methods on the created List and use Console to show the user the results.
