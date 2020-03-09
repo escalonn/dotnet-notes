@@ -1,5 +1,6 @@
 four object oriented principles
 implemented partly by object-oriented languages inherently - & partly by us the programmers.
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/object-oriented-programming
 
 abstraction
 the ability of an object to expose only the functionality needed by the caller, not implementation details
