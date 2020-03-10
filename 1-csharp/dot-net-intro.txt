@@ -101,7 +101,7 @@ Roslyn - C# compiler (and VB)
     also provides source code analysis, intellisense, etc.
     (older c# compiler is csc.exe, distributed with .net framework)
 
-how dooes .NET Framework manage third-party dependencies?
+how does .NET Framework manage third-party dependencies?
     on each machine, assemblies go in the GAC, global assembly cache
     strongly named: no two assemblies can have the same name
     nothing ever gets removed from it
