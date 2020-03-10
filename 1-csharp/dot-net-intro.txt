@@ -1,19 +1,9 @@
 https://docs.microsoft.com/en-us/dotnet/standard/components
 https://docs.microsoft.com/en-us/dotnet/standard/glossary
 
-In Standard:
-UWP - Desktop (Standard)
-*SignalR, MVC, WebAPI/WCF - Web Services (Core)
-*Entity Framework - Data (Core)
-Xamarin - Mobile (Standard)
-    write once, outputs iOS, Android
 
-languages for .NET now
-C# F# VB.NET R Python JS/TS (Java with help of Red Hat)
-F# functional C#
-
-for C#
-CLI common language infrastructure spec
+CLI common language infrastructure specification
+the standardized set of things all .NET implementations have.
     VES virtual execution system, aka the runtime.
         the execution environment for a .NET application
     Standard Libraries
@@ -111,13 +101,14 @@ Roslyn - C# compiler (and VB)
     also provides source code analysis, intellisense, etc.
     (older c# compiler is csc.exe, distributed with .net framework)
 
-GAC global assembly cache
-strongly named. no two assemblies can have the same name
-nothing ever gets removed from it
-%systemroot%\assembly and %systemroot%\Microsoft.NET\assembly
-for .NET Framework.
+how dooes .NET Framework manage third-party dependencies?
+    on each machine, assemblies go in the GAC, global assembly cache
+    strongly named: no two assemblies can have the same name
+    nothing ever gets removed from it
+    C:\Windows\assembly and C:\Windows\Microsoft.NET\assembly
 
-now instead .NET Core uses cross-platform:
-NuGet.Config / csproj PackageReferences
-NuGet is package repository, networked where GAC is only on each machine
-doesn't keep around unused assemblies
+now instead, .NET Core uses:
+    a cross-platform package manager called NuGet, which also downloads those assemblies from
+    registries, especially the default one on nuget.org.
+    configured with NuGet.Config (for older projects), or PackageReferences in the csproj file.
+    doesn't keep around unused assemblies
