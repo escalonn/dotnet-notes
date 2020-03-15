@@ -84,8 +84,8 @@ managed code
 Visual Studio - traditional IDE
     dates back to 1997
     some older frameworks focused more on GUI development scenarios,
-    or otherwise tied down to Visual Studio. with .NET Core, much more
-    freedom in tools.
+        or otherwise tied down to Visual Studio. with .NET Core, much more
+        freedom in tools.
     excellent reputation for a free IDE
     supports many languages, not just .NET languages
     written in .NET Framework, Windows-only
@@ -100,6 +100,21 @@ MSBuild - build system
 Roslyn - C# compiler (and VB)
     also provides source code analysis, intellisense, etc.
     (older c# compiler is csc.exe, distributed with .net framework)
+
+CoreRT
+    CoreRT is an experimental workflow for .NET Core
+    an alternative to the Common Language Infrastructure, or at least not much like
+        the other implementations, besides maybe UWP.
+    with CoreRT, you use different compilers which compile into native code directly,
+        rather than with intermediate language in the middle.
+    this scenario is often called AOT (ahead of time) as opposed to JIT compilation.
+    the CoreRT runtime has pretty much all of the features of the CLR, like garbage collection,
+        but where the CLR is a virtual machine that runs CIL, the CoreRT runtime
+        is not a virtual machine and just manages the native code that was already compiled.
+    so when you compile C# with CoreRT, you choose at that time what architectures you are compiling for,
+    and the result of that build can only be used on those systems
+    the benefit being you don't need to waste time with JIT at runtime.
+    (this workflow's more similar to how traditional languages compile and run, and more unlike usual Java and .NET)
 
 how does .NET Framework manage third-party dependencies?
     on each machine, assemblies go in the GAC, global assembly cache
