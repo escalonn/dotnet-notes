@@ -1,12 +1,13 @@
 two projects, a library project and a unit test project.
-library should have a class that can tell me whether a string is a palindrome or not.
+library should have an interface representing a type which can check if a string is a palindrome.
+library should have a class that implements that interface.
 all the behavior of the class should be unit tested.
 a palindrome reads the same forwards and backwards.
-these should be considered palindromes:
-    "nurses run"
-    "racecaR"
-    "1221"
-    "never odd, or even."
-these should not be considered palindromes:
-    "one two one"
-    "123abccba123"
+for example, these should be considered palindromes:
+- "nurses run"
+- "racecaR"
+- "1221"
+- "never odd, or even."
+and these should not be considered palindromes:
+- "one two one"
+- "123abccba123"
