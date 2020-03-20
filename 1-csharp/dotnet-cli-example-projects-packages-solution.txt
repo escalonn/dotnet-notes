@@ -1,0 +1,25 @@
+dotnet new sln -o RestaurantReviews
+cd RestaurantReviews
+
+dotnet new console -o RestaurantReviews.ConsoleApp
+dotnet sln add RestaurantReviews.ConsoleApp
+
+dotnet new classlib -o RestaurantReviews.Library
+dotnet sln add RestaurantReviews.Library
+
+dotnet new classlib -o RestaurantReviews.Data
+dotnet sln add RestaurantReviews.Data
+
+dotnet new xunit -o RestaurantReviews.Testing
+dotnet sln add RestaurantReviews.Testing
+
+cd RestaurantReviews.ConsoleApp
+dotnet add reference ../RestaurantReviews.Library
+dotnet add reference ../RestaurantReviews.Data
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+cd ..
+
+cd RestaurantReviews.Data
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
