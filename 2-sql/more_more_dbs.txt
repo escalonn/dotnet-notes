@@ -81,6 +81,17 @@ data annotations
     [StringLength] => length of sql string type
     [NotMapped] => hidden from EF
 
+entity relationships in EF
+    https://docs.microsoft.com/en-us/ef/core/modeling/relationships
+    in SQL, a relationship from A to B is described by one thing: a foreign key column in table A.
+    in EF, it's described redundantly by up to three things:
+    foreign key property on A (e.g. an int)
+    navigation property on A
+    inverse collection navigation property on B
+    EF is smart. if you set or change any one of those three, and call SaveChanges, it will understand what you want, and it will even "fix up" the other two properties to match.
+    you can do everything with the navigation properties, and never touch a single foreign key value. this is usually a better choice.
+
+
 possible exercise:
     take a project with an ADO.NET repository implementation and provide an Entity Framework
         repository implementation that must behave identically
