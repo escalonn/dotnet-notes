@@ -32,3 +32,9 @@ https://raw.githubusercontent.com/Morasiu/ProgrammingChallenges/master/docs/list
 for events:
     game board where piece controls his own movement?
     manually-implemented logging? (static event?)
+
+great example basis for TDD
+https://github.com/solarwinds/ChessProject
+has couple issues for associates to notice:
+    board ctor off-by-one
+    reversed NUnit AreEqual params (expected, actual)
