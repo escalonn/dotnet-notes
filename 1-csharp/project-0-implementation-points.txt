@@ -6,3 +6,17 @@ making more explicit some points for the separation of concerns in project 0...
 5. there should not be any use of Console except in the console app project.
 
 https://martinfowler.com/bliki/PresentationDomainDataLayering.html
+
+-----
+
+if you are behind with p0 trying to decide where to focus energies in what priority... rather than doing the whole UI part or the whole EF part at once, i recommend working feature by feature, starting with the more basic prerequisites. something like this.
+1. user can log in by name (reading from customer DbSet/table)
+2. user can register a new customer (writing to customer DbSet/table)
+3. user can see (e.g.) a list of products available at a given store (reading from several DbSets/tables)
+4. user can place an order (reading and writing several DbSets/tables).
+
+remember you can make incremental updates to your data model: in db-first with SQL and then re-scaffolding; in code-first with adding a migration and updating the db.
+
+with EF, don't forget about how you need the methods Include and ThenInclude to load data from multiple table at once into the navigation properties, otherwise they will appear null (unless this context has already loaded them in some earlier query)
+
+as for how to get initial data into your DB... you can actually apply it using migrations alongside the table structure using HasData method, check the docs on it. but the simplest way for both db first and code first would just be to maintain a .sql file with a bunch of INSERT INTO to provide the initial data. even if you're doing code-first, of course you can still connect with SSMS and run commands.
