@@ -36,6 +36,10 @@ object-relational mapper
     e.g. Hibernate, Django, Entity Framework
     EF versions: EF 6, EF Core
 
+https://docs.microsoft.com/en-us/ef/core
+https://www.learnentityframeworkcore.com/
+https://entityframeworkcore.com/
+
 database-first
     reverse engineer edmx model from db (but not in EF core)
     reverse engineer entity classes directly from db
@@ -51,6 +55,11 @@ code-first
 
 Entity Framework also needs a database provider to implement
     its abstractions for a specific db technology e.g. sql server, sqlite, inmemory, etc
+
+DbContext
+    a base class given us by EF, which we derive from to make our own "DbContext". an instance of this represents the whole database from an object-oriented point of view, letting us access and modify data though its DbSet members.
+DbSet
+    a generic class that you use for properties in your DbContext. each DbSet<Abcd> property will represent one table of data: the table which has columns that correspond to the properties of the Abcd class. in C# you can treat the DbSet like a collection of objects, and EF will translate all that to and from SQL.
 
 explicit loading - load related data explicitly after original query
     uses Entry and Load methods. manual lazy loading in bulk - no real reason to use it.

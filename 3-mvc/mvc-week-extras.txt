@@ -81,7 +81,9 @@ why use a reverse proxy?
 ef example:
 // this example's separation of concerns is not great because
 // business rules (when an order is placed, inventory decreases)
-// are being coded in the data access layer.
+// are being coded in the data access layer (EF details).
+// but it does provide an example of reading and writing with
+// relationships in EF.
 public void PlaceOrder(Order order)
 {
     // omitted: check the location's inventory to make sure this will work,
@@ -100,7 +102,7 @@ public void PlaceOrder(Order order)
     };
     // a dictionary is a sequence of key-value pairs
     dbOrder.OrderLines.AddRange(order.Products.Select(pq => new Data.OrderLine {
-        ProductId = pq.Key.Id
+        ProductId = pq.Key.Id,
         Quantity = pq.Value
     }));
 
@@ -117,3 +119,7 @@ public void PlaceOrder(Order order)
     // apply all these changes as one transaction, not piece by piece
     _context.SaveChanges();
 }
+// there's a lot of better, equivalent, or worse ways to do it that can look quite different
+// but two good practices to take away (even if you don't yourself succeed in following them yet):
+// - i only make one query to the DB, and one save-changes.
+// - i don't use foreign key values for access or modification when it's more convenient to use the navigation properties.
