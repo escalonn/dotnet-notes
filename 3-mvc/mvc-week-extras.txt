@@ -81,7 +81,7 @@ why use a reverse proxy?
 ef example:
 // this example's separation of concerns is not great because
 // business rules (when an order is placed, inventory decreases)
-// is being coded in the data access layer.
+// are being coded in the data access layer.
 public void PlaceOrder(Order order)
 {
     // omitted: check the location's inventory to make sure this will work,
