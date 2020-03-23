@@ -100,7 +100,7 @@ public void PlaceOrder(Order order)
     };
     // a dictionary is a sequence of key-value pairs
     dbOrder.OrderLines.AddRange(order.Products.Select(pq => new Data.OrderLine {
-        ProductId = _context.Products.Find(pq.Key.Id)
+        ProductId = pq.Key.Id
         Quantity = pq.Value
     }));
 
