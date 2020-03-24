@@ -20,3 +20,15 @@ remember you can make incremental updates to your data model: in db-first with S
 with EF, don't forget about how you need the methods Include and ThenInclude to load data from multiple table at once into the navigation properties, otherwise they will appear null (unless this context has already loaded them in some earlier query)
 
 as for how to get initial data into your DB... you can actually apply it using migrations alongside the table structure using HasData method, check the docs on it. but the simplest way for both db first and code first would just be to maintain a .sql file with a bunch of INSERT INTO to provide the initial data. even if you're doing code-first, of course you can still connect with SSMS and run commands.
+
+-----
+
+the expectations for project 0 presentation. they'll start at 9:30 tomorrow and have 5 minutes each, then they can expect questions from QC and from trainer. questions may be about the project's overall design, about how they may have used or not used features of C# or SQL in it. questions might also just be on week 2 content in general.
+they should begin with an introduction giving their name, that then covers both the business purpose of the app, and the technologies used.
+then they should demo the application, walking through its features and explaining them as they go. there may not be time to show everything, but they can show us most and tell us about the rest. looking at the p0 functionality requirements, anything they do not show or mention verbally will be assumed to be incomplete. we don't have time to ask about every feature they forgot to say.
+they should prepare a demo workflow which effectively and rapidly shows as much functionality as they can.
+then, a good concluding sentence or two, so it doesn't just trail off, and ask for questions.
+it's essential to practice and plan. it is very obvious when someone has not practiced.
+they should speak with volume, energy, and confidence, using the webcam to start out, but then moving to screen-sharing for the demo.
+they don't have to show any code in the presentation, but if they have time for it, there's nothing wrong with it.
+when it's their turn, they should be ready to go... not "oh i forgot to start visual studio, oh where is my solution, etc. etc."
