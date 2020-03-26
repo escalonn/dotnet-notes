@@ -9,6 +9,20 @@ https://martinfowler.com/bliki/PresentationDomainDataLayering.html
 
 -----
 
+the job of the repository is just to keep all the entity-framework-related code in one place (so if things related to EF changed, you'd only have to fix issues in one place). the alternative would be to just use the dbcontext in helper methods in the console app, or even using it all over your main method or something. it would work, it would just be messier.
+
+the job of the mapper in restaurantreviews is, to handle converting between the objects EF uses, and the objects the console app uses. the alternative would be, just putting that code in the repository, or even all over the app in different places.
+
+the workflow in restaurant reviews for, e.g. a new thing to create is:
+1. get user input
+2. put it into a business logic object
+3. pass that object to the repository's add method
+4. inside that add method, we convert the business logic object to a data access object
+5. that data access object is added to a DbSet and we call SaveChanges.
+it's not essential to have two different sets of objects like that but it allows flexibility in how you represent things in the business logic side. you can use Dictionaries and things that EF can't handle.
+
+-----
+
 if you are behind with p0 trying to decide where to focus energies in what priority... rather than doing the whole UI part or the whole EF part at once, i recommend working feature by feature, starting with the more basic prerequisites. something like this.
 1. user can log in by name (reading from customer DbSet/table)
 2. user can register a new customer (writing to customer DbSet/table)

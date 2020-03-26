@@ -268,6 +268,16 @@ example for using hidden fields with collections nested inside a model:
 
     https://docs.microsoft.com/en-us/aspnet/core/mvc/models/model-binding
 
+in VS Code:
+    for controllers you can just make the file yourself, but soon we'll want access to fancier templates too.
+    one-time step for your system to teach dotnet how to scaffold ASP.NET Core things:
+    `dotnet tool install -g dotnet-aspnet-codegenerator`
+    initial step for this project to teach it how to get those new ASP.NET Corethings:
+    `dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design`
+    make a controller:
+    `dotnet aspnet-codegenerator controller -name HelloWorldController -outDir `Controllers
+    the part you'd vary is the name. literally all this does is fill in the controller file with some default text. but when we get to scaffolding views this aspnet-codegenerator will be a lot more useful.
+
 MVC crash course:
 - model, view, controller [https://docs.microsoft.com/en-us/aspnet/core/mvc/views] [https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers]
 - its overall lifecycle (including middleware, routing, filters, action methods, model binding, result execution) [https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters]
