@@ -12,24 +12,25 @@
 (Model, View, Controller)
 - Request Lifecycle
 (DNS, Response, Request)
+- ASP.NET Core
+(Web server, Host, Middleware)
 - Controller
 (Actions, HTTP Verbs)
 - Model
 (Data-Annotations, ViewModel)
 - View
-(Partial-Views, Strongly-Typed, Weakly-Typed, Layout, Razor, ViewData, ViewBag, TempData)
+(Razor, Strongly-Typed, Weakly-Typed, Layout, ViewData, ViewBag, TempData, Partial Views)
 - Routing
-(Global, Controller, Action, Parameter-Route, Parameter-Query)
+(Global, Attribute-Controller, Attribute-Action, Parameter-Route)
 - Validation
 (Server, Client, CSRF, Anti-Forgery)
-- Testing
-(Behavior Driven Development, Mock, Acceptance-Testing)
 - Filters
-(Action, Authorization, Custom, Exception, Response)
+(Authorization, Exception, Resource, Action, Result)
 - Helpers
-(Custom, HTML, Tag)
+(HTML, Tag, Custom)
 - Model Binding
-- Entity Framework
-(Code-First Approach)
+(Route parameters, query string, form data)
 - Dependency Injection
 (Singleton, Scoped, Transient, From-Services)
+- Testing
+(Mock, Behavior Driven Development, Acceptance-Testing)
