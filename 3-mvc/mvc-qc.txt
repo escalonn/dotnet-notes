@@ -5,20 +5,20 @@ week 3 (mvc) content - 1/3 html/css, 2/3 mvc
     What is the difference between HTML4 and HTML5?
       The primary one is consistent, defined error handling
       Many elements have been added directly to the language that are currently (in HTML4) Flash or JS-based hacks, such as <canvas>, <video>, and <audio>. Useful things such as Local Storage, new input types such as date for which the browser can expose easy user interface, and browser-supported form validation will make developing web applications much simpler for the developers, and make them much faster for the users.
-      What is the first tag you put in an HTML document?
-      What is the DOCTYPE for HTML5?
-      What tag does your entire HTML document go inside?
-      What goes into the HTML Head and Body tags?
-      What are some general HTML tags?
-      What is the HTML markup for creating a table?
-      How do you create a List in HTML?
-      What is the difference between the HTML "div" and "span"?
-      What is the difference between HTML4 and HTML5?
-      What are the different ways to include CSS in your code? What is the best practice?
-      If there are several CSS rules that conflict, which one will win?
-      What is Responsive Web Design?
-      What are CSS Selectors?
-      What are the CSS Combinators and what are their functions?
+    What is the first tag you put in an HTML document?
+    What is the DOCTYPE for HTML5?
+    What tag does your entire HTML document go inside?
+    What goes into the HTML Head and Body tags?
+    What are some general HTML tags?
+    What is the HTML markup for creating a table?
+    How do you create a List in HTML?
+    What is the difference between the HTML "div" and "span"?
+    What is the difference between HTML4 and HTML5?
+    What are the different ways to include CSS in your code? What is the best practice?
+    If there are several CSS rules that conflict, which one will win?
+    What is Responsive Web Design?
+    What are CSS Selectors?
+    What are the CSS Combinators and what are their functions?
   mvc questions
     What is the MVC design pattern?
       model, view, controller. controller receives requests, manages models, and chooses the view to respond with. model encapsulates application state and doesn't depend on controller or view. views present the data from the models with HTML/CSS/JS, and don't depend on controller. separation of concerns, testability.
