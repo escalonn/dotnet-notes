@@ -1,6 +1,6 @@
 week 3 (mvc) content - 1/3 html/css, 2/3 mvc
   html/css questions
-    https://gitlab.com/revature_training/html-css-team/blob/master/html-css-evaluation-materials/qc-questions.md
+    https://gitlab.com/revature_training/html-css-team/-/blob/master/qc-questions.md
     some others
     What is the difference between HTML4 and HTML5?
       The primary one is consistent, defined error handling
