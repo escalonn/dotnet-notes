@@ -2,6 +2,7 @@
     - branches (remote, remote tracking, local tracking, local)
     - merging (fast forward, non-fast-forward, merge resolution)
     - feature branch workflow
+    - pull request, GitHub Check
 - Software development lifecycle
     - Waterfall, V-Model, Agile, scrum, kanban
 - Scrum
@@ -20,9 +21,10 @@
 - .NET deployment
     - publish, local IIS, Azure App Service
 - Azure DevOps
-    - Pipelines, build, release, YAML, job, step, GitHub Check
+    - Pipelines (build, release, YAML, trigger, job, pool, step, task, script)
 - Code analysis
-    - static analysis, SonarCloud, technical debt, configuration, quality profile, quality gate
+    - static analysis, technical debt, code coverage
+    - SonarCloud (configuration, quality profile, quality gate)
 - Docker
     - VM vs. container, daemon/client, Docker Machine
     - container, image, Dockerfile, registry
