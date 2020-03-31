@@ -1,9 +1,16 @@
-model view controller
+MVC crash course:
+- model, view, controller [https://docs.microsoft.com/en-us/aspnet/core/mvc/views] [https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers]
+- its overall lifecycle (including middleware, routing, filters, action methods, model binding, result execution) [https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters]
+- Razor syntax (expressions, blocks, tag helpers, HTML helpers) [https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor, https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers]
+- validation (client-side, server-side, ModelState, Data Annotations) [https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation]
+- dependency injection [https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection, the first half]
+- (anything about Razor Pages can pretty much be ignored)
 
-request -> app server
-    template (view)
-    logic (controller)
-    data (model)
+model-view-controller architectural pattern
+    request -> app server
+        template (view)
+        logic (controller)
+        data (model)
 
 before ASP.NET MVC we had ASP.NET Web Forms.
     e.g. File.aspx
@@ -13,10 +20,8 @@ before ASP.NET MVC we had ASP.NET Web Forms.
 
 MVC
     request -> controller (logic) -> model (db) -> view (design) -> ... -> response
-    decoupled / separation of concern
+    decoupled / separation of concerns
     therefore testable because also all c# classes
-
-action
 
 controller depends on view and model
 view depends on just model
@@ -24,7 +29,7 @@ model depends on nothing
     part of separation of concerns; testability
 
 views should be strongly typed. that gives us the benefit of type checking and intellisense in the view.
-the alternative is dynamic views, which treats Model as dynamic type
+the alternative is dynamic (aka weakly typed) views, which treats Model as dynamic type
 
 razor syntax
     razor expressions - start with @ character. like @DateTime.Now
@@ -278,17 +283,15 @@ in VS Code:
     `dotnet aspnet-codegenerator controller -name HelloWorldController -outDir `Controllers
     the part you'd vary is the name. literally all this does is fill in the controller file with some default text. but when we get to scaffolding views this aspnet-codegenerator will be a lot more useful.
 
-MVC crash course:
-- model, view, controller [https://docs.microsoft.com/en-us/aspnet/core/mvc/views] [https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers]
-- its overall lifecycle (including middleware, routing, filters, action methods, model binding, result execution) [https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters]
-- Razor syntax (expressions, blocks, tag helpers, HTML helpers) [https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor, https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers]
-- validation (client-side, server-side, ModelState, Data Annotations) [https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation]
-- dependency injection [https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection, the first half]
-- (anything about Razor Pages can pretty much be ignored)
+longer exercise:
+    i recommend doing a mini-project using Entity Framework Core and ASP.NET Core MVC, with a database with one or two tables, and a UI with at least three or four views, which is not just a copy of the tutorial's. [https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app]
 
-i recommend doing a mini-project using Entity Framework Core and ASP.NET Core MVC, with a database with one or two tables, and a UI with at least three or four views, which is not just a copy of the tutorial's. [https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app]
-
-possible exercise:
+shorter exercise:
     make (or begin with) an mvc app that has more than one URL.
     implement functionality so every page displays a count of the number of times that URL has been visited.
     (correct techs to use: middleware, singleton service, layout, and either viewdata/viewbag or @inject)
+
+decent blog post on p1-type architecture:
+    https://www.infragistics.com/community/blogs/b/dhananjay_kumar/posts/how-to-implement-the-repository-pattern-in-asp-net-mvc-application
+except that he doesn't put the business logic in the domain library, and he tries to use the same classes
+    for data access as for the rest of the app.
