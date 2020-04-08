@@ -1,12 +1,16 @@
+WSDL:
 https://www.guru99.com/wsdl-web-services-description-language.html
+REST conceptual:
 https://martinfowler.com/articles/richardsonMaturityModel.html
+https://restfulapi.net/
+REST implementation in ASP.NET Core:
 https://docs.microsoft.com/en-us/aspnet/core/web-api
 https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design
 https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-implementation
-https://restfulapi.net/
+SOAP vs REST:
 https://octoperf.com/blog/2018/03/26/soap-vs-rest/
+Swagger implementation with ASP.NET Core:
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle
-https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity
 
 level 1: identify resources as urls.
 level 2: use http methods semantically, and status codes
@@ -16,30 +20,37 @@ distinguish resources from representations
 resources get distinct URLs, distinguish representations with headers
 follow conventions with HTTP methods
 
-REST is an architectural style for systems like the web, where info of many different types is distributed widely.
+REST is an architectural style for systems like the web, where info of many different types is distributed widely in a network.
+    it does not specify any particular protocols or technologies.
+Roy Fielding, who invented REST, identified six architectural constraints (see below)
+    which work together well for systems like that.
+    in his dissertation he argues that these systems benefit more, the more of these constraints they follow.
+
 the web follows REST mostly, and some parts follow it much more than others.
-today we usually consider REST in the context of web services, rather than the context of web pages and browsers.
-REST does not require HTTP but in practice we are almost always using HTTP.
+today we usually talk about REST in the context of web services, rather than the context of web pages and browsers.
+REST does not require HTTP, but in practice we are almost always talking about REST over HTTP.
     HTTP's spec fits the requirements of REST very well; REST constraints have influenced the design of HTTP.
     some things about HTTP do not fit REST: e.g. cookies.
 REST means, any system following its architectural constraints.
-in the industry, though, "REST" is often understood as an HTTP-based web service (that doesn't use hypermedia).
+    in the industry, though, "REST" is often understood as an HTTP-based web service (that doesn't use hypermedia).
 
-client-server (separation of concerns, reuse interface across platforms, evolve client and server independently)
-stateless (client, not server, stores session state; each request must have all info needed to understand it. scalable)
-cache (some responses should be cacheable by the client)
-uniform interface (between client and server, not one tied to implementations. loose coupling)
-    identification of resources (some info or concept that can be named and represented)
-        e.g. "latest version of code" and "version 1.2 of code" are different resources,
-        even if the underlying value is the same right now. "the next event" and "all events this week" are resources
-        we can link to resources and the links shouldn't break if the value changes or the representations change
-    manipulation of resources through representations
-        all actions are done by sending representations of intended state of a resource.
-        representations have a media type, e.g. html, json, xml, jpg.
-    self-descriptive messages
-    hypermedia as the engine of application state
-layered system (servers can be clients to other servers; each only knows about what it's directly connected to)
-(code on demand) (optional. clients can download code for new features, like applets or scripts)
+the six constraints.
+    client-server (separation of concerns, reuse interface across platforms, evolve client and server independently)
+    stateless (client, not server, stores session state; each request must have all info needed to understand it. scalable)
+    cache (some responses should be cacheable by the client)
+    uniform interface (between clients and servers, not one tied to implementations. loose coupling)
+        identification of resources (some info or concept that can be named and represented)
+            e.g. "latest version of code" and "version 1.2 of code" are different resources,
+            even if the underlying value is the same right now. "the next event" and "all events this week" are resources
+            we can link to resources and the links shouldn't break if the value changes or the representations change
+        manipulation of resources through representations
+            all actions are done by sending representations of intended state of a resource.
+            representations have a media type, e.g. html, json, xml, jpg.
+        self-descriptive messages
+        hypermedia as the engine of application state (HATEOAS)
+    layered system (servers can be clients to other servers; each only knows about what it's directly connected to)
+    (code on demand) (optional. clients can download code for new features, like applets or scripts)
+        common in the browser - web pages with JavaScript. uncommon outside the browser.
 
 for websites, the browser implementations dominate the situation and drive how servers will behave,
     e.g. what sort of HTTP headers they will send, and how they will interpret different parts of HTTP.
