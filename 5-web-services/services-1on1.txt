@@ -1,7 +1,4 @@
-javascript - strict mode doesn't turn off dynamic typing
 content type header vs accept header
-swagger.json vs ui
-
 What does idempotent mean?
 How do we handle exceptions in an API with ASP.NET?
 What are the most common HTTP methods and what are they used for?
@@ -17,3 +14,4 @@ What is strict mode in JavaScript?
 What are some differences between REST and SOAP.
 What are the motivations service-oriented architecture.
 What is Swagger?
+swagger.json vs swagger ui

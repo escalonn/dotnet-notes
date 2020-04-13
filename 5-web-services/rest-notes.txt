@@ -99,40 +99,47 @@ status codes
     100 informational - this request-response is still ongoing
         100 continue: you sent the headers, ok, now send the body
     200 successful
-        200 ok: successful request
+*       200 ok: successful request
             for get
-            Ok(...)
-        201 created: successful creation of resource. should generally return a copy of the resource created
+            in asp.net core: Ok(...)
+*       201 created: successful creation of resource. should generally return a copy of the resource created
             for post
             should also include Location header saying where it's at.
-            in web api: CreatedAtRoute(...)
-        204 no content: success but we are not returning anything
+            CreatedAtRoute(...), CreatedAtAction(...)
+        202 accepted: request received but hasn't been acted on yet.
+*       204 no content: success but we are not returning anything
             for put and delete
             NoContent()
     300 redirection
         301 moved permanently: resource isn't here
-        302 found: resource isn't here, browser usually automatically requests new URL with GET
-            RedirectTo...(...)
+            should also include Location header saying where it's at.
+*       302 found: resource isn't here, browser usually automatically requests new URL with GET
+            temporary redirect
+            should also include Location header saying where it's at.
+            RedirectToAction(...), RedirectToRoute(...)
         304 not modified: you had e.g. "if-modified-since" header, and the resource hasn't been modified
     400 client error
-        400 bad request
+*       400 bad request. syntax of request is invalid.
             BadRequest()
-        401 unauthorized: really means unauthenticated. you did not identify yourself.
+*       401 unauthorized: really means unauthenticated. you did not identify yourself.
             Unauthorized()
         402 payment required: meme status code
-        403 forbidden: the true unauthorized. you dont' ahve the rights to do this
+*       403 forbidden: the true unauthorized. you don't have the rights to do this
             Forbidden()
-        404 not found
+*       404 not found
             NotFound()
         405 method not allowed: on this resource
-        406 not acceptable: you used "accept" header and we can't give you that content type
+            implemented by default in asp.net core
+*       406 not acceptable: you used "accept" header and we can't give you that content type
             the server doesn't have to use 406, it can decide to use a fallback media type
+        409 conflict: you can't do that because it's inconsistent with something else
+*       415 unsupported media type
         418 i'm a teapot: you asked me to brew coffee
     500 server error
-        500 internalservererror
-            InternalServerError()
+*       500 internalservererror
+            StatusCode(500)
         501 not implemented - usually we will implement it in future. like notimplementedexception
-        502 bad gateway - this server didn't make a mistake, but we had to call some OTHER server, and IT sent us something invalid
+*       502 bad gateway - this server didn't make a mistake, but we had to call some OTHER server, and IT sent us something invalid
         505 HTTP version not supported
 
 ASP.NET Core has support for REST HTTP services.
