@@ -1,3 +1,5 @@
+code challenge
+
 // after the associates deal with the awkwardness of this example, with the method hiding and so forth, i show
 //   doing it with composition instead of inheritance, which is also a little awkward but less so.
 // i don't really use this exercise anymore because any inheritance-based example will necessarily be incorrect,

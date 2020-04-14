@@ -1,3 +1,5 @@
+code challenge
+
 1. Push your code to your personal code repo (e.g. mine is 2002-feb24-net/nick-code).
 2. Make a new project named `PersonList` in a folder named `PersonList`. (So the path to the
    Program.cs file will be: `<repo>/PersonList/Program.cs`).

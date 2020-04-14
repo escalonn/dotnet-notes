@@ -1,3 +1,5 @@
+code challenge
+
 in your personal code repo, in a folder named `Palindrome`:
 two projects, a library project and a unit test project.
 library should have an interface defining a type which can check if a string is a palindrome.
