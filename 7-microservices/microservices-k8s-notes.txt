@@ -1,3 +1,4 @@
+https://martinfowler.com/microservices/
 https://martinfowler.com/articles/microservices.html
 
 https://docs.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/microservices-architecture (+1 previous)
@@ -115,6 +116,19 @@ one service
 
 k8s w/ minikube
 kubectl
+    kubectl config; get/set/describe/apply
+        current context
+    k8s web dashboard (kube-proxy)
+        needs secret from kube-system namespace
+    docker run nginx vs kubectl run nginx (a container in a pod)
+    nodes
+    pods
+    services
+        clusterip, nodeport (local), loadbalancer (aks)
+        (statelessset)
+    deploy
+get started on k8s
+    practice after demos
 
 AKS
     probably make with shell and then look at in portal
