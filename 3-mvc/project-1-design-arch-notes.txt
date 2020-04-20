@@ -1,0 +1,13 @@
+couple notes about my architecture here - https://github.com/2002-feb24-net/nick-project2-notes-api
+
+(1) this is a somewhat more well-motivated example of having DTOs (data transfer objects) distinct from your domain objects, compared to restaurant reviews where they were pretty identical.
+in my domain model, tags are treated simply as strings.
+but in my database, i chose to have a tags table and a junction table between that and the notes table, so that queries like "get all notes with a certain tag" would be more efficient.
+note how my data access lib. has classes for tags and note-tag-relations, but the domain library (which i called "Core" here) doesn't. my business logic and all the code that uses those models don't have to care about the many-to-many entity, or about the fact that i have a Tags table. my repository translates.
+in my api project, i have "api models", where "new-note" is separate from "note" for more convenient model binding, because the client doesn't get to specify all the fields of a note when you create it.
+for ease of mapping / validation, i decided to have the note resource just contain an author ID, rather than the whole user.
+but the domain library doesn't do either of those things, because they aren't needed from a pure c# point of view.
+
+(2) where i failed is in having actual business logic that isn't just CRUD... but the way that should be done is not by putting it in a repository class, or by putting it in an action method.
+the proper place for that would be a service class, implemented in the business logic library, which takes a repository (interface) as an injected dependency. it then performs whatever operations it needs to using the repository, despite not having any clue how that repo is implemented or how it will be registered as a service in ASP.NET.
+this is IMO the correct design for order placement in P0/P1: an OrderService in the business logic library, that takes IRepository(ies) as ctor-injected dependencies, and implements the rules about checking inventories and decrementing them.
