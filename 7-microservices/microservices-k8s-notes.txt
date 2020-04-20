@@ -13,6 +13,17 @@ https://docs.microsoft.com/en-us/dotnet/architecture/microservices/multi-contain
 microservices blog - https://martinfowler.com/microservices/
 see especially section "When should we use Microservices?" - good overview of the benefits and costs.
 
+this week's curriculum in brief:
+• microservices architecture
+    • https://martinfowler.com/microservices/
+• Docker
+    • https://docs.microsoft.com/en-us/dotnet/architecture/microservices/container-docker-introduction/
+    • https://docs.docker.com/get-started/
+• Kubernetes (note, understanding Docker/containers is an important prereq to understanding Kubernetes)
+    • https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/
+    • https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads
+    • maybe AKS
+
 microservices architecture
     each microservice (or service) implements one business capability
     developed independently
