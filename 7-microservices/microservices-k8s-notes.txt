@@ -75,7 +75,7 @@ microservices architecture need special attention paid to:
         we need to send data between microservices so it is consistent, but we don't
         want to couple them together! as much as possible, microservices should not
         know about each other so they can be autonomous.
-        usually addressed with some ansynchronous event- or message-based protocol
+        usually addressed with some asynchronous event- or message-based protocol
         instead of HTTP.
         one microservice publishes some event, and others listen to that event.
         but they do not directly send requests to each other.
