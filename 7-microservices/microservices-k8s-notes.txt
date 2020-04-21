@@ -82,7 +82,7 @@ microservices architecture need special attention paid to:
     monitoring of service health in production
     scalability of services and their resources
     security in auth and service communication
-
+        container orchestrators like kubernetes can help us with these three items.
 
 k8s
     cluster
