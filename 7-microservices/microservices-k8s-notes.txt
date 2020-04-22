@@ -79,10 +79,11 @@ microservices architecture need special attention paid to:
         instead of HTTP.
         one microservice publishes some event, and others listen to that event.
         but they do not directly send requests to each other.
+    service failure resiliency
     monitoring of service health in production
     scalability of services and their resources
     security in auth and service communication
-        container orchestrators like kubernetes can help us with these three items.
+        container orchestrators like kubernetes can help us with these four items.
 
 k8s
     cluster
