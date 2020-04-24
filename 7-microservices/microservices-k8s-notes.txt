@@ -142,8 +142,12 @@ kubectl
 get started on k8s
     practice after demos
 
+https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/
+
 AKS
     probably make with shell and then look at in portal
 
 B1s hour
 D2 10-15 min
+
+ask fred how he handled question of whether they pay for it

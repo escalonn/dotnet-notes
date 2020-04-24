@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: project1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: project1
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: project1
+        image: nicholasescalona/restreviews:3.0
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
+        env:
+        - name: ConnectionStrings__RestaurantReviewsDb
+          value: 'connection string goes here but not really'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: project1
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: project1

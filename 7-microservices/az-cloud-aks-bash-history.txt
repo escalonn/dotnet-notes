@@ -1,0 +1,37 @@
+az create group --name 2002-training-aks
+az group create --name 2002-training-aks
+az group create --name 2002-training-aks --location southcentralus
+az sql
+az sql -h
+az sql server list
+az sql server list -o yaml
+az aks create
+az aks create -g 2002-training-aks -n aks1 --node-count 2
+az aks create -g 2002-training-aks -n aks1 --node-count 2 --generate-ssh-keys
+az aks get-credentials -g 2002-training-aks -n aks2
+az aks get-credentials -g 2002-training-aks -n aks1
+kubectl
+kubectl get contexts
+kubectl get context
+kubectl list-contexts
+kubectl config
+kubectl config get-contexts
+kubectl config current-context
+kubectl get pods
+kubectl get nodes
+git
+nano
+nano k8s-manifest.yaml
+less k8s-manifest.yaml
+nano k8s-manifest.yaml
+kubectl apply -f k8s-manifest.yaml
+kubectl get pods
+kubectl get pods -o wide
+kubectl get services
+nano k8s-manifest.yaml
+kubectl apply -f k8s-manifest.yaml
+kubectl get pods -o wide
+nano k8s-manifest.yaml
+kubectl apply -f k8s-manifest.yaml
+kubectl get pods -o wide
+nano k8s-manifest.yaml
