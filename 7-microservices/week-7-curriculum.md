@@ -1,0 +1,10 @@
+- microservices architecture
+  - https://martinfowler.com/microservices/
+  - principles, advantages, disadvantages, problems, solutions
+- Kubernetes
+  - https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/
+  - https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads
+  - https://platform9.com/blog/kubernetes-enterprise-chapter-2-kubernetes-architecture-concepts/
+  - cluster, node (master, worker), pod, deployment, service (clusterip, nodeport, loadbalancer)
+  - kubectl (get, describe, run, apply), context
+  - AKS

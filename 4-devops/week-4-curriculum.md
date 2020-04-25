@@ -26,6 +26,10 @@
     - static analysis, technical debt, code coverage
     - SonarCloud (configuration, quality profile, quality gate)
 - Docker
-    - VM vs. container, daemon/client, Docker Machine
-    - container, image, Dockerfile, registry
-    - CLI commands, Dockerfile commands
+  - https://docs.microsoft.com/en-us/dotnet/architecture/microservices/container-docker-introduction/
+  - https://docs.docker.com/get-started/
+  - VM vs. container, daemon/client, Docker Machine
+  - container, image, Dockerfile, registry
+  - CLI commands, Dockerfile commands
+  - multi-stage build
+  - Docker Compose
