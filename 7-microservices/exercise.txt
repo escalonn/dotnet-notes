@@ -1,0 +1,5 @@
+put your project 2 in an AKS cluster. each of you should have your own cluster, but you can work on it together in your p2 teams. follow this tutorial - https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app - and once you get it working with their sample app, figure out how to do the same with your p2.
+
+some points about azure costs in that tutorial. i suggest you delete everything before the end of the day, and it'd cost like $1 tops. or you can avoid charges but things might be slow.
+(1) it has you create an ACR resource (azure container registry). this is like a private docker hub. (a private docker registry, in other words). it costs about $0.10/day i think. if you want, you can skip this and take the image from docker hub. in that case you can ignore the parts of authenticating with the ACR later on.
+(2) it has you create a cluster with the default VM size of DS1, which costs about $0.10/hour each. if you want, you can add the line --node-vm-size Standard_B1s to the az aks create command, which will make it instead use the VM size you get for free. (again it might be painfully slow though.)
