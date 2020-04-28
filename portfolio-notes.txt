@@ -4,6 +4,8 @@ webapi/mvc
 angular/devops
 sql
 
+these should all be represented at least somewhere on the portfolio... C#/.NET, SQL Server, Entity Framework, HTML, CSS, ASP.NET MVC, Agile, DevOps, Docker, REST, ASP.NET Web API, JS, Angular, microservices, Kubernetes
+
 change industry equiv numbers to months
 
 .net 12-18
