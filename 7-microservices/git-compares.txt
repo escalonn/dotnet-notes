@@ -1,0 +1,10 @@
+dockerizing angular
+https://github.com/2002-feb24-net/nick-project2-ng-notes-client/compare/aa6bbe41a426a4c0e3d3a44fe2917345a4f09b20...2726d79a2dba25351631b92a42b83f211f6e367d
+dockerizing asp.net core
+https://github.com/2002-feb24-net/nick-project2-notes-api/compare/a298ebafa3d6aff038351691181f05c939330882...19283a4d6d654128104e953ef4a297191787f2c3
+
+kubernetes angular
+https://github.com/2002-feb24-net/nick-project2-ng-notes-client/compare/2726d79a2dba25351631b92a42b83f211f6e367d...master
+
+kubernetes asp.net core
+https://github.com/2002-feb24-net/nick-project2-notes-api/compare/19283a4d6d654128104e953ef4a297191787f2c3...master
