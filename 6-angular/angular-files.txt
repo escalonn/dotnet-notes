@@ -1,0 +1,33 @@
+node_modules/                   Node.js folder for storing the results of npm install
+e2e/                            for not unit tests with Jasmine/Karma, but
+                                    end-to-end tests of the whole app working together,
+                                    with Protractor (ng e2e)
+src/
+    index.html                  the only html file in your single-page app
+                                    needs to contain the root component!
+    main.ts                     the "main method" of angular - bootstraps the root module
+    test.ts                     used by Karma to run the unit tests
+    styles.css                  global CSS
+    polyfills.ts                extra JS to patch support for newer features into old browsers
+    environments/
+        environment.ts          use for app config values for local dev
+        environment.prod.ts     use for app config values for production
+    assets/                     for any images you want to include or other files
+                                    that should wind up with the html, css, etc.
+    app/
+        *.ts                    component class (or module, service, or anything else etc)
+        *.css                   component-specific styles (can be inline instead)
+        *.html                  component template (can be inline instead)
+        *.spec.ts               unit tests for the component (or service, etc.)
+
+.editorconfig                   common standard file for configuring text formatting
+angular.json                    configures how all the "ng" commands behave
+browserslist                    standard way to specify what browsers a JS compilation
+                                    needs to be compatible
+karma.conf.js                   configure Karma (unit test runner application)
+package-lock.json               NPM "lock file" - precise repeatable manifest of installed
+                                    packages and their versions
+package.json                    NPM list of required packages and compatible version ranges
+tsconfig*.json                  configuration for typescript compiling
+tslist.json                     configures "lint" rules - good style/practices for TS.
+                                    (checked with "ng lint")

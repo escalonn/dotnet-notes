@@ -1,3 +1,6 @@
+https://docs.microsoft.com/en-us/azure/devops/learn/what-is-devops
+https://www.gocd.org/getting-started/part-1/
+
 on-premises deployment
     IT bottleneck, moves code from repo
     to dev server, test server, staging server, production server
