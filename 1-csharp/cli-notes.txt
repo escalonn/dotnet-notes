@@ -33,7 +33,7 @@ git
         untracked files, unpushed commits, etc.
     git add
         stage changes to be committed.
-        use "." to stage all changes in the currect directory.
+        use "." to stage all changes in the current directory.
     git commit
         record a permanent commit of changes to the local
         repository.
