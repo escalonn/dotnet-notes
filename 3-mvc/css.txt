@@ -113,16 +113,6 @@ div
 p
 div
 
-the cascade - in order of priority
-    external author CSS (link rel stylesheet href)
-        (the best way to do author CSS. can reference from multiple files)
-    internal author CSS (style)
-    inline author CSS
-        (the worst way to do author CSS... interleaves appearance stuff with content stuff, & not reusable.)
-    user CSS (user options to browser for css, accessibility extensions, etc)
-    user-agent CSS (browser CSS) (we "undo" this with css resets)
-within those categories, higher specificity beats lower specificity.
-
 media queries
   conditionally apply styles based on screen size or type. can check screen width, height, aspect ratio, orientation, color/monochrome, dpi, etc.
   there is a "print" screen type for customizing the styles for printing a page
