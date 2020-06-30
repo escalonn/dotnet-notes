@@ -1,18 +1,18 @@
 - Introduction to CSS
-    we apply css rules to things - some properties, to some things by a selector
+    we apply css rules to elements - some set of property-value pairs (declarations),
+      to some set of elements defined by a selector
     p { color: red; }
     selector(s) { property: value; }
-    properties semicolon separated, selector comma separated
+    declarations semicolon separated
     comments /* */
     cascade
-      which properties override which other properties?
+      which declarations override which other declarations?
       1. author styles & importance
         special override: put "!important" after a rule, it will win over all unimportant rules.
         but don't use this - instead, use specificity
-        author styles override user-agent styles (browser defaults)
+        author styles (provided by website author) override user-agent styles (browser defaults)
       2. specificity
         how specific is the rule, heuristic for how many elements it could match
-          1000 if it's inline style (style="")
           100 for each id selector
           10 for each class selector
           1 for each element selector
@@ -27,7 +27,6 @@
     margin border padding
     top right bottom left
         shorthand properties
-- Selectors
 - Properties and Rules
 - Typography and Coloring
     font-style (italic, etc)
@@ -75,8 +74,9 @@ selectors
         p~div any sibling
 
 "#Region2 .latitude"
+    any element with class "latitude" somewhere within the element with id "Region2"
 
-pseudo-classes
+pseudo-class selectors
     elements that exist in some special state or another
 <selector> : link
            : active (being clicked on)
@@ -94,7 +94,7 @@ pseudo-classes
            : last-of-type
            : not()
 
-pseudo-element
+pseudo-element selectors
     elements that are in some special relation to other elements
 <selector> :: before
 <selector> :: selection
@@ -113,19 +113,15 @@ div
 p
 div
 
-external author CSS (link rel stylesheet href)
-  the best way. can reference from multiple files
-internal author CSS (style)
-inline author CSS
-  the worst way
-user-agent CSS (browser) (we "undo" this with css resets)
-user CSS (user options to browser for css, accessibility extensions, etc)
-
-user agent
-author
-important
-specificity
-inline
+the cascade - in order of priority
+    external author CSS (link rel stylesheet href)
+        (the best way to do author CSS. can reference from multiple files)
+    internal author CSS (style)
+    inline author CSS
+        (the worst way to do author CSS... interleaves appearance stuff with content stuff, & not reusable.)
+    user CSS (user options to browser for css, accessibility extensions, etc)
+    user-agent CSS (browser CSS) (we "undo" this with css resets)
+within those categories, higher specificity beats lower specificity.
 
 media queries
   conditionally apply styles based on screen size or type. can check screen width, height, aspect ratio, orientation, color/monochrome, dpi, etc.
