@@ -142,7 +142,7 @@ bootstrap
     inside class container or container-fluid, class row
       inside row, class col, or col-1 to col-12, defining column width out of 12,
       can also use size breakpoints.
-      e.g. "col-12 col-md-4" means, 33% width if size md and above, else 100% width
+      e.g. class="col-12 col-md-4" means, 33% width if size md and above, else 100% width
     classes align-items-* control vertical alignment of cols within the row, and
     classes justify-content-* control horizontal alignment
   some components
