@@ -35,7 +35,7 @@ REST means, any system following its architectural constraints.
     in the industry, though, "REST" is often understood as an HTTP-based web service (that doesn't use hypermedia).
 
 the six constraints.
-    client-server (separation of concerns, reuse interface across platforms, evolve client and server independently)
+    client-server (separation of concerns, reuse user-interface across platforms, evolve client and server independently)
     stateless (client, not server, stores session state; each request must have all info needed to understand it. scalable)
     cache (some responses should be cacheable by the client)
     uniform interface (between clients and servers, not one tied to implementations. loose coupling)
@@ -56,7 +56,9 @@ for websites, the browser implementations dominate the situation and drive how s
     e.g. what sort of HTTP headers they will send, and how they will interpret different parts of HTTP.
     this was once more true (IE dominance), then it got a little better,
     and it's starting to get worse as Chrome dominates the market more.
-        e.g. Edge used to have its own rendering engine, but recently switched to Chrome's. one big reason was, because too many websites depended on Chrome-specific behavior to work best, as opposed to only depending on standards.
+        e.g. Edge used to have its own rendering engine, but recently switched to Chrome's.
+        one big reason was, because too many websites depended on Chrome-specific behavior to work best,
+            as opposed to only depending on standards.
     this makes the web less RESTful.
 for web services, there is much wider diversity in client implementations, although browsers' XMLHttpRequest
     (used for AJAX) behavior matters a lot. so the HTTP standard carries a lot more weight as a reference point for
