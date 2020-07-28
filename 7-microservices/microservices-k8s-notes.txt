@@ -14,7 +14,6 @@ https://docs.microsoft.com/en-us/dotnet/architecture/microservices/multi-contain
 microservices blog - https://martinfowler.com/microservices/
 see especially section "When should we use Microservices?" - good overview of the benefits and costs.
 
-this week's curriculum in brief:
 • microservices architecture
     • https://martinfowler.com/microservices/
 • Docker
@@ -23,7 +22,7 @@ this week's curriculum in brief:
 • Kubernetes (note, understanding Docker/containers is an important prereq to understanding Kubernetes)
     • https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/
     • https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads
-    • maybe AKS
+• AKS
 
 microservices architecture
     each microservice (or service) implements one business capability
@@ -31,6 +30,14 @@ microservices architecture
     deployed independently
     scaled independently
     owns domain logic and data persistence
+    values:
+        products not projects - same devs keep responsibility for services in prod
+        smart endpoints and dumb pipes
+            unlike much of SOA, keep the connections between your services simple,
+                no heavyweight ESB or gateways that have complicated logic managing
+                the services.
+            REST constraint of uniform interface
+        CI/CD
 advantage
     long-term flexibility
     scaling of actual function that needs more resources -> cost savings
