@@ -10,6 +10,8 @@
     - project board
 - DevOps
     - culture, continuous integration/delivery/deployment, build pipeline
+    - https://theagileadmin.com/what-is-devops/
+     https://www.ibm.com/cloud/learn/devops-a-complete-guide
 - Cloud Computing
     - on-premises, cloud, hybrid cloud, multi cloud
     - IaaS, PaaS, SaaS, CaaS
@@ -25,9 +27,11 @@
 - Code analysis
     - static analysis, technical debt, code coverage
     - SonarCloud (configuration, quality profile, quality gate)
+    - https://martinfowler.com/bliki/TechnicalDebt.html
 - Docker
   - https://docs.microsoft.com/en-us/dotnet/architecture/microservices/container-docker-introduction/
   - https://docs.docker.com/get-started/
+  - https://devopswithdocker.com/part1/
   - VM vs. container, daemon/client, Docker Machine
   - container, image, Dockerfile, registry
   - CLI commands, Dockerfile commands
