@@ -1,0 +1,7 @@
+and remember it may be easier to get a hardcoded order placed first, one that doesn't rely on user input. maybe something like this progression:
+1. an action method which, if any request hits it, it will place a hardcoded order containing one product, without any input data needed. (use the /swagger page, for example, to test it out, no need to use fetch yet)
+2. update that action method to place the order with two products in it.
+3. write html/css/js so that you can place that hardcoded order by clicking a button.
+4. make the customer & store customizable from user input and sent to the action method by fetch.
+5. make the product quantities customizable
+6. make which products are included at all customizable (full functionality)

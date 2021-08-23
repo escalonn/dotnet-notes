@@ -9,6 +9,8 @@
     - user story, sprint, effort, capacity, velocity, standup
     - project board
 - DevOps
+    - https://www.sitepoint.com/premium/books/the-devops-adoption-playbook/read/1
+    - https://martinfowler.com/bliki/DevOpsCulture.html
     - culture, continuous integration/delivery/deployment, build pipeline
 - Cloud Computing
     - on-premises, cloud, hybrid cloud, multi cloud

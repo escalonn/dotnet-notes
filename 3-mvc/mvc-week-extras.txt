@@ -123,3 +123,33 @@ public void PlaceOrder(Order order)
 // but two good practices to take away (even if you don't yourself succeed in following them yet):
 // - i only make one query to the DB, and one save-changes.
 // - i don't use foreign key values for access or modification when it's more convenient to use the navigation properties.
+
+// with proper separation of concerns, the business logic part might look something like this. (to be clear: this code wouldn't work together with the previous code, this is closer to how i'd actually write it, with the EF details kept separated in the repository methods.) another approach would have the order itself keep a reference to the store, and maybe also hold the foreach loop here that alters its inventories.
+
+namespace DomainLogic
+{
+    class OrderService
+    {
+        // ...
+
+        void PlaceOrder(Order order)
+        {
+            var store = _storeRepository.Get(order.StoreId);
+
+            CheckSufficientInventory(order, store);
+
+            foreach (var pair in order.Items)
+            {
+                store.ModifyInventory(product: pair.Key, change: -pair.Value);
+            }
+
+            _storeRepository.Update(store);
+            _orderRepository.Create(order);
+
+            // we'd actually want this to be one transaction, which would
+            // require a unit of work class unless i combined these repositories together
+            _storeRepository.Save();
+            _orderRepository.Save();
+        }
+    }
+}

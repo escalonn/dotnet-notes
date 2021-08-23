@@ -39,6 +39,7 @@ second normal form -
     CityID    City   State    Region    SalesCount
 third normal form -
     no non-CK column can depend on any other non-CK column.
+    transitive dependency: an indirect dependency. if A -> B, and B -> C, then transitive dep from A to C
 "the keys, the whole keys, and nothing but the keys"
     "the key" - every non-CK column must depend on every CK --- that's the definition of a CK, so this is saying, "a CK must exist"
     "the whole key" - every non-CK column must depend on the whole of every CK, not just part

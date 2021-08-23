@@ -19,3 +19,4 @@ What is multiplicity?
 How would you express a many-to-many relationship in a relational database?
 What is a one-to-many relationship and how would you represent it in C# and in SQL?
 What does the "Include" method do in Entity Framework?
+How would you use Entity Framework to delete a row from a database?

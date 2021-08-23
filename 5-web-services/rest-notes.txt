@@ -30,7 +30,6 @@ the web follows REST mostly, and some parts follow it much more than others.
 today we usually talk about REST in the context of web services, rather than the context of web pages and browsers.
 REST does not require HTTP, but in practice we are almost always talking about REST over HTTP.
     HTTP's spec fits the requirements of REST very well; REST constraints have influenced the design of HTTP.
-    some things about HTTP do not fit REST: e.g. cookies.
 REST means, any system following its architectural constraints.
     in the industry, though, "REST" is often understood as an HTTP-based web service (that doesn't use hypermedia).
 
@@ -87,12 +86,12 @@ methods
     GET: safe (generate no change to visible system state (e.g. caching allowed))
     GET, PUT, DELETE: idempotent (result of 1 request is identical to result of N requests - subsequent requests don't change anything. turning switch on, vs. toggling switch.)
     POST is not safe or idempotent. POST N times, create N copies.
-        this is why the browser says "are you sure you want to send thsi request again" when you refresh or click "back" through forms and such
+        this is why the browser says "are you sure you want to send this request again" when you refresh or click "back" through forms and such
 
 other methods:
     PATCH (allowed to be non-idempotent. partial replacement of resource)
     HEAD (like GET, except, only send me the headers, not the body. client maybe wants to just see if resource exists, not necessarily get a representation of it. safe.)
-    OPTIONS (tell me what things I can do with this resource (e.g. which HTTP methods are allowed) - responds with "Allow" header. safe, idempotent)
+    OPTIONS (tell me what things I can do with this resource (e.g. which HTTP methods are allowed) - responds with "Allow" header. safe.)
     TRACE (repeat back to me what you receive from me. for diagnostic purposes. idempotent)
 
 most important: get should be safe, post (and others) we can do changes.
@@ -121,7 +120,7 @@ status codes
             RedirectToAction(...), RedirectToRoute(...)
         304 not modified: you had e.g. "if-modified-since" header, and the resource hasn't been modified
     400 client error
-*       400 bad request. syntax of request is invalid.
+*       400 bad request. generic code for any error that's the client's fault. (e.g. syntax of request is invalid)
             BadRequest()
 *       401 unauthorized: really means unauthenticated. you did not identify yourself.
             Unauthorized()
@@ -140,7 +139,6 @@ status codes
     500 server error
 *       500 internalservererror
             StatusCode(500)
-        501 not implemented - usually we will implement it in future. like notimplementedexception
 *       502 bad gateway - this server didn't make a mistake, but we had to call some OTHER server, and IT sent us something invalid
         505 HTTP version not supported
 

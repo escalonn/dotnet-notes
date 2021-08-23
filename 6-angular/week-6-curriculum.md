@@ -33,3 +33,5 @@
     - Karma
     - ng CLI
     - deployment
+
+https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps

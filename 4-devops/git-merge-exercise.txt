@@ -1,0 +1,8 @@
+i normally teach git basics week 1, branching some time after that.
+then i do an exercise that covers github issues, github PRs, and merge resolution right after project 1 which i think works well.
+1. get into breakout rooms with either 3 or 4 people each
+2. open at least 3 github issues on your project 1 repository with things that need to be fixed. at least 1 of the issues should be fixable within 5 minutes. issues must be well documented.
+3. in a room of four, pair up; in a room of 3, go in a triangle. read the other person's issues, choose one to fix for him. make a branch and fix it on his repo, open a PR, don't merge the PR. avoid talking to the code owner, try to go off the issue description only.
+4. go back to your own repo, make another branch and another PR, fixing the same issue that someone else already fixed for you.
+5. merge the other guy's PR in your repo.
+6. resolve the conflict on your PR, combine the best of both changesets, talk about it with the author if needed, understand you're deleting someone else's work if you do this badly, and merge your PR.
