@@ -1,0 +1,3 @@
+https://www.ibm.com/cloud/learn/devops-a-complete-guide
+https://theagileadmin.com/what-is-devops/
+https://www.redhat.com/en/topics/devops/what-is-ci-cd
