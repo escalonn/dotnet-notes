@@ -34,6 +34,10 @@
   - https://docs.microsoft.com/en-us/dotnet/architecture/microservices/container-docker-introduction/
   - https://docs.docker.com/get-started/
   - https://devopswithdocker.com/part1/
+    - "Running and stopping containers" can be skimmed (but know `-i` `-t` and `-d`)
+    - exercise 1.4 can be skipped
+    - exercise 1.8 can be skipped
+    - "More complex image" can be skipped or skimmed
   - VM vs. container, daemon/client, Docker Machine
   - container, image, Dockerfile, registry
   - CLI commands, Dockerfile commands

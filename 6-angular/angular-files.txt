@@ -29,5 +29,5 @@ package-lock.json               NPM "lock file" - precise repeatable manifest of
                                     packages and their versions
 package.json                    NPM list of required packages and compatible version ranges
 tsconfig*.json                  configuration for typescript compiling
-tslist.json                     configures "lint" rules - good style/practices for TS.
+tslint.json                     configures "lint" rules - good style/practices for TS.
                                     (checked with "ng lint")

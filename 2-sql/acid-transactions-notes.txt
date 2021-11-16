@@ -27,5 +27,5 @@ I - isolated
             blocks all those
             higher possibility of deadlocks depending on how the queries are written
 D - durable
-    effects should not only be in volatile memory,
-    but persisted to non-volatile memory like hard drive.
+    once a transaction is committed, even a power failure should not result in data loss.
+    (changes need to be recorded to some non-volatile memory)

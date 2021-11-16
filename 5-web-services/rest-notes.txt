@@ -1,3 +1,7 @@
+soa:
+https://www.ibm.com/cloud/learn/soa
+https://martinfowler.com/bliki/ServiceOrientedAmbiguity.html
+https://www.guru99.com/soa-principles.html
 WSDL:
 https://www.guru99.com/wsdl-web-services-description-language.html
 REST conceptual:
@@ -11,6 +15,12 @@ SOAP vs REST:
 https://octoperf.com/blog/2018/03/26/soap-vs-rest/
 Swagger implementation with ASP.NET Core:
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle
+
+SOAP is a specific protocol, usually combined with other standards like WSDL.
+REST is an architectural style that has no specific rules like that, but rather, broad architectural principles/constraints that fit well together. in practice when we say "REST", we also mean a handful of associated practices, like using HTTP.
+SOAP and REST aren't exactly opposites but they do suggest different ways of thinking about the problem, and you don't see people trying to do both at the same time.
+
+REST
 
 level 1: identify resources as urls.
 level 2: use http methods semantically, and status codes
