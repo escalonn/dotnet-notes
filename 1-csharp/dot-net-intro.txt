@@ -1,3 +1,4 @@
+https://docs.microsoft.com/en-us/dotnet/core/introduction
 https://docs.microsoft.com/en-us/dotnet/standard/components
 https://docs.microsoft.com/en-us/dotnet/standard/glossary
 
@@ -19,14 +20,22 @@ the standardized set of things all .NET implementations have.
 .NET Standard - not an implementation
     versioned set of APIs that are implemented by the
         Base Class Library of a .NET implementation
-    libraries can compile targetting .NET Standard and
+    libraries can compile targeting .NET Standard and
         the same assembly can be used by any .NET implementation
         compatible with that version of .NET Standard.
+    for example: an assembly compiled targeting .NET Standard 2.0
+        can be used by .NET Core 2.0+, including .NET 5+,
+            and also .NET Framework 4.6 or 4.7+.
+        the tradeoff is you can't use all the C# features or
+            BCL APIs that some of those runtimes might support, only the ones
+            in .NET Standard 2.0.
 
 implementations:
     .NET Framework
         from 2002, original implementation, Windows-only
-        last version 4.8 released 2019
+        deprecated in favor of .NET 6+, but still very common in legacy code.
+        still supported with bugfixes and security fixes.
+        final version 4.8 released 2019, supporting C# 7.3.
         gets updates from Windows Update
         CLR common language runtime (VES)
             a virtual machine that runs intermediate language
@@ -43,11 +52,17 @@ implementations:
         gets updates from manual installs / NuGet
         .NET Framework frameworks were gradually ported to or redesigned for Core
             (like EF Core, EF 6, ASP.NET Core, WinForms, WPF), finished though
+        final version 3.1 released 2019
+            (or, latest version is just .NET 6, depending on perspective)
         CoreCLR (VES)
             the CLR for Core
             has a JIT as well, RyuJIT
             all the features of the CLR
         CoreFX (Standard Libraries)
+    .NET
+        the latest version of .NET Core, rebranded to encourage more migration from .NET Framework,
+        now that it's a lot more complete than it used to be.
+        latest version 6 released 2021, supporting C# 10.0.
     Mono
         from 2004, open source, cross-platform (Unix)
             originally reverse-engineered from .net framework
@@ -61,19 +76,11 @@ implementations:
     UWP
         for windows 10/xbox apps
         uses .NET Native AOT compiler & runtime (VES)
-        CoreFx (Standard Libraries), same as .NET Core
+        CoreFx (Standard Libraries), same as .NET Core/5
     older kinda abandoned implementations:
         .NET Compact Framework (Windows Phone)
         Micro Framework (embedded) (new 3rd party successor nanoFramework)
         Portable.NET (hostile 3rd party GNU version)
-
-future plans (late 2020+)
-    deprecate .NET Framework (but keep it supported with fixes)
-    keep CoreCLR and Mono runtimes, converge them so they
-        are more interchangable
-    rename .NET Core as .NET
-    transition to using nullable reference types in C#
-    move Mono/Xamarin to use CoreFx
 
 managed code
     portability (same platform, different architecture)
@@ -122,16 +129,8 @@ how does .NET Framework manage third-party dependencies?
     nothing ever gets removed from it
     C:\Windows\assembly and C:\Windows\Microsoft.NET\assembly
 
-now instead, .NET Core uses:
+now instead, .NET uses:
     a cross-platform package manager called NuGet, which also downloads those assemblies from
     registries, especially the default one on nuget.org.
     configured with NuGet.Config (for older projects), or PackageReferences in the csproj file.
     doesn't keep around unused assemblies
-
---
-
-someone mentioned the panelist asked about CLS in .NET. this is one i didn't talk about, and a lot of the material online is pretty vague. it's related to CTS.
-
-the common type system is the set of rules for what it is to be a value type, reference type, all the basic data types like object, int, string, boolean, etc., all the types of types like class, struct, interface, delegate, access modifiers, etc. any .NET language like C#, F#, whatever, they don't have to support all of those features, but if they want to have a "delegate" feature, they had better define them in a CTS-compatible way - since the VES will definitely execute the generated IL code according to the CTS rules.
-
-the common language specification is a subset of the CTS's definitions that code is supposed to limit itself to using if it wants to be cross-language-compatible. so that CLS-compatible code from one language can call CLS-compatible code from another language with full confidence in compatibility. the standard example is, C# supports unsigned ints, but it's not part of the CLS and not all .NET languages support that type, so those languages couldn't call your public methods if you put unsigned int parameters in them.
