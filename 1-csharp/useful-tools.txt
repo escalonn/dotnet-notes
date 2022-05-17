@@ -11,6 +11,8 @@ looking at CIL:
     https://sharplab.io/
         type C# on left, see CIL on right.
 
+the assemblies emitted by msbuild are in a format called PE (portable executable), which contains the CIL in a less human-readable form. this was a Windows-specific format in its origins, but now shared by all CLR implementations. the program ildasm is used to disassemble the PE file into CIL.
+
 some references for CLI material:
     https://docs.microsoft.com/en-us/dotnet/fundamentals/standards
     https://docs.microsoft.com/en-us/dotnet/standard/glossary
