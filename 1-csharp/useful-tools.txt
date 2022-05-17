@@ -1,0 +1,17 @@
+REPLs (good for early week 1):
+    https://fuqua.io/CSharpRepl/
+        more mature, just for csharp
+    https://github.com/jonsequitur/dotnet-repl
+        maybe cuter UI? supports F# and other languages
+
+looking at CIL:
+    https://github.com/pjbgf/dotnet-ildasm
+        global tool for ildasm, input path to assembly, get CIL.
+        ilasm can be downloaded awkwardly from nuget.org somewhere.
+    https://sharplab.io/
+        type C# on left, see CIL on right.
+
+some references for CLI material:
+    https://docs.microsoft.com/en-us/dotnet/fundamentals/standards
+    https://docs.microsoft.com/en-us/dotnet/standard/glossary
+    https://docs.microsoft.com/en-us/dotnet/core/introduction
