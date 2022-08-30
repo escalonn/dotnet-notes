@@ -1,0 +1,61 @@
+# Angular App Exercise
+
+## Day 1
+1. create an Angular app.
+```
+ng new app-name
+```
+2. modify the app component (app.component.html) to show your own custom message.
+3. create your own component.
+```
+ng generate component comp-name
+```
+4. modify your custom component HTML to show somethign different (maybe some text and an image.)
+5. place your custom component directive into the app component HTML.
+```
+<app-comp-name></app-comp-name>
+```
+6. run your angular app.
+```
+ng serve
+```
+7. view your angular app in the browser at [http://localhost:4200/]()
+
+bonus: in the ngOnInit method, make a fetch request and use regular JavaScript DOM manipulation to show the data on the component.
+
+## Day 2
+1. in your custom component TypeScript (comp-name.component.ts), in its ngOnInit method, make a fetch call to an API and get the response.
+2. create a field in the class that will hold the response object from the fetch request.
+```
+pokemon: any;
+
+ngOnInit(): void {
+    let resp = await fetch('https://pokeapi.co/api/v2/pokemon/1');
+    if (resp.status===200) {
+        this.pokemon = await resp.json();
+    }
+}
+```
+3. in the HTML, display parts of your object using data binding.
+```
+{{ pokemon.name }}<br> <!-- interpolation -->
+<img [src]="pokemon.sprites.front_default"> <!-- property binding -->
+```
+
+## Day 3
+1. create a custom pipe to format/filter something that you're displaying on the component from yesterday. it could be anything! use `ng g pipe your-pipe-name` then modify the transform method to do what you need it to do. after this, apply the pipe where it needs to go in your component.
+2. create a service that will perform your fetch request(s) for you. `ng g s fetch` or `ng generate service fetch`
+3. add your service to the providers array in the app module so that it can be injected into your component.
+4. set up the constructor injection in your component so that it will have the service as a field.
+5. replace your old fetch code in the component with a simple call to your fetch service.
+
+## Day 4
+1. add the HttpClientModule to the AppModule imports array.
+2. create a service for sending requests using HttpClient. `ng g s http`
+3. set up dependency injection in your service to inject an HttpClient object. `constructor(private http: HttpClient) { }`
+4. create a method that sends a request using the HttpClient rather than fetch. this method should return an observable.
+5. set up dependency injection in your component so that you can use your http service there.
+6. swap your fetch service call with a call to the http service that subscribes to the observable.
+7. create a class `ng g class class-name` to represent the data you're getting from the API.
+8. add the fields that you're using to the class. make sure that the names match exactly with the JSON that the API returns.
+9. set up your code to use this new type wherever it is relevant. (e.g. `Observable<ClassName>`)
