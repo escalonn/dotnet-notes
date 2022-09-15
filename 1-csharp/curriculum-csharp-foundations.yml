@@ -1,0 +1,165 @@
+﻿# Java: Orientation
+# Java: Basics
+# Java: Methods
+# Java: Classes
+# Java: Inheritance
+# Java: Intermediate
+# Java: Exceptions
+# Java: Collections
+# Java: Testing
+# Java: Maven
+# Java: JDBC
+
+week 1:
+  day 1:
+  -         Source Control Management (VCS, CVCS, DVCS)
+  -         Setup - CLI
+  -         Setup - Version Control (Git, GitHub)
+  -         Git (Commit, Branch, Merge, Push, Pull)
+  -         GitHub (Pull Request, Issue, Organization)
+  -         Scripting Fundamentals (Command Line, Shell, Bash)
+  -         Shell Command (Echo, Cat, Nano, Grep, Mkdir, Touch, Cd, Ls, Which, Find, Pwd)
+
+# C#: Orientation
+  day 2:
+  - What Is a Full Stack Developer?
+  - What Is .NET?
+  - What Is C Sharp?
+  - Managed Execution Process Overview
+  - .NET SDK
+
+# C#: Basics
+  - Expressions, Statements, and Variables
+  - Common Built-in Data Types
+  - Basic Operators
+  - VS Code
+  - Input & Output With Console
+  - Comments
+  - Selection and Iteration (if, for, do, while)
+  - break and continue
+  - Conditional Operators (&&, ||, ?:)
+  - Basic Type Conversions
+
+# C#: Methods and Types
+  day 3:
+  - Static Methods and Code Reuse
+  - Coding Conventions
+  - Method Overloading
+  - Strings
+  - Basics of Regular Expressions
+  - Arrays
+  - More Data Types (Numeric, Date, and Time)
+  - The Main Method
+  - The Debugger
+  - Value Types, Reference Types, the Stack, and the Heap
+  - Implicit Typing (var)
+  - Exceptions
+  - try, catch, and finally
+  - Throwing Exceptions
+
+# C#: Classes
+  day 4:
+  - Objects, Classes, and OOP
+  - Fields
+  - Instance Methods
+  - public and private Access
+  - Properties
+  - Object Initializers
+  - Constructors
+  - Encapsulation
+
+# C#: Organizing Classes
+  day 5:
+  - Interfaces
+  - Namespaces and using Directives
+  - Projects (Console App, Class Library)
+  - Project References
+  - internal Access
+  - Building and Publishing Apps (.NET CLI)
+  - Solutions
+  - Intro to Visual Studio
+
+  -           SDLC - Overview
+  -           SDLC - Agile/Scrum
+
+# C#: .NET Ecosystem
+week 2:
+  day 1:
+  day 2:
+  - Common Language Infrastructure
+  - .NET Implementations
+  - MSBuild and the Project File
+  - NuGet and Package References
+  - Automatic Memory Management
+
+# C#: Testing
+  - Kinds of Testing
+  - Introduction to xUnit
+  - Theory Tests with InlineData
+  - Arrange, Act, and Assert
+
+# C#: Collections
+  day 3:
+  - Asymptotic Notation and Big O
+  - List and Using Generic Classes
+  - foreach Statements and IEnumerable<T>
+  - LinkedList, Queue, and Stack
+  - HashSet
+  - Dictionary
+  - Specialized Collections Overview
+
+# C#: File Persistence
+  day 4:
+  - File I/O
+  - Unmanaged Resources, IDisposable, and using Statements
+  - Serialization and Persistence
+  - Logging
+
+# C#: Inheritance
+  - Inheritance
+  - Upcasting and Downcasting
+  - Overriding
+  - Abstract Classes
+  - Inheritance and Constructors
+  - Other Common Modifiers
+  - Dependency Injection
+
+# C#: Advanced
+  day 5:
+  - Structs
+  - Enums
+  - Boxing and Unboxing
+  - Advanced Type Conversions
+  - Generics
+  - User-Defined Exceptions
+  - Extension Methods
+  - Basics of Delegates
+  - Lambda Expressions
+  - LINQ
+  - Expression Body
+  - Pattern Matching
+  - out Parameters
+  - Nullable Reference Types
+  - More Operators (?., ??)
+
+# C#: Design Principles
+  - Four Basic Principles of OOP
+  - SOLID
+  - Separation of Concerns
+  - Singleton Pattern
+  - Factory Method Pattern
+  - Test-Driven Development
+
+# ADO.NET
+ado.net:
+  - Introduction to ADO.NET
+  - Connection String
+  - Connection, Command, and ExecuteNonQuery
+  - DataReader
+  - Disconnected Architecture
+  - SQL Injection and Parameters
+  - Repository Pattern
+  - Unit of Work Pattern
+
+technology phase:
+untriaged:
